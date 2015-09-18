@@ -1,9 +1,9 @@
-___________SSSSS
-SSSSSSS________S
-__SS______S____S
-___________SSSSS
-SSSS__SSSSSSSS__
-________SS______
+SSSSSSSSSSSSSSSS
+SSSSSSSS__S_S_SS
+SSWWSSSSSSSS_S_S
+SSSSSSSSSSSSSSSS
+SSSSSSSSSSSSS___
+_____SSWWS______
 ________________
 ________________
 ________________
