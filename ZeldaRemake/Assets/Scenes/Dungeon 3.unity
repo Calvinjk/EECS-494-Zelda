@@ -138,9 +138,9 @@ Camera:
   m_BackGroundColor: {r: 0, g: 0, b: 0, a: .0196078438}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
+    x: .170000002
     y: 0
-    width: 1
+    width: .670000017
     height: 1
   near clip plane: .300000012
   far clip plane: 1000
@@ -167,7 +167,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 215100842}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 39.5099983, y: 6.40999985, z: -10}
+  m_LocalPosition: {x: 39.5, y: 5, z: -8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -225,6 +225,17 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &467178960
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 467178958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82b5e748d6dcdd04d81c992020557a2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1390870870
 Prefab:
   m_ObjectHideFlags: 0
@@ -264,11 +275,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 21289638, guid: 86c104a82060cab4db1d116d38f7e664, type: 2}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 45afd34443b96473598b76e2b1778b4e,
-        type: 3}
     - target: {fileID: 11458224, guid: 86c104a82060cab4db1d116d38f7e664, type: 2}
       propertyPath: swordPrefab
       value: 
@@ -276,6 +282,10 @@ Prefab:
     - target: {fileID: 6502908, guid: 86c104a82060cab4db1d116d38f7e664, type: 2}
       propertyPath: m_Size.y
       value: .800000012
+      objectReference: {fileID: 0}
+    - target: {fileID: 11458224, guid: 86c104a82060cab4db1d116d38f7e664, type: 2}
+      propertyPath: velocityFactor
+      value: 4.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 86c104a82060cab4db1d116d38f7e664, type: 2}
