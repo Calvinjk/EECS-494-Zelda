@@ -225,6 +225,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+<<<<<<< HEAD:ZeldaRemake/Assets/Scenes/Dungeon 2.unity
 --- !u!1001 &1027698097
 Prefab:
   m_ObjectHideFlags: 0
@@ -279,6 +280,19 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e99c2c316ed440b43a67434d9b60fc99, type: 2}
   m_IsPrefabParent: 0
+=======
+--- !u!114 &467178960
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 467178958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82b5e748d6dcdd04d81c992020557a2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+>>>>>>> origin/Calvin:ZeldaRemake/Assets/Scenes/Dungeon 3.unity
 --- !u!1001 &1390870870
 Prefab:
   m_ObjectHideFlags: 0

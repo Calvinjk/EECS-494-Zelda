@@ -109,10 +109,27 @@ public class Tile : MonoBehaviour {
             bc.size =   new Vector3( 0.5f, 0.5f, 1 );
             tag = "block";
             break;
-            
+        case 'L': // Left Door
+            tag = "LeftDoor";
+            bc.isTrigger = true;
+            break;
+        case 'R': // Right Door
+            tag = "RightDoor";
+            bc.isTrigger = true;
+            break;
+        case 'T': //Top Door
+            tag = "UpDoor";
+            bc.isTrigger = true;
+            break;
+        case 'B': // Bottom Door
+            tag = "DownDoor";
+            bc.isTrigger = true;
+            break;
+
         default: // Anything else: _, |, etc.
             bc.enabled = false;
             break;
+
         }
 
 	}
