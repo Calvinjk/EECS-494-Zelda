@@ -69,8 +69,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 961316a4444c03747a7ac3ae81a5da80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 3
-  currentHealth: 3
+  maxHealth: 2
+  currentHealth: 2
+  velocityFactor: 1.5
+  chanceToChangeDirection: .0199999996
 --- !u!212 &21205756
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -127,6 +129,18 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_Mass
       value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: velocityFactor
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: maxHealth
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: currentHealth
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
