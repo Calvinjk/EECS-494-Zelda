@@ -68,14 +68,17 @@ public class Tile : MonoBehaviour {
         case 'S': // Whole
             bc.center = Vector3.zero;
             bc.size = Vector3.one;
+            tag = "block";
             break;
         case 'Q': // Top, Left
             bc.center = new Vector3( -0.25f, 0.25f, 0 );
             bc.size =   new Vector3( 0.5f, 0.5f, 1 );
+            tag = "block";
             break;
         case 'W': // Top
             bc.center = new Vector3( 0, 0.25f, 0 );
             bc.size =   new Vector3( 1, 0.5f, 1 );
+            tag = "block";
             break;
         case 'E': // Top, Right
             bc.center = new Vector3( 0.25f, 0.25f, 0 );
@@ -84,22 +87,27 @@ public class Tile : MonoBehaviour {
         case 'A': // Left
             bc.center = new Vector3( -0.25f, 0, 0 );
             bc.size =   new Vector3( 0.5f, 1, 1 );
+            tag = "block";
             break;
         case 'D': // Right
             bc.center = new Vector3( 0.25f, 0, 0 );
             bc.size =   new Vector3( 0.5f, 1, 1 );
+            tag = "block";
             break;
         case 'Z': // Bottom, left
             bc.center = new Vector3( -0.25f, -0.25f, 0 );
             bc.size =   new Vector3( 0.5f, 0.5f, 1 );
+            tag = "block";
             break;
         case 'X': // Bottom
             bc.center = new Vector3( 0, -0.25f, 0 );
             bc.size =   new Vector3( 1, 0.5f, 1 );
+            tag = "block";
             break;
         case 'C': // Bottom, Right
             bc.center = new Vector3( 0.25f, -0.25f, 0 );
             bc.size =   new Vector3( 0.5f, 0.5f, 1 );
+            tag = "block";
             break;
             
         default: // Anything else: _, |, etc.

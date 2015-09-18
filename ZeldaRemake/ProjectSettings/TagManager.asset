@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Rupee
+  - Stalfos
+  - Sword
+  - block
   layers:
   - Default
   - TransparentFX
