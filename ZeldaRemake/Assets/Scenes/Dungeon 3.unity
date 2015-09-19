@@ -330,6 +330,10 @@ Prefab:
       propertyPath: m_Size.x
       value: .899999976
       objectReference: {fileID: 0}
+    - target: {fileID: 11402720, guid: 86c104a82060cab4db1d116d38f7e664, type: 2}
+      propertyPath: cameraSpeed
+      value: .75
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 86c104a82060cab4db1d116d38f7e664, type: 2}
   m_IsPrefabParent: 0
