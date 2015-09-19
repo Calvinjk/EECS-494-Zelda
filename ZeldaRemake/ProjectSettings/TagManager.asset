@@ -11,6 +11,10 @@ TagManager:
   - LeftDoor
   - DownDoor
   - UpDoor
+  - Rupee
+  - Key
+  - Link
+  - Lock
   layers:
   - Default
   - TransparentFX

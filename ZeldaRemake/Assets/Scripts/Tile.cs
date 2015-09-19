@@ -131,6 +131,7 @@ public class Tile : MonoBehaviour {
                 tag = "DownDoor";
                 bc.isTrigger = true;
                 break;
+            
 
             default: // Anything else: _, |, etc.
                 bc.enabled = false;

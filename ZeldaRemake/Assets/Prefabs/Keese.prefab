@@ -56,7 +56,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .100000001, y: .100000001, z: .200000003}
+  m_Size: {x: .200000003, y: .200000003, z: .200000003}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &11493820
 MonoBehaviour:
@@ -128,11 +128,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Size.x
-      value: .100000001
+      value: .200000003
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Size.y
-      value: .100000001
+      value: .200000003
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Constraints

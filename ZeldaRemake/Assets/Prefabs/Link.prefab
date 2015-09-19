@@ -89,6 +89,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82b5e748d6dcdd04d81c992020557a2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cameraSpeed: 1
+  _________________________: 0
+  moveCamUp: 0
+  moveCamDown: 0
+  moveCamLeft: 0
+  moveCamRight: 0
+  oldCamPos: {x: 0, y: 0, z: 0}
+  newCamPos: {x: 0, y: 0, z: 0}
 --- !u!114 &11444442
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -102,6 +110,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 6
   currentHealth: 6
+  numRupees: 0
+  numKeys: 0
 --- !u!114 &11458224
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -144,7 +154,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 4
   m_Sprite: {fileID: 21300030, guid: 45afd34443b96473598b76e2b1778b4e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
@@ -165,6 +175,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: knockbackFactor
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_SortingOrder
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

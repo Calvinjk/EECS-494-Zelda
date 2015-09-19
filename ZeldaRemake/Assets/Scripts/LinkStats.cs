@@ -4,6 +4,8 @@ using System.Collections;
 public class LinkStats : MonoBehaviour {
     public int maxHealth = 6;
     public int currentHealth = 6;
+    public int numRupees = 0;
+    public int numKeys = 0;
 
 	// Use this for initialization
 	void Start () {
@@ -19,6 +21,13 @@ public class LinkStats : MonoBehaviour {
     {
         if (coll.gameObject.tag == "Rupee")
         {
+            numRupees++;
+            Destroy(coll.gameObject);
+        }
+
+        else if (coll.gameObject.tag == "Key")
+        {
+            numKeys++;
             Destroy(coll.gameObject);
         }
 
@@ -29,7 +38,21 @@ public class LinkStats : MonoBehaviour {
             moveScript.knockBack();
             if (currentHealth == 0)
             {
-                Application.LoadLevel("Dungeon 2");
+                Application.LoadLevel(Application.loadedLevelName);
+            }
+        }
+
+        else if (coll.gameObject.tag == "Lock")
+        {
+            if (numKeys > 0)
+            {
+                numKeys--;
+                coll.gameObject.GetComponent<BoxCollider>().enabled = false;
+                SpriteRenderer[] sprites = coll.gameObject.GetComponentsInChildren<SpriteRenderer>();
+                foreach (SpriteRenderer sprite in sprites)
+                {
+                    sprite.sortingOrder = 2;
+                }
             }
         }
     }
