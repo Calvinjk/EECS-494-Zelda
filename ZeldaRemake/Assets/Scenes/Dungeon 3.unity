@@ -187,8 +187,8 @@ MonoBehaviour:
   screenSize: {x: 16, y: 15}
   screenSizeOverage: 2
   tileClearOverage: 4
-  mapSprites: {fileID: 2800000, guid: 2665f3b71b7d6470fa2c16b42cfdf022, type: 3}
-  mapData: {fileID: 4900000, guid: f371c5aef9c064626abb27b35ede84ec, type: 3}
+  mapSprites: {fileID: 2800000, guid: 14c7da105522b8442a4ec62816cb54eb, type: 3}
+  mapData: {fileID: 4900000, guid: ae403dcf379f3da4eb1a1d9db66f6261, type: 3}
   collisionData: {fileID: 4900000, guid: 3a5b0c0583d7e4ca2a6e18be51cc9615, type: 3}
   destructibleData: {fileID: 4900000, guid: 7389a3d58ffa549f5a6d61c4ae0f9861, type: 3}
   tilePrefab: {fileID: 184960, guid: 15833c75680f54e658e96c3d2791956c, type: 2}

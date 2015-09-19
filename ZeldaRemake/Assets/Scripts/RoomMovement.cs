@@ -7,7 +7,7 @@ public class RoomMovement : MonoBehaviour {
         if (other.tag == "LeftDoor") {
             // Move Camera
             Vector3 newCamPos = Camera.main.transform.position;
-            newCamPos.x -= 15.9f;
+            newCamPos.x -= 16f;
             Camera.main.transform.position = newCamPos;
 
             // Move Link
@@ -17,7 +17,7 @@ public class RoomMovement : MonoBehaviour {
         } else if (other.tag == "RightDoor") {
             // Move Camera
             Vector3 newCamPos = Camera.main.transform.position;
-            newCamPos.x += 15.9f;
+            newCamPos.x += 16f;
             Camera.main.transform.position = newCamPos;
 
             // Move Link
@@ -27,7 +27,7 @@ public class RoomMovement : MonoBehaviour {
         } else if (other.tag == "UpDoor") {
             // Move Camera
             Vector3 newCamPos = Camera.main.transform.position;
-            newCamPos.y += 15.9f;
+            newCamPos.y += 11f;
             Camera.main.transform.position = newCamPos;
 
             // Move Link
@@ -37,7 +37,7 @@ public class RoomMovement : MonoBehaviour {
         } /* else if (other.tag == "DownDoor") {
             // Move Camera
             Vector3 newCamPos = Camera.main.transform.position;
-            newCamPos.y -= 15.9f;
+            newCamPos.y -= 11f;
             Camera.main.transform.position = newCamPos;
 
             // Move Link
