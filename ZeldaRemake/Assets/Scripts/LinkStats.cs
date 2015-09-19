@@ -6,6 +6,7 @@ public class LinkStats : MonoBehaviour {
     public int currentHealth = 6;
     public int numRupees = 0;
     public int numKeys = 0;
+    public bool invincible = false;
 
 	// Use this for initialization
 	void Start () {
@@ -14,8 +15,10 @@ public class LinkStats : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
-	}
+        if (Input.GetKeyDown(KeyCode.I)){
+            invincible = !invincible;
+        }
+    }
 
     void OnCollisionEnter(Collision coll)
     {
@@ -33,13 +36,8 @@ public class LinkStats : MonoBehaviour {
 
         else if (coll.gameObject.tag == "Stalfos")
         {
-            currentHealth--;
-            LinkMovement moveScript = GetComponent<LinkMovement>();
-            moveScript.knockBack();
-            if (currentHealth == 0)
-            {
-                Application.LoadLevel(Application.loadedLevelName);
-            }
+
+            
         }
 
         else if (coll.gameObject.tag == "Lock")
@@ -56,4 +54,20 @@ public class LinkStats : MonoBehaviour {
             }
         }
     }
+
+    void takeDamage(int force)
+    {
+        if (!invincible)
+        {
+            LinkMovement moveScript = GetComponent<LinkMovement>();
+            moveScript.knockBack();
+            currentHealth -= force;
+            if (currentHealth == 0)
+            {
+                Application.LoadLevel(Application.loadedLevelName);
+            }
+
+        }
+    }
+
 }
