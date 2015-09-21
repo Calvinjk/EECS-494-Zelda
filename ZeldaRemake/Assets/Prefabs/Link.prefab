@@ -112,6 +112,7 @@ MonoBehaviour:
   currentHealth: 6
   numRupees: 0
   numKeys: 0
+  invincible: 0
 --- !u!114 &11458224
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -123,7 +124,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4ce0c9c1ab660943965c371c454663a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocityFactor: 3.5
+  velocityFactor: 4
   swordPrefab: {fileID: 130804, guid: 47678643f4e832948bd10bbf7d475eaf, type: 2}
   swordInstance: {fileID: 0}
   swordCooldown: 0
@@ -178,6 +179,10 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_SortingOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: velocityFactor
       value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []

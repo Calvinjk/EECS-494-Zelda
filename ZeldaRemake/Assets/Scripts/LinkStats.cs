@@ -7,6 +7,7 @@ public class LinkStats : MonoBehaviour {
     public int numRupees = 0;
     public int numKeys = 0;
     public bool invincible = false;
+    public float invicibilityDuration = 1;
 
 	// Use this for initialization
 	void Start () {
@@ -36,8 +37,7 @@ public class LinkStats : MonoBehaviour {
 
         else if (coll.gameObject.tag == "Stalfos")
         {
-
-            
+            takeDamage(1);
         }
 
         else if (coll.gameObject.tag == "Lock")

@@ -113,7 +113,7 @@ public class LinkMovement : MonoBehaviour {
         else if (swordInstance != null)
             Destroy(swordInstance);
 
-        if (Input.GetKeyDown(KeyCode.Space) && swordInstance == null)
+        if (Input.GetKeyDown(KeyCode.S) && swordInstance == null)
         {
             swordInstance = Instantiate(swordPrefab, transform.position, Quaternion.identity) as GameObject;
             swordCooldown = maxCooldown;

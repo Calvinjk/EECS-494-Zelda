@@ -39,7 +39,7 @@ public class StalfosStats : MonoBehaviour {
                 script.killedEnemy(this.gameObject);
             }
         }
-        else if (coll.gameObject.tag == "block")
+        else if (coll.gameObject.tag == "block" || coll.gameObject.tag == "Stalfos")
         {
             direction = (direction + 0.25f) % 1;
             changeDirection();
