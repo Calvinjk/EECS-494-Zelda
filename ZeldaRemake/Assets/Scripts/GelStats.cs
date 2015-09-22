@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class StalfosStats : MonoBehaviour {
+public class GelStats : MonoBehaviour {
     public int maxHealth = 3;
     public int currentHealth = 3;
     public float velocityFactor = 1.0f;
@@ -28,7 +28,7 @@ public class StalfosStats : MonoBehaviour {
         }
     }
 
-    void OnTriggerEnter(Collider coll)
+    void OnCollisionEnter(Collision coll)
     {
         if (coll.gameObject.tag == "Sword")
         {
@@ -39,7 +39,7 @@ public class StalfosStats : MonoBehaviour {
                 script.killedEnemy(this.gameObject);
             }
         }
-        else if (coll.gameObject.tag == "block")
+        else if (coll.gameObject.tag == "block" || coll.gameObject.tag == "Gel")
         {
             direction = (direction + 0.25f) % 1;
             changeDirection();
