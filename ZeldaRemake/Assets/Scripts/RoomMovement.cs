@@ -21,9 +21,6 @@ public class RoomMovement : MonoBehaviour {
     void OnTriggerEnter(Collider other) {
         if (other.tag == "LeftDoor") {
             // Move Camera
-            //Vector3 newCamPos = Camera.main.transform.position;
-            //newCamPos.x -= 16f;
-            //Camera.main.transform.position = newCamPos;
             newCamPos.x = oldCamPos.x - 16.0f;
             moveCamLeft = true;
 
@@ -33,9 +30,6 @@ public class RoomMovement : MonoBehaviour {
             transform.position = newLinkPos;
         } else if (other.tag == "RightDoor") {
             // Move Camera
-            //Vector3 newCamPos = Camera.main.transform.position;
-            //newCamPos.x += 16f;
-            //Camera.main.transform.position = newCamPos;
             newCamPos.x = oldCamPos.x + 16.0f;
             moveCamRight = true;
 
@@ -45,25 +39,23 @@ public class RoomMovement : MonoBehaviour {
             transform.position = newLinkPos;
         } else if (other.tag == "UpDoor") {
             // Move Camera
-            Vector3 newCamPos = Camera.main.transform.position;
-            newCamPos.y += 11f;
-            Camera.main.transform.position = newCamPos;
+            newCamPos.y = oldCamPos.y + 11.0f;
+            moveCamUp = true;
 
             // Move Link
             Vector3 newLinkPos = transform.position;
-            newLinkPos.y += 5f;
+            newLinkPos.y += 1.5f;
             transform.position = newLinkPos;
-        } /* else if (other.tag == "DownDoor") {
+        } else if (other.tag == "DownDoor") {
             // Move Camera
-            Vector3 newCamPos = Camera.main.transform.position;
-            newCamPos.y -= 11f;
-            Camera.main.transform.position = newCamPos;
+            newCamPos.y = oldCamPos.y - 11.0f;
+            moveCamDown = true;
 
             // Move Link
             Vector3 newLinkPos = transform.position;
-            newLinkPos.y -= 5f;
+            newLinkPos.y -= 1.5f;
             transform.position = newLinkPos;
-        } */
+        } 
     }
 
     void FixedUpdate() {
@@ -84,6 +76,27 @@ public class RoomMovement : MonoBehaviour {
                 Camera.main.transform.position = newCamPos;
                 oldCamPos = newCamPos;
                 moveCamRight = false;
+            }
+        } else if (moveCamUp) {
+            if (oldCamPos.y <= newCamPos.y) {
+                oldCamPos.y += 1.0f * cameraSpeed;
+                Camera.main.transform.position = oldCamPos;
+            }
+            else {
+                Camera.main.transform.position = newCamPos;
+                oldCamPos = newCamPos;
+                moveCamUp = false;
+            }
+        }
+        else if (moveCamDown) {
+            if (oldCamPos.y >= newCamPos.y) {
+                oldCamPos.y -= 1.0f * cameraSpeed;
+                Camera.main.transform.position = oldCamPos;
+            }
+            else{
+                Camera.main.transform.position = newCamPos;
+                oldCamPos = newCamPos;
+                moveCamDown = false;
             }
         }
     }
