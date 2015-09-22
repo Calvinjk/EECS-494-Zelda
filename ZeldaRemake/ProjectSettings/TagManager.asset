@@ -15,6 +15,9 @@ TagManager:
   - Key
   - Link
   - Lock
+  - Goriya
+  - GoriyaBoomerang
+  - BladeTrap
   layers:
   - Default
   - TransparentFX

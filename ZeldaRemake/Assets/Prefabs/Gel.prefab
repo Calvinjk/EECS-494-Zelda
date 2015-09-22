@@ -73,7 +73,7 @@ MonoBehaviour:
   maxHealth: 1
   currentHealth: 1
   velocityFactor: 2.5
-  chanceToChangeDirection: .300000012
+  chanceToChangeDirection: .5
   movementPeriod: .300000012
 --- !u!212 &21248624
 SpriteRenderer:
@@ -138,7 +138,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: chanceToChangeDirection
-      value: .300000012
+      value: .5
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: movementPeriod

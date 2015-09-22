@@ -6,13 +6,13 @@ public class StalfosStats : EnemyStats {
     public int currentHealth = 3;
     public float velocityFactor = 1.0f;
     public float chanceToChangeDirection = 0.02f;
-    //private GameObject room;
     private float direction;
 
     // Use this for initialization
     void Start () {
-	
-	}
+        direction = Random.value;
+        changeDirection();
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -58,11 +58,4 @@ public class StalfosStats : EnemyStats {
         else if (direction <= 1)
             GetComponent<Rigidbody>().velocity = new Vector3(-1, 0, 0) * velocityFactor;
     }
-
-    /*
-    public void setRoom(GameObject rm)
-    {
-        room = rm;
-    }
-    */
 }
