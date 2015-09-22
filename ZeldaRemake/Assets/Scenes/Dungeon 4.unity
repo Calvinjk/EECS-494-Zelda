@@ -171,7 +171,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 18
 --- !u!114 &215100849
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -338,6 +338,10 @@ Prefab:
       propertyPath: roomName
       value: Right1
       objectReference: {fileID: 0}
+    - target: {fileID: 11453302, guid: d98d5158cd7d6ab459005b4278cf7119, type: 2}
+      propertyPath: rewardPrefab
+      value: 
+      objectReference: {fileID: 155126, guid: 2fa0a6b3d8e45cf4ab26e2468d83ed44, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d98d5158cd7d6ab459005b4278cf7119, type: 2}
   m_IsPrefabParent: 0
@@ -1054,7 +1058,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 19
 --- !u!1001 &1869117244
 Prefab:
   m_ObjectHideFlags: 0

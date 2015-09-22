@@ -35,10 +35,7 @@ public class LinkStats : MonoBehaviour {
             Destroy(coll.gameObject);
         }
 
-        else if (coll.gameObject.tag == "Stalfos")
-        {
-            takeDamage(1);
-        }
+        
 
         else if (coll.gameObject.tag == "Lock")
         {
@@ -52,6 +49,14 @@ public class LinkStats : MonoBehaviour {
                     sprite.sortingOrder = 2;
                 }
             }
+        }
+    }
+
+    void OnTriggerEnter(Collider coll)
+    {
+        if (coll.gameObject.tag == "Stalfos")
+        {
+            takeDamage(1);
         }
     }
 
