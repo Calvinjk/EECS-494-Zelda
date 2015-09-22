@@ -58,6 +58,9 @@ public class LinkStats : MonoBehaviour {
         {
             takeDamage(1);
         }
+				if (coll.gameObject.tag == "BladeTrap") {
+					takeDamage(2);
+				}
     }
 
     void takeDamage(int damage)
