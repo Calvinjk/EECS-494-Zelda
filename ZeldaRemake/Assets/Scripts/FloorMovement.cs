@@ -22,7 +22,7 @@ public class FloorMovement : MonoBehaviour {
 	}
 
     void OnCollisionEnter(Collision coll) {
-        if (!hasMoved) {
+        if (!hasMoved && !moving) {
             if (coll.gameObject.tag == "Link") {
                 LinkMovement script = (LinkMovement)coll.gameObject.GetComponent(typeof(LinkMovement));
                 moveDir = script.currentDir;
@@ -54,6 +54,7 @@ public class FloorMovement : MonoBehaviour {
                         curPos.y += .1f * moveSpeed;
                         transform.position = curPos;
                     } else {
+                        transform.position = dest;
                         moving = false;
                         hasMoved = true;
                     }
@@ -63,6 +64,7 @@ public class FloorMovement : MonoBehaviour {
                         curPos.y -= .1f * moveSpeed;
                         transform.position = curPos;
                     } else {
+                        transform.position = dest;
                         moving = false;
                         hasMoved = true;
                     }
@@ -72,6 +74,7 @@ public class FloorMovement : MonoBehaviour {
                         curPos.x += .1f * moveSpeed;
                         transform.position = curPos;
                     } else {
+                        transform.position = dest;
                         moving = false;
                         hasMoved = true;
                     }
@@ -81,6 +84,7 @@ public class FloorMovement : MonoBehaviour {
                         curPos.x -= .1f * moveSpeed;
                         transform.position = curPos;
                     } else {
+                        transform.position = dest;
                         moving = false;
                         hasMoved = true;
                     }
