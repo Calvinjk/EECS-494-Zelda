@@ -42,7 +42,7 @@ public class LinkStats : MonoBehaviour {
             if (numKeys > 0)
             {
                 numKeys--;
-                coll.gameObject.GetComponent<BoxCollider>().enabled = false;
+                coll.gameObject.GetComponent<BoxCollider>().isTrigger = true;
                 SpriteRenderer[] sprites = coll.gameObject.GetComponentsInChildren<SpriteRenderer>();
                 foreach (SpriteRenderer sprite in sprites)
                 {

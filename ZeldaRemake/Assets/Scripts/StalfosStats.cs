@@ -1,12 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class StalfosStats : MonoBehaviour {
+public class StalfosStats : EnemyStats {
     public int maxHealth = 3;
     public int currentHealth = 3;
     public float velocityFactor = 1.0f;
     public float chanceToChangeDirection = 0.02f;
-    private GameObject room;
+    //private GameObject room;
     private float direction;
 
     // Use this for initialization
@@ -39,7 +39,7 @@ public class StalfosStats : MonoBehaviour {
                 script.killedEnemy(this.gameObject);
             }
         }
-        else if (coll.gameObject.tag == "block")
+        else if (coll.gameObject.tag == "block" || coll.gameObject.tag == "Lock" || coll.gameObject.tag == "UpDoor" || coll.gameObject.tag == "RightDoor" || coll.gameObject.tag == "LeftDoor" || coll.gameObject.tag == "DownDoor")
         {
             direction = (direction + 0.25f) % 1;
             changeDirection();
@@ -59,8 +59,10 @@ public class StalfosStats : MonoBehaviour {
             GetComponent<Rigidbody>().velocity = new Vector3(-1, 0, 0) * velocityFactor;
     }
 
+    /*
     public void setRoom(GameObject rm)
     {
         room = rm;
     }
+    */
 }

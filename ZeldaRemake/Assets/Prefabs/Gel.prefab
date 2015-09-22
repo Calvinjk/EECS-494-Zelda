@@ -1,68 +1,86 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &184960
+--- !u!1 &174970
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 404166}
-  - 212: {fileID: 21215606}
-  - 65: {fileID: 6509406}
-  - 114: {fileID: 11406854}
-  m_Layer: 8
-  m_Name: TilePrefab
+  - 4: {fileID: 473136}
+  - 212: {fileID: 21248624}
+  - 114: {fileID: 11400116}
+  - 54: {fileID: 5496420}
+  - 65: {fileID: 6545468}
+  m_Layer: 0
+  m_Name: Gel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &404166
+--- !u!4 &473136
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 184960}
+  m_GameObject: {fileID: 174970}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 94.8491516, y: 268.107849, z: 1.40439653}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!65 &6509406
+--- !u!54 &5496420
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 174970}
+  serializedVersion: 2
+  m_Mass: 50
+  m_Drag: 0
+  m_AngularDrag: .0500000007
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 120
+  m_CollisionDetection: 0
+--- !u!65 &6545468
 BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 184960}
+  m_GameObject: {fileID: 174970}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: .4375, y: .5625, z: .200000003}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &11406854
+--- !u!114 &11400116
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 184960}
+  m_GameObject: {fileID: 174970}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 50a562815823d43fe965a59491a6eaf4, type: 3}
+  m_Script: {fileID: 11500000, guid: ae57de604581f964eac2090278242662, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spriteTexture: {fileID: 2800000, guid: 14c7da105522b8442a4ec62816cb54eb, type: 3}
-  x: 0
-  y: 0
-  tileNum: 0
---- !u!212 &21215606
+  room: {fileID: 0}
+  maxHealth: 1
+  currentHealth: 1
+  velocityFactor: 2.5
+  chanceToChangeDirection: .300000012
+  movementPeriod: .300000012
+--- !u!212 &21248624
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 184960}
+  m_GameObject: {fileID: 174970}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -80,8 +98,8 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300002, guid: ea8be164f75b14b0a846b767f215b6d3, type: 3}
+  m_SortingOrder: 4
+  m_Sprite: {fileID: 21300290, guid: 45afd34443b96473598b76e2b1778b4e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
 Prefab:
@@ -91,22 +109,42 @@ Prefab:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 0}
-      propertyPath: m_Layer
-      value: 8
+      propertyPath: m_Constraints
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 0}
-      propertyPath: spriteTexture
-      value: 
-      objectReference: {fileID: 2800000, guid: 14c7da105522b8442a4ec62816cb54eb, type: 3}
-    - target: {fileID: 0}
-      propertyPath: m_Size.x
+      propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 0}
-      propertyPath: m_Size.y
+      propertyPath: m_LocalScale.x
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Mass
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: velocityFactor
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: chanceToChangeDirection
+      value: .300000012
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: movementPeriod
+      value: .300000012
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 184960}
+  m_RootGameObject: {fileID: 174970}
   m_IsPrefabParent: 1
