@@ -1,45 +1,60 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class GelStats : MonoBehaviour {
-    public int maxHealth = 3;
-    public int currentHealth = 3;
+public class GelStats : EnemyStats {
+    public int maxHealth = 1;
+    public int currentHealth = 1;
     public float velocityFactor = 1.0f;
     public float chanceToChangeDirection = 0.02f;
-    private GameObject room;
+    //private GameObject room;
     private float direction;
+    public float movementPeriod = 0.5f;
+    private float timePassed = 0f;
+    private bool waiting = false;
 
     // Use this for initialization
     void Start () {
-	
-	}
+        direction = Random.value;
+        changeDirection();
+    }
 	
 	// Update is called once per frame
 	void Update () {
-	
+        timePassed += Time.deltaTime;
+        if (timePassed >= movementPeriod)
+        {
+            if (waiting)
+            {
+
+                if (Random.value < chanceToChangeDirection)
+                {
+                    direction = Random.value;
+                }
+                changeDirection();
+                waiting = false;
+            }
+            else
+            {
+                GetComponent<Rigidbody>().velocity = Vector3.zero;
+                waiting = true;
+            }
+            timePassed = 0;
+        }
 	}
 
-    void FixedUpdate()
-    {
-        if (Random.value < chanceToChangeDirection)
-        {
-            direction = Random.value;
-            changeDirection();
-        }
-    }
 
-    void OnCollisionEnter(Collision coll)
+    void OnTriggerEnter(Collider coll)
     {
         if (coll.gameObject.tag == "Sword")
         {
             currentHealth--;
             if (currentHealth == 0)
             {
-                RoomManager script = (RoomManager) room.GetComponent(typeof(RoomManager));
+                RoomManager script = (RoomManager)room.GetComponent(typeof(RoomManager));
                 script.killedEnemy(this.gameObject);
             }
         }
-        else if (coll.gameObject.tag == "block" || coll.gameObject.tag == "Gel")
+        else if (coll.gameObject.tag == "block" || coll.gameObject.tag == "Lock" || coll.gameObject.tag == "UpDoor" || coll.gameObject.tag == "RightDoor" || coll.gameObject.tag == "LeftDoor" || coll.gameObject.tag == "DownDoor")
         {
             direction = (direction + 0.25f) % 1;
             changeDirection();
@@ -59,8 +74,10 @@ public class GelStats : MonoBehaviour {
             GetComponent<Rigidbody>().velocity = new Vector3(-1, 0, 0) * velocityFactor;
     }
 
+    /*
     public void setRoom(GameObject rm)
     {
         room = rm;
     }
+    */
 }

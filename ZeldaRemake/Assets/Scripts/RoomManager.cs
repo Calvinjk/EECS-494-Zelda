@@ -8,7 +8,6 @@ public class RoomManager : MonoBehaviour {
     public GameObject rewardPrefab;
     public bool cleared = false;
     private List <GameObject> enemies;
-    public string roomName;
 
 	// Use this for initialization
 	void Start () {
@@ -34,7 +33,7 @@ public class RoomManager : MonoBehaviour {
         for (int i = 0; i < numEnemies; i++)
         {
             GameObject enemy = Instantiate(enemyPrefab, this.transform.position + new Vector3(i - 2, i - 2, 0), Quaternion.identity) as GameObject;
-            StalfosStats script = (StalfosStats) enemy.GetComponent(typeof(StalfosStats));
+            EnemyStats script = (EnemyStats) enemy.GetComponent(typeof(EnemyStats));
             script.setRoom(this.gameObject);
             enemies.Add(enemy);
         }

@@ -642,6 +642,18 @@ Prefab:
       propertyPath: m_Name
       value: Center4
       objectReference: {fileID: 0}
+    - target: {fileID: 11453302, guid: d98d5158cd7d6ab459005b4278cf7119, type: 2}
+      propertyPath: enemyPrefab
+      value: 
+      objectReference: {fileID: 174970, guid: 3443e0b8ed508a243ac61bc81c2f1a3c, type: 2}
+    - target: {fileID: 11453302, guid: d98d5158cd7d6ab459005b4278cf7119, type: 2}
+      propertyPath: numEnemies
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11453302, guid: d98d5158cd7d6ab459005b4278cf7119, type: 2}
+      propertyPath: roomName
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d98d5158cd7d6ab459005b4278cf7119, type: 2}
   m_IsPrefabParent: 0
@@ -688,6 +700,14 @@ Prefab:
       propertyPath: m_Name
       value: Left4
       objectReference: {fileID: 0}
+    - target: {fileID: 11453302, guid: d98d5158cd7d6ab459005b4278cf7119, type: 2}
+      propertyPath: enemyPrefab
+      value: 
+      objectReference: {fileID: 174970, guid: 3443e0b8ed508a243ac61bc81c2f1a3c, type: 2}
+    - target: {fileID: 11453302, guid: d98d5158cd7d6ab459005b4278cf7119, type: 2}
+      propertyPath: numEnemies
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d98d5158cd7d6ab459005b4278cf7119, type: 2}
   m_IsPrefabParent: 0
@@ -728,7 +748,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 418668, guid: 86c104a82060cab4db1d116d38f7e664, type: 2}
       propertyPath: m_RootOrder
-      value: 5
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 11458224, guid: 86c104a82060cab4db1d116d38f7e664, type: 2}
       propertyPath: swordPrefab
@@ -750,9 +770,9 @@ Prefab:
       propertyPath: m_TagString
       value: Link
       objectReference: {fileID: 0}
-    - target: {fileID: 102338, guid: 86c104a82060cab4db1d116d38f7e664, type: 2}
-      propertyPath: m_Name
-      value: _Link
+    - target: {fileID: 11444442, guid: 86c104a82060cab4db1d116d38f7e664, type: 2}
+      propertyPath: numKeys
+      value: 30
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 86c104a82060cab4db1d116d38f7e664, type: 2}
