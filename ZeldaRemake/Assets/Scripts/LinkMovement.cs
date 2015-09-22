@@ -40,7 +40,7 @@ public class LinkMovement : MonoBehaviour {
         //float   xOffset = newPos.x % 1;
         //float   yOffset = newPos.y % 1;
 
-        // Grid movement currently only works perfectly for positive X and Y positions
+        // Grid movement currently only works for positive X and Y positions
         if (knockbackDistance <= 0)
         {
             if (horizontalInput > 0)

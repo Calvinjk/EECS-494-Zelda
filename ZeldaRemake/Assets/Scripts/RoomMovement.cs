@@ -23,38 +23,18 @@ public class RoomMovement : MonoBehaviour {
             // Move Camera
             newCamPos.x = oldCamPos.x - 16.0f;
             moveCamLeft = true;
-
-            // Move Link
-            Vector3 newLinkPos = transform.position;
-            newLinkPos.x -= 2f;
-            transform.position = newLinkPos;
         } else if (other.tag == "RightDoor") {
             // Move Camera
             newCamPos.x = oldCamPos.x + 16.0f;
             moveCamRight = true;
-
-            // Move Link
-            Vector3 newLinkPos = transform.position;
-            newLinkPos.x += 2f;
-            transform.position = newLinkPos;
         } else if (other.tag == "UpDoor") {
             // Move Camera
             newCamPos.y = oldCamPos.y + 11.0f;
             moveCamUp = true;
-
-            // Move Link
-            Vector3 newLinkPos = transform.position;
-            newLinkPos.y += 1.5f;
-            transform.position = newLinkPos;
         } else if (other.tag == "DownDoor") {
             // Move Camera
             newCamPos.y = oldCamPos.y - 11.0f;
             moveCamDown = true;
-
-            // Move Link
-            Vector3 newLinkPos = transform.position;
-            newLinkPos.y -= 1.5f;
-            transform.position = newLinkPos;
         } 
     }
 
@@ -63,42 +43,65 @@ public class RoomMovement : MonoBehaviour {
             if (oldCamPos.x >= newCamPos.x) {
                 oldCamPos.x -= 1.0f * cameraSpeed;
                 Camera.main.transform.position = oldCamPos;
+                // Stop Link Movement
+                GetComponent<Rigidbody>().velocity = new Vector3(0f, 0f, 0f);
             } else {
                 Camera.main.transform.position = newCamPos;
                 oldCamPos = newCamPos;
                 moveCamLeft = false;
+                // Move Link
+                Vector3 newLinkPos = transform.position;
+                newLinkPos.x -= 2.5f;
+                transform.position = newLinkPos;
             }
         } else if (moveCamRight){
             if (oldCamPos.x <= newCamPos.x) {
                 oldCamPos.x += 1.0f * cameraSpeed;
                 Camera.main.transform.position = oldCamPos;
+                // Stop Link Movement
+                GetComponent<Rigidbody>().velocity = new Vector3(0f, 0f, 0f);
             } else {
                 Camera.main.transform.position = newCamPos;
                 oldCamPos = newCamPos;
                 moveCamRight = false;
+                // Move Link
+                Vector3 newLinkPos = transform.position;
+                newLinkPos.x += 2.5f;
+                transform.position = newLinkPos;
             }
         } else if (moveCamUp) {
             if (oldCamPos.y <= newCamPos.y) {
                 oldCamPos.y += 1.0f * cameraSpeed;
                 Camera.main.transform.position = oldCamPos;
+                // Stop Link Movement
+                GetComponent<Rigidbody>().velocity = new Vector3(0f, 0f, 0f);
             }
             else {
                 Camera.main.transform.position = newCamPos;
                 oldCamPos = newCamPos;
                 moveCamUp = false;
+                // Move Link
+                Vector3 newLinkPos = transform.position;
+                newLinkPos.y += 3f;
+                transform.position = newLinkPos;
             }
         }
         else if (moveCamDown) {
             if (oldCamPos.y >= newCamPos.y) {
                 oldCamPos.y -= 1.0f * cameraSpeed;
                 Camera.main.transform.position = oldCamPos;
+                // Stop Link Movement
+                GetComponent<Rigidbody>().velocity = new Vector3(0f, 0f, 0f);
             }
             else{
                 Camera.main.transform.position = newCamPos;
                 oldCamPos = newCamPos;
                 moveCamDown = false;
+                // Move Link
+                Vector3 newLinkPos = transform.position;
+                newLinkPos.y -= 3f;
+                transform.position = newLinkPos;
             }
         }
     }
-
 }
