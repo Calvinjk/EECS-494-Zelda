@@ -6,7 +6,6 @@ public class GelStats : EnemyStats {
     public int currentHealth = 1;
     public float velocityFactor = 1.0f;
     public float chanceToChangeDirection = 0.02f;
-    //private GameObject room;
     private float direction;
     public float movementPeriod = 0.5f;
     private float timePassed = 0f;
@@ -74,10 +73,4 @@ public class GelStats : EnemyStats {
             GetComponent<Rigidbody>().velocity = new Vector3(-1, 0, 0) * velocityFactor;
     }
 
-    /*
-    public void setRoom(GameObject rm)
-    {
-        room = rm;
-    }
-    */
 }

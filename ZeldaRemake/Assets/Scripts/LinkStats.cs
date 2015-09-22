@@ -54,19 +54,19 @@ public class LinkStats : MonoBehaviour {
 
     void OnTriggerEnter(Collider coll)
     {
-        if (coll.gameObject.tag == "Stalfos")
+        if (coll.gameObject.tag == "Stalfos" || coll.gameObject.tag == "Gel" || coll.gameObject.tag == "Goriya" || coll.gameObject.tag == "GoriyaBoomerang")
         {
             takeDamage(1);
         }
     }
 
-    void takeDamage(int force)
+    void takeDamage(int damage)
     {
         if (!invincible)
         {
             LinkMovement moveScript = GetComponent<LinkMovement>();
             moveScript.knockBack();
-            currentHealth -= force;
+            currentHealth -= damage;
             if (currentHealth == 0)
             {
                 Application.LoadLevel(Application.loadedLevelName);

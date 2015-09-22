@@ -113,6 +113,7 @@ MonoBehaviour:
   numRupees: 0
   numKeys: 0
   invincible: 0
+  invicibilityDuration: 1
 --- !u!114 &11458224
 MonoBehaviour:
   m_ObjectHideFlags: 1
