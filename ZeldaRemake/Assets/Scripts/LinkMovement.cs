@@ -23,9 +23,11 @@ public class LinkMovement : MonoBehaviour {
     public bool boomerangReturning = false;
 		public GameObject bombPrefab;
 
+    LinkStats linkStats;
+
     // Use this for initialization
     void Start () {
-	
+        linkStats = (LinkStats)GetComponent(typeof(LinkStats));
 	}
 	
 	// Update is called once per frame
@@ -162,7 +164,7 @@ public class LinkMovement : MonoBehaviour {
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.A) && boomInstance == null) {
+        if (Input.GetKeyDown(KeyCode.A) && linkStats.hasBoomerang && boomInstance == null) {
             boomInstance = Instantiate(boomPrefab, transform.position, Quaternion.identity) as GameObject;
             boomInstance.GetComponent<Rigidbody>().angularVelocity = new Vector3(0, 0, boomerangRotationSpeed);
             boomStart = transform.position;
