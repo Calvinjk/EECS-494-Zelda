@@ -15,12 +15,15 @@ TagManager:
   - Key
   - Link
   - Lock
+  - BladeTrap
   - Goriya
   - GoriyaBoomerang
   - BladeTrap
   - WallMaster
   - Aquamentus
   - BossAttack
+  - BoomerangReward
+  - Boomerang
   layers:
   - Default
   - TransparentFX
