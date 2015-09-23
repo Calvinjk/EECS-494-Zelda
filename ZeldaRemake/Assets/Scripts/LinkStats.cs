@@ -8,6 +8,7 @@ public class LinkStats : MonoBehaviour {
     public int numKeys = 0;
     public bool invincible = false;
     public float invicibilityDuration = 1;
+    public bool hasBoomerang = false;
 
 	// Use this for initialization
 	void Start () {
@@ -35,7 +36,10 @@ public class LinkStats : MonoBehaviour {
             Destroy(coll.gameObject);
         }
 
-        
+        else if (coll.gameObject.tag == "BoomerangReward") {
+            hasBoomerang = true;
+            Destroy(coll.gameObject);
+        }
 
         else if (coll.gameObject.tag == "Lock")
         {

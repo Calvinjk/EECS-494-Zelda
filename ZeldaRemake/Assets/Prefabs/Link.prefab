@@ -114,6 +114,7 @@ MonoBehaviour:
   numKeys: 0
   invincible: 0
   invicibilityDuration: 1
+  hasBoomerang: 0
 --- !u!114 &11458224
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -127,12 +128,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   velocityFactor: 4
   swordPrefab: {fileID: 130804, guid: 47678643f4e832948bd10bbf7d475eaf, type: 2}
-  swordInstance: {fileID: 0}
+  boomPrefab: {fileID: 0}
+  boomerangSpeed: 1
+  boomerangReturnSpeed: .100000001
+  boomerangRotationSpeed: 1
+  maxBoomerangDist: 1
   swordCooldown: 0
   maxCooldown: 15
   currentDir: 101
   maxKnockback: 20
   knockbackFactor: 2
+  swordInstance: {fileID: 0}
+  boomInstance: {fileID: 0}
+  boomStart: {x: 0, y: 0, z: 0}
+  boomerangReturning: 0
 --- !u!212 &21289638
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -185,6 +194,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: velocityFactor
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: boomerangReturnSpeed
+      value: .100000001
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

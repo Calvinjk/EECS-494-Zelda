@@ -76,6 +76,10 @@ MonoBehaviour:
   chanceToChangeDirection: .0199999996
   boomerangPrefab: {fileID: 157424, guid: 940f0d60e38a46841a104409454c6efb, type: 2}
   timeBetweenThrows: 5
+  boomerangSpeed: 5
+  boomerangReturnSpeed: .5
+  boomerangRotationSpeed: 50
+  maxBoomerangDistance: 5
 --- !u!212 &21217938
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -133,6 +137,18 @@ Prefab:
       propertyPath: boomerangPrefab
       value: 
       objectReference: {fileID: 157424, guid: 940f0d60e38a46841a104409454c6efb, type: 2}
+    - target: {fileID: 0}
+      propertyPath: boomerangRotationSpeed
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: boomerangSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: boomerangReturnSpeed
+      value: .5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 187900}
