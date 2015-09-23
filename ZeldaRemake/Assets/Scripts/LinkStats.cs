@@ -58,8 +58,12 @@ public class LinkStats : MonoBehaviour {
         {
             takeDamage(1);
         }
-				if (coll.gameObject.tag == "BladeTrap") {
+				else if (coll.gameObject.tag == "BladeTrap" || coll.gameObject.tag == "BossAttack") {
 					takeDamage(2);
+				}
+				else if (coll.gameObject.tag == "WallMaster") {
+					transform.position = new Vector3(39.5f, 1.5f, 0f);
+					Camera.main.transform.position = new Vector3(39.5f, 5f, -8f);
 				}
     }
 

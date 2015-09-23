@@ -18,6 +18,9 @@ TagManager:
   - Goriya
   - GoriyaBoomerang
   - BladeTrap
+  - WallMaster
+  - Aquamentus
+  - BossAttack
   layers:
   - Default
   - TransparentFX
