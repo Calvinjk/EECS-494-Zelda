@@ -17,13 +17,16 @@ TagManager:
   - Lock
   - Goriya
   - GoriyaBoomerang
-  - BladeTrap
+  - SecretText
   - WallMaster
   - Aquamentus
   - BossAttack
   - BoomerangReward
   - Boomerang
   - Keese
+  - Arrow
+  - Bomb
+  - Room
   layers:
   - Default
   - TransparentFX

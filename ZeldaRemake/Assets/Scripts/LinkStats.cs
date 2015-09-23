@@ -10,6 +10,7 @@ public class LinkStats : MonoBehaviour {
     public bool invincible = false;
     public float invicibilityDuration = 1;
     public bool hasBoomerang = false;
+    public bool hasBow = false;
 
 	// Use this for initialization
 	void Start () {
