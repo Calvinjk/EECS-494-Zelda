@@ -18,12 +18,13 @@ TagManager:
   - BladeTrap
   - Goriya
   - GoriyaBoomerang
-  - BladeTrap
+  - BoomerangReward
+  - Boomerang
+  - SecretText
   - WallMaster
   - Aquamentus
   - BossAttack
-  - BoomerangReward
-  - Boomerang
+  - Arrow
   layers:
   - Default
   - TransparentFX
