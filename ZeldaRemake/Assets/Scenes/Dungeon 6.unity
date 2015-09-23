@@ -1335,6 +1335,7 @@ Prefab:
     - target: {fileID: 418746, guid: c75a42bd7c658d54c824b90d2ec846f8, type: 2}
       propertyPath: m_RootOrder
       value: 27
+      objectReference: {fileID: 0}
     - target: {fileID: 469240, guid: c75a42bd7c658d54c824b90d2ec846f8, type: 2}
       propertyPath: m_LocalPosition.x
       value: 22
