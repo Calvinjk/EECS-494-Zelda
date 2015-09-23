@@ -179,8 +179,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   towardFactor: 5
   awayFactor: -2
-  yDist: 3.5
-  xDist: 6
+  yDist: 3
+  xDist: 5.5
 --- !u!212 &21275518
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -225,6 +225,14 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: awayFactor
       value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: xDist
+      value: 5.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: yDist
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
