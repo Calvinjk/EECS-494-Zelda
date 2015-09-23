@@ -14,7 +14,7 @@ GameObject:
   - 65: {fileID: 6545468}
   m_Layer: 0
   m_Name: Gel
-  m_TagString: Untagged
+  m_TagString: Gel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -143,6 +143,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: movementPeriod
       value: .300000012
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_TagString
+      value: Gel
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

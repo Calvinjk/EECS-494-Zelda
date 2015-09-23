@@ -21,6 +21,7 @@ public class LinkMovement : MonoBehaviour {
     public GameObject boomInstance;
     public Vector3 boomStart;
     public bool boomerangReturning = false;
+		public GameObject bombPrefab;
 
     // Use this for initialization
     void Start () {
@@ -191,9 +192,14 @@ public class LinkMovement : MonoBehaviour {
                 boomInstance.GetComponent<Rigidbody>().velocity = new Vector3(0, -1 * boomerangSpeed, 0);
             }
         }
-    }
 
-    public void knockBack()
+			if (Input.GetKeyDown(KeyCode.W)) {
+				Instantiate(bombPrefab, transform.position, Quaternion.identity);
+			}
+
+	}
+
+	public void knockBack()
     {
         knockbackDistance = maxKnockback;
     }

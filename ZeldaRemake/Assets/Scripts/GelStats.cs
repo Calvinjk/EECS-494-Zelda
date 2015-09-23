@@ -44,7 +44,7 @@ public class GelStats : EnemyStats {
 
     void OnTriggerEnter(Collider coll)
     {
-        if (coll.gameObject.tag == "Sword")
+        if (coll.gameObject.tag == "Sword" || coll.gameObject.tag == "Boomerang" || coll.gameObject.tag == "Arrow" || coll.gameObject.tag == "Bomb")
         {
             currentHealth--;
             if (currentHealth == 0)

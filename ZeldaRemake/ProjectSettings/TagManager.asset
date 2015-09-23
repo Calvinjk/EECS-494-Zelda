@@ -15,7 +15,6 @@ TagManager:
   - Key
   - Link
   - Lock
-  - BladeTrap
   - Goriya
   - GoriyaBoomerang
   - BladeTrap
@@ -24,6 +23,7 @@ TagManager:
   - BossAttack
   - BoomerangReward
   - Boomerang
+  - Keese
   layers:
   - Default
   - TransparentFX

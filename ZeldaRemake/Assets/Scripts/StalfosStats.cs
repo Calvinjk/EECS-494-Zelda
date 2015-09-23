@@ -30,7 +30,7 @@ public class StalfosStats : EnemyStats {
 
     void OnTriggerEnter(Collider coll)
     {
-        if (coll.gameObject.tag == "Sword")
+        if (coll.gameObject.tag == "Sword" || coll.gameObject.tag == "Arrow")
         {
             currentHealth--;
             if (currentHealth == 0)
@@ -39,7 +39,18 @@ public class StalfosStats : EnemyStats {
                 script.killedEnemy(this.gameObject);
             }
         }
-        else if (coll.gameObject.tag == "block" || coll.gameObject.tag == "Lock" || coll.gameObject.tag == "UpDoor" || coll.gameObject.tag == "RightDoor" || coll.gameObject.tag == "LeftDoor" || coll.gameObject.tag == "DownDoor")
+
+				if (coll.gameObject.tag == "Bomb")
+				{
+					currentHealth-=2;
+					if (currentHealth <= 0)
+					{
+						RoomManager script = (RoomManager)room.GetComponent(typeof(RoomManager));
+						script.killedEnemy(this.gameObject);
+					}
+				}
+
+		else if (coll.gameObject.tag == "block" || coll.gameObject.tag == "Lock" || coll.gameObject.tag == "UpDoor" || coll.gameObject.tag == "RightDoor" || coll.gameObject.tag == "LeftDoor" || coll.gameObject.tag == "DownDoor")
         {
             direction = (direction + 0.25f) % 1;
             changeDirection();

@@ -35,14 +35,23 @@ public class AquamentusStats : EnemyStats {
 		fire1.GetComponent<Rigidbody>().velocity = direction * fireVelocity;
 		fire2.GetComponent<Rigidbody>().velocity = direction * fireVelocity;
 		fire3.GetComponent<Rigidbody>().velocity = direction * fireVelocity;
-
 	}
 
 	public void OnTriggerEnter(Collider coll) {
-		if (coll.gameObject.tag == "Sword") {
+		if (coll.gameObject.tag == "Sword" || coll.gameObject.tag == "Arrow") {
 			currentHealth--;
 			if (currentHealth == 0) {
-				Destroy(this.gameObject);
+				BossRoom script = (BossRoom)room.GetComponent(typeof(BossRoom));
+				script.killedEnemy(this.gameObject);
+			}
+		}
+		if (coll.gameObject.tag == "Bomb")
+		{
+			currentHealth -= 2;
+			if (currentHealth <= 0)
+			{
+				BossRoom script = (BossRoom)room.GetComponent(typeof(BossRoom));
+				script.killedEnemy(this.gameObject);
 			}
 		}
 	}

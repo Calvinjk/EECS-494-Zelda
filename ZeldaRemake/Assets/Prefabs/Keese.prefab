@@ -11,10 +11,10 @@ GameObject:
   - 212: {fileID: 21206470}
   - 54: {fileID: 5453822}
   - 65: {fileID: 6568690}
-  - 114: {fileID: 11493820}
+  - 114: {fileID: 11480674}
   m_Layer: 0
   m_Name: Keese
-  m_TagString: Stalfos
+  m_TagString: Keese
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -58,7 +58,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: .200000003, y: .200000003, z: .200000003}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &11493820
+--- !u!114 &11480674
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -66,9 +66,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 162972}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 961316a4444c03747a7ac3ae81a5da80, type: 3}
+  m_Script: {fileID: 11500000, guid: fac9c000d1ce7e048ae824f3d94f14ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  room: {fileID: 0}
   maxHealth: 1
   currentHealth: 1
   velocityFactor: 2.5
@@ -140,7 +141,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_TagString
-      value: Stalfos
+      value: Keese
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_SortingOrder

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class WallMasterStats : EnemyStats {
+public class KeeseStats : EnemyStats {
     public int maxHealth = 3;
     public int currentHealth = 3;
     public float velocityFactor = 1.0f;
@@ -30,7 +30,7 @@ public class WallMasterStats : EnemyStats {
 
     void OnTriggerEnter(Collider coll)
     {
-        if (coll.gameObject.tag == "Sword" || coll.gameObject.tag == "Arrow")
+        if (coll.gameObject.tag == "Sword" || coll.gameObject.tag == "Boomerang" || coll.gameObject.tag == "Arrow" || coll.gameObject.tag == "Bomb")
         {
             currentHealth--;
             if (currentHealth == 0)
@@ -39,18 +39,7 @@ public class WallMasterStats : EnemyStats {
                 script.killedEnemy(this.gameObject);
             }
         }
-
-				if (coll.gameObject.tag == "Bomb")
-				{
-					currentHealth-=2;
-					if (currentHealth == 0)
-					{
-						RoomManager script = (RoomManager)room.GetComponent(typeof(RoomManager));
-						script.killedEnemy(this.gameObject);
-					}
-				}
-
-		else if (coll.gameObject.tag == "block" || coll.gameObject.tag == "Lock" || coll.gameObject.tag == "UpDoor" || coll.gameObject.tag == "RightDoor" || coll.gameObject.tag == "LeftDoor" || coll.gameObject.tag == "DownDoor")
+        else if (coll.gameObject.tag == "block" || coll.gameObject.tag == "Lock" || coll.gameObject.tag == "UpDoor" || coll.gameObject.tag == "RightDoor" || coll.gameObject.tag == "LeftDoor" || coll.gameObject.tag == "DownDoor")
         {
             direction = (direction + 0.25f) % 1;
             changeDirection();

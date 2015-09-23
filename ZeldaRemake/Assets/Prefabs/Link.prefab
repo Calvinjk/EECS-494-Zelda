@@ -112,6 +112,7 @@ MonoBehaviour:
   currentHealth: 6
   numRupees: 0
   numKeys: 0
+  numBombs: 5
   invincible: 0
   invicibilityDuration: 1
   hasBoomerang: 0
@@ -128,7 +129,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   velocityFactor: 4
   swordPrefab: {fileID: 130804, guid: 47678643f4e832948bd10bbf7d475eaf, type: 2}
-  boomPrefab: {fileID: 0}
+  boomPrefab: {fileID: 135334, guid: 30d9113ec1ab5104d829b2c6a7609b0b, type: 2}
   boomerangSpeed: 1
   boomerangReturnSpeed: .100000001
   boomerangRotationSpeed: 1
@@ -142,6 +143,7 @@ MonoBehaviour:
   boomInstance: {fileID: 0}
   boomStart: {x: 0, y: 0, z: 0}
   boomerangReturning: 0
+  bombPrefab: {fileID: 105074, guid: 09d9c900538fcce44b0d6f87ba2fb928, type: 2}
 --- !u!212 &21289638
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -199,6 +201,14 @@ Prefab:
       propertyPath: boomerangReturnSpeed
       value: .100000001
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: boomPrefab
+      value: 
+      objectReference: {fileID: 135334, guid: 30d9113ec1ab5104d829b2c6a7609b0b, type: 2}
+    - target: {fileID: 0}
+      propertyPath: bombPrefab
+      value: 
+      objectReference: {fileID: 105074, guid: 09d9c900538fcce44b0d6f87ba2fb928, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 102338}

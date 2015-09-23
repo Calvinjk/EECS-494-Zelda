@@ -6,6 +6,7 @@ public class LinkStats : MonoBehaviour {
     public int currentHealth = 6;
     public int numRupees = 0;
     public int numKeys = 0;
+		public int numBombs = 5;
     public bool invincible = false;
     public float invicibilityDuration = 1;
     public bool hasBoomerang = false;
@@ -58,7 +59,7 @@ public class LinkStats : MonoBehaviour {
 
     void OnTriggerEnter(Collider coll)
     {
-        if (coll.gameObject.tag == "Stalfos" || coll.gameObject.tag == "Gel" || coll.gameObject.tag == "Goriya" || coll.gameObject.tag == "GoriyaBoomerang")
+        if (coll.gameObject.tag == "Stalfos" || coll.gameObject.tag == "Gel" || coll.gameObject.tag == "Keese" || coll.gameObject.tag == "Goriya" || coll.gameObject.tag == "GoriyaBoomerang")
         {
             takeDamage(1);
         }
