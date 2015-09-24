@@ -1160,7 +1160,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 418668, guid: 86c104a82060cab4db1d116d38f7e664, type: 2}
       propertyPath: m_RootOrder
-      value: 28
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 11458224, guid: 86c104a82060cab4db1d116d38f7e664, type: 2}
       propertyPath: swordPrefab
@@ -1228,6 +1228,18 @@ Prefab:
       objectReference: {fileID: 108076, guid: 44cdb6bd122e77a489ba0453b9e363cc, type: 2}
     - target: {fileID: 11444442, guid: 86c104a82060cab4db1d116d38f7e664, type: 2}
       propertyPath: hasBow
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 21289638, guid: 86c104a82060cab4db1d116d38f7e664, type: 2}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 21289638, guid: 86c104a82060cab4db1d116d38f7e664, type: 2}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 21289638, guid: 86c104a82060cab4db1d116d38f7e664, type: 2}
+      propertyPath: m_Color.b
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []

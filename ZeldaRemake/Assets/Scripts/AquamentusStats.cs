@@ -10,6 +10,9 @@ public class AquamentusStats : EnemyStats {
 	private GameObject fire1, fire2, fire3;
 	public GameObject firePrefab;
 	public float fireVelocity = 3f;
+	public float damageTime = 0.5f;
+	private float damageTimePassed = 0;
+	private bool damaged = false;
 
 	// Use this for initialization
 	void Start () {
@@ -23,6 +26,14 @@ public class AquamentusStats : EnemyStats {
 		{
 			attack();
 			timePassed = 0;
+		}
+		if (damaged) {
+			damageTimePassed += Time.deltaTime;
+			if (damageTimePassed >= damageTime) {
+				damageTimePassed = 0;
+				damaged = false;
+				GetComponent<SpriteRenderer>().color = new Color(1, 1, 1);
+			}
 		}
 	}
 
@@ -39,20 +50,23 @@ public class AquamentusStats : EnemyStats {
 
 	public void OnTriggerEnter(Collider coll) {
 		if (coll.gameObject.tag == "Sword" || coll.gameObject.tag == "Arrow") {
-			currentHealth--;
-			if (currentHealth == 0) {
-				BossRoom script = (BossRoom)room.GetComponent(typeof(BossRoom));
-				script.killedEnemy(this.gameObject);
-			}
+			takeDamage(1);
 		}
 		if (coll.gameObject.tag == "Bomb")
 		{
-			currentHealth -= 2;
-			if (currentHealth <= 0)
-			{
-				BossRoom script = (BossRoom)room.GetComponent(typeof(BossRoom));
-				script.killedEnemy(this.gameObject);
-			}
+			takeDamage(2);
+		}
+	}
+
+	public void takeDamage(int damage) {
+		currentHealth -= damage;
+		GetComponent<SpriteRenderer>().color = new Color(1, 0, 0);
+		damaged = true;
+		damageTimePassed = 0;
+		if (currentHealth <= 0)
+		{
+			BossRoom script = (BossRoom)room.GetComponent(typeof(BossRoom));
+			script.killedEnemy(this.gameObject);
 		}
 	}
 
