@@ -114,8 +114,9 @@ MonoBehaviour:
   numKeys: 0
   numBombs: 5
   invincible: 0
-  invicibilityDuration: 1
+  invincDuration: 1
   hasBoomerang: 0
+  hasBow: 0
 --- !u!114 &11458224
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -129,18 +130,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   velocityFactor: 4
   swordPrefab: {fileID: 130804, guid: 47678643f4e832948bd10bbf7d475eaf, type: 2}
+  thrownSwordPrefab: {fileID: 164340, guid: 2132f91de1b3eb549aa2c0e3bbd05a4b, type: 2}
   boomPrefab: {fileID: 135334, guid: 30d9113ec1ab5104d829b2c6a7609b0b, type: 2}
+  bowPrefab: {fileID: 0}
+  arrowPrefab: {fileID: 0}
   boomerangSpeed: 1
   boomerangReturnSpeed: .100000001
   boomerangRotationSpeed: 1
   maxBoomerangDist: 1
+  arrowSpeed: 1
   swordCooldown: 0
   maxCooldown: 15
-  currentDir: 101
+  bowCooldown: 45
   maxKnockback: 20
   knockbackFactor: 2
+  thrownSwordSpeed: 10
+  ______________________: 0
+  currentDir: 101
   swordInstance: {fileID: 0}
   boomInstance: {fileID: 0}
+  bowInstance: {fileID: 0}
+  arrowInstance: {fileID: 0}
+  thrownSword: {fileID: 0}
   boomStart: {x: 0, y: 0, z: 0}
   boomerangReturning: 0
   bombPrefab: {fileID: 105074, guid: 09d9c900538fcce44b0d6f87ba2fb928, type: 2}
@@ -209,6 +220,14 @@ Prefab:
       propertyPath: bombPrefab
       value: 
       objectReference: {fileID: 105074, guid: 09d9c900538fcce44b0d6f87ba2fb928, type: 2}
+    - target: {fileID: 0}
+      propertyPath: thrownSwordPrefab
+      value: 
+      objectReference: {fileID: 164340, guid: 2132f91de1b3eb549aa2c0e3bbd05a4b, type: 2}
+    - target: {fileID: 0}
+      propertyPath: thrownSwordSpeed
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 102338}
