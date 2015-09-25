@@ -142,8 +142,8 @@ MonoBehaviour:
   swordCooldown: 0
   maxCooldown: 15
   bowCooldown: 45
-  maxKnockback: 20
-  knockbackFactor: 2
+  maxKnockback: 15
+  knockbackFactor: 5
   thrownSwordSpeed: 10
   ______________________: 0
   currentDir: 101
@@ -194,11 +194,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: maxKnockback
-      value: 20
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: knockbackFactor
-      value: 2
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_SortingOrder
