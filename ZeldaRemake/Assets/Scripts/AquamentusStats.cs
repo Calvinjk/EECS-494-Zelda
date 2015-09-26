@@ -13,6 +13,7 @@ public class AquamentusStats : EnemyStats {
 	public float damageTime = 0.5f;
 	private float damageTimePassed = 0;
 	private bool damaged = false;
+	private bool invincible = false;
 
 	// Use this for initialization
 	void Start () {
@@ -32,6 +33,7 @@ public class AquamentusStats : EnemyStats {
 			if (damageTimePassed >= damageTime) {
 				damageTimePassed = 0;
 				damaged = false;
+				invincible = false;
 				GetComponent<SpriteRenderer>().color = new Color(1, 1, 1);
 			}
 		}
@@ -59,14 +61,18 @@ public class AquamentusStats : EnemyStats {
 	}
 
 	public void takeDamage(int damage) {
-		currentHealth -= damage;
-		GetComponent<SpriteRenderer>().color = new Color(1, 0, 0);
-		damaged = true;
-		damageTimePassed = 0;
-		if (currentHealth <= 0)
+		if (!invincible)
 		{
-			BossRoom script = (BossRoom)room.GetComponent(typeof(BossRoom));
-			script.killedEnemy(this.gameObject);
+			currentHealth -= damage;
+			GetComponent<SpriteRenderer>().color = new Color(1, 0, 0);
+			damaged = true;
+			invincible = true;
+			damageTimePassed = 0;
+			if (currentHealth <= 0)
+			{
+				BossRoom script = (BossRoom)room.GetComponent(typeof(BossRoom));
+				script.killedEnemy(this.gameObject);
+			}
 		}
 	}
 

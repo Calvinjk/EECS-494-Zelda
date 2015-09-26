@@ -26,6 +26,7 @@ public class GoriyaStats : EnemyStats
 	public float maxKnockbackDist = 3;
 	public float knockbackFactor = 5f;
 	private Vector3 knockbackPos;
+	private bool invincible = false;
 
 	// Use this for initialization
 	void Start()
@@ -48,6 +49,7 @@ public class GoriyaStats : EnemyStats
 			{
 				damageTimePassed = 0;
 				damaged = false;
+				invincible = false;
 				GetComponent<SpriteRenderer>().color = new Color(1, 1, 1);
 			}
 		}
@@ -141,43 +143,47 @@ public class GoriyaStats : EnemyStats
   }
 
 	void takeDamage(int damage, GameObject coll = null) {
-		currentHealth -= damage;
-		GetComponent<SpriteRenderer>().color = new Color(1, 0, 0);
-		damaged = true;
-		damageTimePassed = 0;
-		if (currentHealth <= 0)
+		if (!invincible)
 		{
-			RoomManager script = (RoomManager)room.GetComponent(typeof(RoomManager));
-			script.killedEnemy(this.gameObject);
-		}
-		char dir;
+			currentHealth -= damage;
+			GetComponent<SpriteRenderer>().color = new Color(1, 0, 0);
+			damaged = true;
+			invincible = true;
+			damageTimePassed = 0;
+			if (currentHealth <= 0)
+			{
+				RoomManager script = (RoomManager)room.GetComponent(typeof(RoomManager));
+				script.killedEnemy(this.gameObject);
+			}
+			char dir;
 
-		if (coll != null)
-		{
-			dir = findDirection(coll);
-			if (dir == 'n' && (dirChar == 'n' || dirChar == 's'))
+			if (coll != null)
 			{
-				knockbackDist = 0;
-				knockbackPos = transform.position;
-				GetComponent<Rigidbody>().velocity = new Vector3(0, -1, 0) * knockbackFactor;
-			}
-			else if (dir == 's' && (dirChar == 'n' || dirChar == 's'))
-			{
-				knockbackDist = 0;
-				knockbackPos = transform.position;
-				GetComponent<Rigidbody>().velocity = new Vector3(0, 1, 0) * knockbackFactor;
-			}
-			else if (dir == 'e' && (dirChar == 'e' || dirChar == 'w'))
-			{
-				knockbackDist = 0;
-				knockbackPos = transform.position;
-				GetComponent<Rigidbody>().velocity = new Vector3(-1, 0, 0) * knockbackFactor;
-			}
-			else if (dir == 'w' && (dirChar == 'e' || dirChar == 'w'))
-			{
-				knockbackDist = 0;
-				knockbackPos = transform.position;
-				GetComponent<Rigidbody>().velocity = new Vector3(1, 0, 0) * knockbackFactor;
+				dir = findDirection(coll);
+				if (dir == 'n' && (dirChar == 'n' || dirChar == 's'))
+				{
+					knockbackDist = 0;
+					knockbackPos = transform.position;
+					GetComponent<Rigidbody>().velocity = new Vector3(0, -1, 0) * knockbackFactor;
+				}
+				else if (dir == 's' && (dirChar == 'n' || dirChar == 's'))
+				{
+					knockbackDist = 0;
+					knockbackPos = transform.position;
+					GetComponent<Rigidbody>().velocity = new Vector3(0, 1, 0) * knockbackFactor;
+				}
+				else if (dir == 'e' && (dirChar == 'e' || dirChar == 'w'))
+				{
+					knockbackDist = 0;
+					knockbackPos = transform.position;
+					GetComponent<Rigidbody>().velocity = new Vector3(-1, 0, 0) * knockbackFactor;
+				}
+				else if (dir == 'w' && (dirChar == 'e' || dirChar == 'w'))
+				{
+					knockbackDist = 0;
+					knockbackPos = transform.position;
+					GetComponent<Rigidbody>().velocity = new Vector3(1, 0, 0) * knockbackFactor;
+				}
 			}
 		}
 	}
