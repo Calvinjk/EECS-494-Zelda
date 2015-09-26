@@ -11,7 +11,6 @@ public class StalfosStats : EnemyStats {
 	public float damageTime = 0.5f;
 	private float damageTimePassed = 0;
 	private bool damaged = false;
-	private char knockbackDir;
 	private float knockbackDist;
 	public float maxKnockbackDist = 3;
 	public float knockbackFactor = 5f;
@@ -97,31 +96,25 @@ public class StalfosStats : EnemyStats {
 
 			if (coll != null){
 				dir = findDirection(coll);
-				print("dir: " + dir);
-				print("direction: " + dirChar);
 				if (dir == 'n' && (dirChar == 'n' || dirChar == 's')){
-					knockbackDir = 's';
 					knockbackDist = 0;
 					knockbackPos = transform.position;
 					GetComponent<Rigidbody>().velocity = new Vector3(0, -1, 0) * knockbackFactor;
 				}
 				else if (dir == 's' && (dirChar == 'n' || dirChar == 's'))
 				{
-					knockbackDir = 'n';
 					knockbackDist = 0;
 					knockbackPos = transform.position;
 					GetComponent<Rigidbody>().velocity = new Vector3(0, 1, 0) * knockbackFactor;
 				}
 				else if (dir == 'e' && (dirChar == 'e' || dirChar == 'w'))
 				{
-					knockbackDir = 'w';
 					knockbackDist = 0;
 					knockbackPos = transform.position;
 					GetComponent<Rigidbody>().velocity = new Vector3(-1, 0, 0) * knockbackFactor;
 				}
 				else if (dir == 'w' && (dirChar == 'e' || dirChar == 'w'))
 				{
-					knockbackDir = 'e';
 					knockbackDist = 0;
 					knockbackPos = transform.position;
 					GetComponent<Rigidbody>().velocity = new Vector3(1, 0, 0) * knockbackFactor;
@@ -132,6 +125,8 @@ public class StalfosStats : EnemyStats {
 	}
 
 	char findDirection(GameObject coll) {
+
+		/*
 		Vector3 hitDirection = coll.transform.position - transform.position;
 		hitDirection.Normalize();
 		float upDot = Vector3.Dot(hitDirection, Vector3.up);
@@ -147,6 +142,17 @@ public class StalfosStats : EnemyStats {
 		else if (rightDot >= 0 && upPower < rightPower)
 			return 'e';
 		else return 'w';
+		*/
+		char hitDir = coll.GetComponent<WeaponController>().getDirection();
+		if (hitDir == 'n')
+			return 's';
+		else if (hitDir == 'e')
+			return 'w';
+		else if (hitDir == 's')
+			return 'n';
+		else if (hitDir == 'w')
+			return 'e';
+		else return 'x';
 	}
 
   void changeDirection()

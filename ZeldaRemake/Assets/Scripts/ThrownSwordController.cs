@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ThrownSwordController : MonoBehaviour {
+public class ThrownSwordController : WeaponController {
 
 	// Use this for initialization
 	void Start () {

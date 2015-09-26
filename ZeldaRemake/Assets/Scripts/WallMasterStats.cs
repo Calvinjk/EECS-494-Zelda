@@ -10,10 +10,17 @@ public class WallMasterStats : EnemyStats {
 	public float damageTime = 0.5f;
 	private float damageTimePassed = 0;
 	private bool damaged = false;
+	private float knockbackDist;
+	public float maxKnockbackDist = 3;
+	public float knockbackFactor = 5f;
+	private Vector3 knockbackPos;
+	private char dirChar;
+
 
 	// Use this for initialization
 	void Start () {
-    direction = Random.value;
+		knockbackDist = maxKnockbackDist;
+		direction = Random.value;
     changeDirection();
   }
 	
@@ -27,6 +34,15 @@ public class WallMasterStats : EnemyStats {
 				damageTimePassed = 0;
 				damaged = false;
 				GetComponent<SpriteRenderer>().color = new Color(1, 1, 1);
+			}
+		}
+		if (knockbackDist < maxKnockbackDist)
+		{
+			knockbackDist = Mathf.Abs(Vector3.Distance(knockbackPos, transform.position));
+			if (knockbackDist >= maxKnockbackDist)
+			{
+				knockbackDist = maxKnockbackDist;
+				GetComponent<Rigidbody>().velocity = Vector3.zero;
 			}
 		}
 	}
@@ -44,12 +60,12 @@ public class WallMasterStats : EnemyStats {
   {
     if (coll.gameObject.tag == "Sword" || coll.gameObject.tag == "Arrow")
     {
-			takeDamage(1);
+			takeDamage(1, coll.gameObject);
     }
 
 		else if (coll.gameObject.tag == "Bomb")
 		{
-			takeDamage(2);
+			takeDamage(2, coll.gameObject);
 		}
 
 		else if (coll.gameObject.tag == "block" || coll.gameObject.tag == "Lock" || coll.gameObject.tag == "UpDoor" || coll.gameObject.tag == "RightDoor" || coll.gameObject.tag == "LeftDoor" || coll.gameObject.tag == "DownDoor")
@@ -59,7 +75,7 @@ public class WallMasterStats : EnemyStats {
     }
   }
 
-	public void takeDamage(int damage)
+	public void takeDamage(int damage, GameObject coll = null)
 	{
 		currentHealth -= damage;
 		GetComponent<SpriteRenderer>().color = new Color(1, 0, 0);
@@ -70,17 +86,73 @@ public class WallMasterStats : EnemyStats {
 			BossRoom script = (BossRoom)room.GetComponent(typeof(BossRoom));
 			script.killedEnemy(this.gameObject);
 		}
+		char dir;
+
+		if (coll != null)
+		{
+			dir = findDirection(coll);
+			if (dir == 'n' && (dirChar == 'n' || dirChar == 's'))
+			{
+				knockbackDist = 0;
+				knockbackPos = transform.position;
+				GetComponent<Rigidbody>().velocity = new Vector3(0, -1, 0) * knockbackFactor;
+			}
+			else if (dir == 's' && (dirChar == 'n' || dirChar == 's'))
+			{
+				knockbackDist = 0;
+				knockbackPos = transform.position;
+				GetComponent<Rigidbody>().velocity = new Vector3(0, 1, 0) * knockbackFactor;
+			}
+			else if (dir == 'e' && (dirChar == 'e' || dirChar == 'w'))
+			{
+				knockbackDist = 0;
+				knockbackPos = transform.position;
+				GetComponent<Rigidbody>().velocity = new Vector3(-1, 0, 0) * knockbackFactor;
+			}
+			else if (dir == 'w' && (dirChar == 'e' || dirChar == 'w'))
+			{
+				knockbackDist = 0;
+				knockbackPos = transform.position;
+				GetComponent<Rigidbody>().velocity = new Vector3(1, 0, 0) * knockbackFactor;
+			}
+		}
+	}
+
+	char findDirection(GameObject coll)
+	{
+		char hitDir = coll.GetComponent<WeaponController>().getDirection();
+		if (hitDir == 'n')
+			return 's';
+		else if (hitDir == 'e')
+			return 'w';
+		else if (hitDir == 's')
+			return 'n';
+		else if (hitDir == 'w')
+			return 'e';
+		else return 'x';
 	}
 
 	void changeDirection()
-  {      
-    if (direction < 0.25)
-      GetComponent<Rigidbody>().velocity = new Vector3(0, 1, 0) * velocityFactor;
-    else if (direction < 0.5)
-      GetComponent<Rigidbody>().velocity = new Vector3(1, 0, 0) * velocityFactor;
-    else if (direction < 0.75)
-      GetComponent<Rigidbody>().velocity = new Vector3(0, -1, 0) * velocityFactor;
-    else if (direction <= 1)
-      GetComponent<Rigidbody>().velocity = new Vector3(-1, 0, 0) * velocityFactor;
-  }
+	{
+		if (direction < 0.25)
+		{
+			GetComponent<Rigidbody>().velocity = new Vector3(0, 1, 0) * velocityFactor;
+			dirChar = 'n';
+		}
+		else if (direction < 0.5)
+		{
+			GetComponent<Rigidbody>().velocity = new Vector3(1, 0, 0) * velocityFactor;
+			dirChar = 'e';
+		}
+		else if (direction < 0.75)
+		{
+			GetComponent<Rigidbody>().velocity = new Vector3(0, -1, 0) * velocityFactor;
+			dirChar = 's';
+		}
+		else if (direction <= 1)
+		{
+			GetComponent<Rigidbody>().velocity = new Vector3(-1, 0, 0) * velocityFactor;
+			dirChar = 'w';
+		}
+	}
 }

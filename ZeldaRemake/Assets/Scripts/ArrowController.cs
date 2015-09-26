@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ArrowController : MonoBehaviour {
+public class ArrowController : WeaponController {
 
     public float arrowLifetime = 1000f;
 

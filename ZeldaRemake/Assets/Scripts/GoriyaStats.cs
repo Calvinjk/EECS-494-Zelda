@@ -22,11 +22,16 @@ public class GoriyaStats : EnemyStats
 	private bool damaged = false;
 	private float damageTimePassed = 0;
 	public float damageTime = 0.5f;
-    
-  // Use this for initialization
-  void Start()
+	private float knockbackDist;
+	public float maxKnockbackDist = 3;
+	public float knockbackFactor = 5f;
+	private Vector3 knockbackPos;
+
+	// Use this for initialization
+	void Start()
   {
-    direction = Random.value;
+		knockbackDist = maxKnockbackDist;
+		direction = Random.value;
     changeDirection();
   }
 
@@ -44,6 +49,15 @@ public class GoriyaStats : EnemyStats
 				damageTimePassed = 0;
 				damaged = false;
 				GetComponent<SpriteRenderer>().color = new Color(1, 1, 1);
+			}
+		}
+		if (knockbackDist < maxKnockbackDist)
+		{
+			knockbackDist = Mathf.Abs(Vector3.Distance(knockbackPos, transform.position));
+			if (knockbackDist >= maxKnockbackDist)
+			{
+				knockbackDist = maxKnockbackDist;
+				GetComponent<Rigidbody>().velocity = Vector3.zero;
 			}
 		}
 	}
@@ -104,21 +118,29 @@ public class GoriyaStats : EnemyStats
   {
     if (coll.gameObject.tag == "Sword" || coll.gameObject.tag == "Arrow")
     {
-			takeDamage(1);
+			takeDamage(1, coll.gameObject);
     }
 		if (coll.gameObject.tag == "Bomb")
 		{
-			takeDamage(2);
+			takeDamage(2, coll.gameObject);
 		}
 
 		else if (coll.gameObject.tag == "block" || coll.gameObject.tag == "Lock" || coll.gameObject.tag == "UpDoor" || coll.gameObject.tag == "RightDoor" || coll.gameObject.tag == "LeftDoor" || coll.gameObject.tag == "DownDoor")
     {
-      direction = (direction + 0.25f) % 1;
-      changeDirection();
-    }
+			if (knockbackDist < maxKnockbackDist)
+			{
+				GetComponent<Rigidbody>().velocity = Vector3.zero;
+				knockbackDist = maxKnockbackDist;
+			}
+			else
+			{
+				direction = (direction + 0.25f) % 1;
+				changeDirection();
+			}
+		}
   }
 
-	void takeDamage(int damage) {
+	void takeDamage(int damage, GameObject coll = null) {
 		currentHealth -= damage;
 		GetComponent<SpriteRenderer>().color = new Color(1, 0, 0);
 		damaged = true;
@@ -128,9 +150,53 @@ public class GoriyaStats : EnemyStats
 			RoomManager script = (RoomManager)room.GetComponent(typeof(RoomManager));
 			script.killedEnemy(this.gameObject);
 		}
+		char dir;
+
+		if (coll != null)
+		{
+			dir = findDirection(coll);
+			if (dir == 'n' && (dirChar == 'n' || dirChar == 's'))
+			{
+				knockbackDist = 0;
+				knockbackPos = transform.position;
+				GetComponent<Rigidbody>().velocity = new Vector3(0, -1, 0) * knockbackFactor;
+			}
+			else if (dir == 's' && (dirChar == 'n' || dirChar == 's'))
+			{
+				knockbackDist = 0;
+				knockbackPos = transform.position;
+				GetComponent<Rigidbody>().velocity = new Vector3(0, 1, 0) * knockbackFactor;
+			}
+			else if (dir == 'e' && (dirChar == 'e' || dirChar == 'w'))
+			{
+				knockbackDist = 0;
+				knockbackPos = transform.position;
+				GetComponent<Rigidbody>().velocity = new Vector3(-1, 0, 0) * knockbackFactor;
+			}
+			else if (dir == 'w' && (dirChar == 'e' || dirChar == 'w'))
+			{
+				knockbackDist = 0;
+				knockbackPos = transform.position;
+				GetComponent<Rigidbody>().velocity = new Vector3(1, 0, 0) * knockbackFactor;
+			}
+		}
 	}
 
-  void changeDirection()
+	char findDirection(GameObject coll)
+	{
+		char hitDir = coll.GetComponent<WeaponController>().getDirection();
+		if (hitDir == 'n')
+			return 's';
+		else if (hitDir == 'e')
+			return 'w';
+		else if (hitDir == 's')
+			return 'n';
+		else if (hitDir == 'w')
+			return 'e';
+		else return 'x';
+	}
+
+	void changeDirection()
   {
     if (direction < 0.25)
     {

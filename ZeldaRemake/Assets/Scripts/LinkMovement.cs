@@ -158,8 +158,9 @@ public class LinkMovement : MonoBehaviour {
       swordInstance = Instantiate(swordPrefab, transform.position, Quaternion.identity) as GameObject;
       swordCooldown = maxCooldown;
 
-      if (currentDir == 'n')
+      if (currentDir == 'n') { 
         swordInstance.transform.position += new Vector3(0, 1, 0);
+			}
       else if (currentDir == 'e')
       {
         swordInstance.transform.position += new Vector3(1, 0, 0);
@@ -175,9 +176,10 @@ public class LinkMovement : MonoBehaviour {
         swordInstance.transform.position += new Vector3(0, -1, 0);
         swordInstance.transform.Rotate(new Vector3(0, 0, 1), 180);
       }
-    }
+			swordInstance.GetComponent<WeaponController>().setDirection(currentDir);
+		}
 
-    if (Input.GetKeyDown(KeyCode.A) && linkStats.hasBoomerang && boomInstance == null) {
+		if (Input.GetKeyDown(KeyCode.A) && linkStats.hasBoomerang && boomInstance == null) {
       boomInstance = Instantiate(boomPrefab, transform.position, Quaternion.identity) as GameObject;
       boomInstance.GetComponent<Rigidbody>().angularVelocity = new Vector3(0, 0, boomerangRotationSpeed);
       boomStart = transform.position;
@@ -281,6 +283,7 @@ public class LinkMovement : MonoBehaviour {
 			thrownSword.transform.Rotate(new Vector3(0, 0, 1), 180);
 			thrownSword.GetComponent<Rigidbody>().velocity = new Vector3(0, -thrownSwordSpeed, 0);
 		}
+		thrownSword.GetComponent<WeaponController>().setDirection(currentDir);
 	}
 
 	public void knockBack()
