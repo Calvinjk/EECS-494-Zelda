@@ -145,7 +145,7 @@ public class LinkMovement : MonoBehaviour {
 
   void Combat()
   {
-		if (swordCooldown > 0)
+		if (swordCooldown > 0 && knockbackDistance <= 0)
 			swordCooldown--;
 		else if (swordInstance != null){
 			Destroy(swordInstance);
@@ -287,9 +287,11 @@ public class LinkMovement : MonoBehaviour {
 	}
 
 	public void knockBack()
-    {
-      knockbackDistance = maxKnockback;
-    }
+  {
+    knockbackDistance = maxKnockback;
+		if (swordInstance)
+			Destroy(swordInstance);
+  }
 
     
 }
