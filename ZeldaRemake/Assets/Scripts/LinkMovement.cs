@@ -233,7 +233,7 @@ public class LinkMovement : MonoBehaviour {
   }
 
 	void swordAttack() {
-		if (bombInstance == null && swordInstance == null && thrownSword == null && bowInstance == null && boomInstance == null) {
+		if (bombInstance == null && swordInstance == null && bowInstance == null && boomInstance == null) {
 			swordInstance = Instantiate(swordPrefab, transform.position, Quaternion.identity) as GameObject;
 			swordCooldown = maxCooldown;
 
