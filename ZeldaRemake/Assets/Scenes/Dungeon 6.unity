@@ -1204,6 +1204,10 @@ Prefab:
       propertyPath: hasBoomerang
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11458224, guid: 86c104a82060cab4db1d116d38f7e664, type: 2}
+      propertyPath: itemA
+      value: 98
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 86c104a82060cab4db1d116d38f7e664, type: 2}
   m_IsPrefabParent: 0

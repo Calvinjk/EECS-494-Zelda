@@ -32,6 +32,9 @@ public class LinkMovement : MonoBehaviour {
   public Vector3 boomStart;
   public bool boomerangReturning = false;
 	public GameObject bombPrefab;
+	public char itemB = 's';
+	public char itemA;
+	private GameObject bombInstance;
 
   LinkStats linkStats;
 
@@ -153,108 +156,44 @@ public class LinkMovement : MonoBehaviour {
 				throwSword();
 		}
 
-    if (Input.GetKeyDown(KeyCode.S) && swordInstance == null)
+    if (Input.GetKeyDown(KeyCode.S))
     {
-      swordInstance = Instantiate(swordPrefab, transform.position, Quaternion.identity) as GameObject;
-      swordCooldown = maxCooldown;
+			if (itemB == 's')
+				swordAttack();
 
-      if (currentDir == 'n') { 
-        swordInstance.transform.position += new Vector3(0, 1, 0);
+			else if (itemB == 'b')
+				boomerangAttack();
+
+			else if (itemB == 'w')
+			{
+				bowAttack();
 			}
-      else if (currentDir == 'e')
-      {
-        swordInstance.transform.position += new Vector3(1, 0, 0);
-        swordInstance.transform.Rotate(new Vector3(0, 0, 1), 270);
-      }
-      else if (currentDir == 'w')
-      {
-        swordInstance.transform.position += new Vector3(-1, 0, 0);
-        swordInstance.transform.Rotate(new Vector3(0, 0, 1), 90);
-      }
-      else if (currentDir == 's')
-      {
-        swordInstance.transform.position += new Vector3(0, -1, 0);
-        swordInstance.transform.Rotate(new Vector3(0, 0, 1), 180);
-      }
-			swordInstance.GetComponent<WeaponController>().setDirection(currentDir);
+			else if (itemB == 'm')
+			{
+				bombAttack();
+			}
 		}
 
-		if (Input.GetKeyDown(KeyCode.A) && linkStats.hasBoomerang && boomInstance == null) {
-      boomInstance = Instantiate(boomPrefab, transform.position, Quaternion.identity) as GameObject;
-      boomInstance.GetComponent<Rigidbody>().angularVelocity = new Vector3(0, 0, boomerangRotationSpeed);
-      boomStart = transform.position;
+		if (Input.GetKeyDown(KeyCode.A)) {
+			if (itemA == 's')
+				swordAttack();
 
-      if (currentDir == 'n')
-      {
-        boomInstance.transform.position += new Vector3(0, 1, 0);
-        boomInstance.GetComponent<Rigidbody>().velocity = new Vector3(0, 1 * boomerangSpeed, 0);
-      }
-      else if (currentDir == 'e')
-      {
-        boomInstance.transform.position += new Vector3(1, 0, 0);
-        boomInstance.transform.Rotate(new Vector3(0, 0, 1), 270);
-        boomInstance.GetComponent<Rigidbody>().velocity = new Vector3(1 * boomerangSpeed, 0, 0);
-      }
-      else if (currentDir == 'w')
-      {
-        boomInstance.transform.position += new Vector3(-1, 0, 0);
-        boomInstance.transform.Rotate(new Vector3(0, 0, 1), 90);
-        boomInstance.GetComponent<Rigidbody>().velocity = new Vector3(-1 * boomerangSpeed, 0, 0);
-      }
-      else if (currentDir == 's')
-      {
-        boomInstance.transform.position += new Vector3(0, -1, 0);
-        boomInstance.transform.Rotate(new Vector3(0, 0, 1), 180);
-        boomInstance.GetComponent<Rigidbody>().velocity = new Vector3(0, -1 * boomerangSpeed, 0);
-      }
-    }
+			else if (itemA == 'b')
+				boomerangAttack();
+
+			else if (itemA == 'w') {
+				bowAttack();
+			}
+			else if (itemA == 'm') {
+				bombAttack();
+			}
+
+		}
 
     if (bowCooldown > 0)
         bowCooldown--;
     else if (bowInstance != null)
         Destroy(bowInstance);
-
-    if (Input.GetKeyDown(KeyCode.D) && linkStats.hasBow && bowInstance == null) {
-        bowInstance = Instantiate(bowPrefab, transform.position, Quaternion.identity) as GameObject;
-        arrowInstance = Instantiate(arrowPrefab, transform.position, Quaternion.identity) as GameObject;
-        bowCooldown = maxCooldown;
-
-      if (currentDir == 'n') {
-        bowInstance.transform.position += new Vector3(0, .6f, 0);
-        bowInstance.transform.Rotate(new Vector3(0, 0, 1), 90);
-
-        arrowInstance.transform.position += new Vector3(0, 1f, 0);
-        arrowInstance.transform.Rotate(new Vector3(0, 0, 1), 90);
-        arrowInstance.GetComponent<Rigidbody>().velocity = new Vector3(0, arrowSpeed, 0);
-      }
-      else if (currentDir == 'e') {
-        bowInstance.transform.position += new Vector3(.6f, 0, 0);
-
-        arrowInstance.transform.position += new Vector3(1f, 0, 0);
-        arrowInstance.GetComponent<Rigidbody>().velocity = new Vector3(arrowSpeed, 0, 0);
-      }
-      else if (currentDir == 'w') {
-        bowInstance.transform.position += new Vector3(-.6f, 0, 0);
-        bowInstance.transform.Rotate(new Vector3(0, 0, 1), 180);
-
-        arrowInstance.transform.position += new Vector3(-1f, 0, 0);
-        arrowInstance.transform.Rotate(new Vector3(0, 0, 1), 180);
-        arrowInstance.GetComponent<Rigidbody>().velocity = new Vector3(-arrowSpeed, 0, 0);
-      }
-      else if (currentDir == 's') {
-        bowInstance.transform.position += new Vector3(0, -.6f, 0);
-        bowInstance.transform.Rotate(new Vector3(0, 0, 1), 270);
-
-        arrowInstance.transform.position += new Vector3(0, -1f, 0);
-        arrowInstance.transform.Rotate(new Vector3(0, 0, 1), 270);
-        arrowInstance.GetComponent<Rigidbody>().velocity = new Vector3(0, -arrowSpeed, 0);
-      }
-    }
-
-		if (Input.GetKeyDown(KeyCode.W) && linkStats.numBombs > 0) {
-			Instantiate(bombPrefab, transform.position, Quaternion.identity);
-			linkStats.numBombs--;
-		}
 	}
 
 	public void throwSword() {
@@ -293,5 +232,116 @@ public class LinkMovement : MonoBehaviour {
 			Destroy(swordInstance);
   }
 
+	void swordAttack() {
+		if (bombInstance == null && swordInstance == null && thrownSword == null && bowInstance == null && boomInstance == null) {
+			swordInstance = Instantiate(swordPrefab, transform.position, Quaternion.identity) as GameObject;
+			swordCooldown = maxCooldown;
+
+			if (currentDir == 'n')
+			{
+				swordInstance.transform.position += new Vector3(0, 1, 0);
+			}
+			else if (currentDir == 'e')
+			{
+				swordInstance.transform.position += new Vector3(1, 0, 0);
+				swordInstance.transform.Rotate(new Vector3(0, 0, 1), 270);
+			}
+			else if (currentDir == 'w')
+			{
+				swordInstance.transform.position += new Vector3(-1, 0, 0);
+				swordInstance.transform.Rotate(new Vector3(0, 0, 1), 90);
+			}
+			else if (currentDir == 's')
+			{
+				swordInstance.transform.position += new Vector3(0, -1, 0);
+				swordInstance.transform.Rotate(new Vector3(0, 0, 1), 180);
+			}
+			swordInstance.GetComponent<WeaponController>().setDirection(currentDir);
+		}
+	}
+
+	void boomerangAttack() {
+		if (bombInstance == null && swordInstance == null && thrownSword == null && bowInstance == null && boomInstance == null) {
+			boomInstance = Instantiate(boomPrefab, transform.position, Quaternion.identity) as GameObject;
+			boomInstance.GetComponent<Rigidbody>().angularVelocity = new Vector3(0, 0, boomerangRotationSpeed);
+			boomStart = transform.position;
+
+			if (currentDir == 'n')
+			{
+				boomInstance.transform.position += new Vector3(0, 1, 0);
+				boomInstance.GetComponent<Rigidbody>().velocity = new Vector3(0, 1 * boomerangSpeed, 0);
+			}
+			else if (currentDir == 'e')
+			{
+				boomInstance.transform.position += new Vector3(1, 0, 0);
+				boomInstance.transform.Rotate(new Vector3(0, 0, 1), 270);
+				boomInstance.GetComponent<Rigidbody>().velocity = new Vector3(1 * boomerangSpeed, 0, 0);
+			}
+			else if (currentDir == 'w')
+			{
+				boomInstance.transform.position += new Vector3(-1, 0, 0);
+				boomInstance.transform.Rotate(new Vector3(0, 0, 1), 90);
+				boomInstance.GetComponent<Rigidbody>().velocity = new Vector3(-1 * boomerangSpeed, 0, 0);
+			}
+			else if (currentDir == 's')
+			{
+				boomInstance.transform.position += new Vector3(0, -1, 0);
+				boomInstance.transform.Rotate(new Vector3(0, 0, 1), 180);
+				boomInstance.GetComponent<Rigidbody>().velocity = new Vector3(0, -1 * boomerangSpeed, 0);
+			}
+		}
+	}
+
+	void bowAttack() {
+		if (bombInstance == null && swordInstance == null && thrownSword == null && bowInstance == null && boomInstance == null) {
+			bowInstance = Instantiate(bowPrefab, transform.position, Quaternion.identity) as GameObject;
+			arrowInstance = Instantiate(arrowPrefab, transform.position, Quaternion.identity) as GameObject;
+			bowCooldown = maxCooldown;
+
+			if (currentDir == 'n')
+			{
+				bowInstance.transform.position += new Vector3(0, .6f, 0);
+				bowInstance.transform.Rotate(new Vector3(0, 0, 1), 90);
+
+				arrowInstance.transform.position += new Vector3(0, 1f, 0);
+				arrowInstance.transform.Rotate(new Vector3(0, 0, 1), 90);
+				arrowInstance.GetComponent<Rigidbody>().velocity = new Vector3(0, arrowSpeed, 0);
+			}
+			else if (currentDir == 'e')
+			{
+				bowInstance.transform.position += new Vector3(.6f, 0, 0);
+
+				arrowInstance.transform.position += new Vector3(1f, 0, 0);
+				arrowInstance.GetComponent<Rigidbody>().velocity = new Vector3(arrowSpeed, 0, 0);
+			}
+			else if (currentDir == 'w')
+			{
+				bowInstance.transform.position += new Vector3(-.6f, 0, 0);
+				bowInstance.transform.Rotate(new Vector3(0, 0, 1), 180);
+
+				arrowInstance.transform.position += new Vector3(-1f, 0, 0);
+				arrowInstance.transform.Rotate(new Vector3(0, 0, 1), 180);
+				arrowInstance.GetComponent<Rigidbody>().velocity = new Vector3(-arrowSpeed, 0, 0);
+			}
+			else if (currentDir == 's')
+			{
+				bowInstance.transform.position += new Vector3(0, -.6f, 0);
+				bowInstance.transform.Rotate(new Vector3(0, 0, 1), 270);
+
+				arrowInstance.transform.position += new Vector3(0, -1f, 0);
+				arrowInstance.transform.Rotate(new Vector3(0, 0, 1), 270);
+				arrowInstance.GetComponent<Rigidbody>().velocity = new Vector3(0, -arrowSpeed, 0);
+			}
+		}
+	}
+
+	void bombAttack()
+	{
+		if (bombInstance == null && swordInstance == null && thrownSword == null && bowInstance == null && boomInstance == null && linkStats.numBombs > 0)
+		{
+			bombInstance = Instantiate(bombPrefab, transform.position, Quaternion.identity) as GameObject;
+			linkStats.numBombs--;
+		}
+	}
     
 }
