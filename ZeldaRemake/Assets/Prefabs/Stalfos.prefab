@@ -26,7 +26,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 111166}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 36, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -77,6 +77,7 @@ MonoBehaviour:
   damageTime: .5
   maxKnockbackDist: 3
   knockbackFactor: 10
+  stunTime: .5
 --- !u!212 &21205756
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -158,6 +159,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: knockbackFactor
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_LocalPosition.x
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

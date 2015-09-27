@@ -1118,7 +1118,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 418668, guid: 86c104a82060cab4db1d116d38f7e664, type: 2}
       propertyPath: m_RootOrder
-      value: 30
+      value: 31
       objectReference: {fileID: 0}
     - target: {fileID: 11458224, guid: 86c104a82060cab4db1d116d38f7e664, type: 2}
       propertyPath: swordPrefab
@@ -1198,6 +1198,10 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 21289638, guid: 86c104a82060cab4db1d116d38f7e664, type: 2}
       propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11444442, guid: 86c104a82060cab4db1d116d38f7e664, type: 2}
+      propertyPath: hasBoomerang
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1877,3 +1881,19 @@ Prefab:
     - {fileID: 11453302, guid: d98d5158cd7d6ab459005b4278cf7119, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: d98d5158cd7d6ab459005b4278cf7119, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &2079833341 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 178216, guid: d98d5158cd7d6ab459005b4278cf7119, type: 2}
+  m_PrefabInternal: {fileID: 532320258}
+--- !u!114 &2079833342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2079833341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b108b79bfdbf1d44fa686d2de10a9ef6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  room: {fileID: 0}

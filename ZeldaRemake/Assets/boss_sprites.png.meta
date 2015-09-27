@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 8f0ad0631b522df4dbcb2667bf7be35c
-timeCreated: 1442971194
+timeCreated: 1443370557
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -118,8 +118,8 @@ TextureImporter:
         y: 311
         width: 24
         height: 32
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: boss_sprites_1
       rect:
@@ -128,8 +128,8 @@ TextureImporter:
         y: 311
         width: 24
         height: 32
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: boss_sprites_2
       rect:
@@ -138,8 +138,8 @@ TextureImporter:
         y: 311
         width: 24
         height: 32
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: boss_sprites_3
       rect:
@@ -148,8 +148,8 @@ TextureImporter:
         y: 311
         width: 24
         height: 32
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: boss_sprites_4
       rect:
@@ -158,8 +158,8 @@ TextureImporter:
         y: 319
         width: 16
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: boss_sprites_5
       rect:
@@ -168,8 +168,8 @@ TextureImporter:
         y: 319
         width: 16
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: boss_sprites_6
       rect:
@@ -178,8 +178,8 @@ TextureImporter:
         y: 311
         width: 28
         height: 32
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: boss_sprites_7
       rect:
@@ -188,8 +188,8 @@ TextureImporter:
         y: 311
         width: 28
         height: 32
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: boss_sprites_8
       rect:
@@ -198,8 +198,8 @@ TextureImporter:
         y: 264
         width: 24
         height: 38
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: boss_sprites_9
       rect:
@@ -208,8 +208,8 @@ TextureImporter:
         y: 265
         width: 24
         height: 36
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: boss_sprites_10
       rect:
@@ -218,8 +218,8 @@ TextureImporter:
         y: 264
         width: 24
         height: 38
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: boss_sprites_11
       rect:
@@ -228,8 +228,8 @@ TextureImporter:
         y: 291
         width: 8
         height: 12
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: boss_sprites_12
       rect:
@@ -238,8 +238,8 @@ TextureImporter:
         y: 263
         width: 8
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: boss_sprites_13
       rect:
@@ -248,8 +248,8 @@ TextureImporter:
         y: 263
         width: 16
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: boss_sprites_14
       rect:
@@ -258,8 +258,8 @@ TextureImporter:
         y: 236
         width: 15
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: boss_sprites_15
       rect:
@@ -268,8 +268,8 @@ TextureImporter:
         y: 237
         width: 28
         height: 15
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: boss_sprites_16
       rect:
@@ -278,8 +278,8 @@ TextureImporter:
         y: 236
         width: 15
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: boss_sprites_17
       rect:
@@ -288,8 +288,8 @@ TextureImporter:
         y: 237
         width: 28
         height: 15
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: boss_sprites_18
       rect:
@@ -298,8 +298,8 @@ TextureImporter:
         y: 236
         width: 47
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: boss_sprites_19
       rect:
@@ -308,8 +308,8 @@ TextureImporter:
         y: 236
         width: 47
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: boss_sprites_20
       rect:
@@ -318,8 +318,8 @@ TextureImporter:
         y: 236
         width: 47
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: boss_sprites_21
       rect:
@@ -328,8 +328,8 @@ TextureImporter:
         y: 236
         width: 47
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: boss_sprites_22
       rect:
@@ -338,8 +338,8 @@ TextureImporter:
         y: 206
         width: 15
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: boss_sprites_23
       rect:
@@ -348,8 +348,8 @@ TextureImporter:
         y: 206
         width: 28
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: boss_sprites_24
       rect:
@@ -358,8 +358,8 @@ TextureImporter:
         y: 206
         width: 15
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: boss_sprites_25
       rect:
@@ -368,8 +368,8 @@ TextureImporter:
         y: 206
         width: 28
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: boss_sprites_26
       rect:
@@ -378,8 +378,8 @@ TextureImporter:
         y: 206
         width: 47
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: boss_sprites_27
       rect:
@@ -388,8 +388,8 @@ TextureImporter:
         y: 206
         width: 47
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: boss_sprites_28
       rect:
@@ -398,8 +398,8 @@ TextureImporter:
         y: 206
         width: 47
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: boss_sprites_29
       rect:
@@ -408,8 +408,8 @@ TextureImporter:
         y: 206
         width: 47
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: boss_sprites_30
       rect:
@@ -418,8 +418,8 @@ TextureImporter:
         y: 176
         width: 16
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: boss_sprites_31
       rect:
@@ -428,8 +428,8 @@ TextureImporter:
         y: 176
         width: 32
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: boss_sprites_32
       rect:
@@ -438,8 +438,8 @@ TextureImporter:
         y: 176
         width: 16
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: boss_sprites_33
       rect:
@@ -448,8 +448,8 @@ TextureImporter:
         y: 176
         width: 32
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: boss_sprites_34
       rect:
@@ -458,8 +458,8 @@ TextureImporter:
         y: 176
         width: 47
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: boss_sprites_35
       rect:
@@ -468,8 +468,8 @@ TextureImporter:
         y: 176
         width: 47
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: boss_sprites_36
       rect:
@@ -478,8 +478,8 @@ TextureImporter:
         y: 176
         width: 47
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: boss_sprites_37
       rect:
@@ -488,8 +488,8 @@ TextureImporter:
         y: 176
         width: 47
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: boss_sprites_38
       rect:
@@ -498,8 +498,8 @@ TextureImporter:
         y: 146
         width: 47
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: boss_sprites_39
       rect:
@@ -508,8 +508,8 @@ TextureImporter:
         y: 146
         width: 47
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: boss_sprites_40
       rect:
@@ -518,8 +518,8 @@ TextureImporter:
         y: 146
         width: 47
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: boss_sprites_41
       rect:
@@ -528,8 +528,8 @@ TextureImporter:
         y: 146
         width: 47
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: boss_sprites_42
       rect:
@@ -538,8 +538,8 @@ TextureImporter:
         y: 91
         width: 48
         height: 48
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: boss_sprites_43
       rect:
@@ -548,8 +548,8 @@ TextureImporter:
         y: 92
         width: 47
         height: 46
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: boss_sprites_44
       rect:
@@ -558,8 +558,8 @@ TextureImporter:
         y: 91
         width: 47
         height: 48
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: boss_sprites_45
       rect:
@@ -568,8 +568,8 @@ TextureImporter:
         y: 92
         width: 48
         height: 46
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: boss_sprites_46
       rect:
@@ -578,8 +578,8 @@ TextureImporter:
         y: 91
         width: 47
         height: 48
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: boss_sprites_47
       rect:
@@ -588,8 +588,8 @@ TextureImporter:
         y: 39
         width: 46
         height: 44
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: boss_sprites_48
       rect:
@@ -598,8 +598,8 @@ TextureImporter:
         y: 39
         width: 47
         height: 44
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: boss_sprites_49
       rect:
@@ -608,8 +608,8 @@ TextureImporter:
         y: 38
         width: 47
         height: 46
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: boss_sprites_50
       rect:
@@ -618,8 +618,8 @@ TextureImporter:
         y: 39
         width: 48
         height: 44
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: boss_sprites_51
       rect:
@@ -628,8 +628,8 @@ TextureImporter:
         y: 0
         width: 32
         height: 32
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: boss_sprites_52
       rect:
@@ -638,8 +638,8 @@ TextureImporter:
         y: 0
         width: 32
         height: 32
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: boss_sprites_53
       rect:
@@ -648,8 +648,8 @@ TextureImporter:
         y: 0
         width: 32
         height: 32
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: boss_sprites_54
       rect:
@@ -658,8 +658,8 @@ TextureImporter:
         y: 0
         width: 32
         height: 32
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: boss_sprites_55
       rect:
@@ -668,8 +668,8 @@ TextureImporter:
         y: 0
         width: 32
         height: 32
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: boss_sprites_56
       rect:
@@ -678,8 +678,8 @@ TextureImporter:
         y: 0
         width: 32
         height: 32
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: boss_sprites_57
       rect:
@@ -688,8 +688,8 @@ TextureImporter:
         y: 0
         width: 32
         height: 32
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: boss_sprites_58
       rect:
@@ -698,8 +698,8 @@ TextureImporter:
         y: 12
         width: 16
         height: 8
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: boss_sprites_59
       rect:
@@ -708,8 +708,8 @@ TextureImporter:
         y: 8
         width: 16
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: boss_sprites_60
       rect:
@@ -718,8 +718,8 @@ TextureImporter:
         y: 8
         width: 16
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 

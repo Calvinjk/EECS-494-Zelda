@@ -16,6 +16,9 @@ public class WallMasterStats : EnemyStats {
 	private Vector3 knockbackPos;
 	private char dirChar;
 	private bool invincible = false;
+	public float stunTime = 0.5f;
+	private bool stunned = false;
+	private float stunTimePassed = 0;
 
 
 
@@ -48,6 +51,15 @@ public class WallMasterStats : EnemyStats {
 				GetComponent<Rigidbody>().velocity = Vector3.zero;
 			}
 		}
+		if (stunned)
+		{
+			stunTimePassed += Time.deltaTime;
+			if (stunTimePassed >= stunTime)
+			{
+				stunned = false;
+				stunTimePassed = 0;
+			}
+		}
 	}
 
   void FixedUpdate()
@@ -71,7 +83,14 @@ public class WallMasterStats : EnemyStats {
 			takeDamage(2, coll.gameObject);
 		}
 
-		else if (coll.gameObject.tag == "block" || coll.gameObject.tag == "Lock" || coll.gameObject.tag == "UpDoor" || coll.gameObject.tag == "RightDoor" || coll.gameObject.tag == "LeftDoor" || coll.gameObject.tag == "DownDoor")
+		else if (coll.gameObject.tag == "Boomerang")
+		{
+			stunned = true;
+			GetComponent<Rigidbody>().velocity = Vector3.zero;
+			Destroy(coll.gameObject);
+		}
+
+		else if (coll.gameObject.tag == "block" || coll.gameObject.tag == "Wall" || coll.gameObject.tag == "Lock" || coll.gameObject.tag == "UpDoor" || coll.gameObject.tag == "RightDoor" || coll.gameObject.tag == "LeftDoor" || coll.gameObject.tag == "DownDoor")
     {
       direction = (direction + 0.25f) % 1;
       changeDirection();

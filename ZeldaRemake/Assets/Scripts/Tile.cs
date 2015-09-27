@@ -68,9 +68,14 @@ public class Tile : MonoBehaviour {
             case 'S': // Whole
                 bc.center = Vector3.zero;
                 bc.size = Vector3.one;
-                tag = "block";
+                tag = "Wall";
                 break;
-            case 'Q': // Top, Left
+						case 'O':
+								tag = "block";
+								bc.center = Vector3.zero;
+								bc.size = Vector3.one;
+								break;
+						case 'Q': // Top, Left
                 bc.center = new Vector3( -0.25f, 0.25f, 0 );
                 bc.size =   new Vector3( 0.5f, 0.5f, 1 );
                 tag = "block";

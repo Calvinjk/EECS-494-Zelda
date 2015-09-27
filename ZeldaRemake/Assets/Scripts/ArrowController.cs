@@ -23,7 +23,7 @@ public class ArrowController : WeaponController {
 
     void OnTriggerEnter(Collider coll)
     {
-        if (coll.gameObject.tag != "Link" && coll.gameObject.tag != "Room")
+        if (coll.gameObject.tag != "Link" && coll.gameObject.tag != "Room" && coll.gameObject.tag != "block")
         {
             Destroy(this.gameObject);
         }

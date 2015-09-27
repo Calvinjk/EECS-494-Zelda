@@ -28,34 +28,43 @@ public class KeeseStats : EnemyStats {
         }
     }
 
-    void OnTriggerEnter(Collider coll)
+  void OnTriggerEnter(Collider coll)
+  {
+    if (coll.gameObject.tag == "Sword" || coll.gameObject.tag == "Arrow" || coll.gameObject.tag == "Bomb")
     {
-        if (coll.gameObject.tag == "Sword" || coll.gameObject.tag == "Boomerang" || coll.gameObject.tag == "Arrow" || coll.gameObject.tag == "Bomb")
-        {
-            currentHealth--;
-            if (currentHealth == 0)
-            {
-                RoomManager script = (RoomManager) room.GetComponent(typeof(RoomManager));
-                script.killedEnemy(this.gameObject);
-            }
-        }
-        else if (coll.gameObject.tag == "block" || coll.gameObject.tag == "Lock" || coll.gameObject.tag == "UpDoor" || coll.gameObject.tag == "RightDoor" || coll.gameObject.tag == "LeftDoor" || coll.gameObject.tag == "DownDoor")
-        {
-            direction = (direction + 0.25f) % 1;
-            changeDirection();
-        }
+			takeDamage(1);
     }
+		else if (coll.gameObject.tag == "Boomerang") {
+			Destroy(coll.gameObject);
+			takeDamage(1);
 
-    void changeDirection()
+		}
+    else if (coll.gameObject.tag == "block" || coll.gameObject.tag == "Wall" || coll.gameObject.tag == "Lock" || coll.gameObject.tag == "UpDoor" || coll.gameObject.tag == "RightDoor" || coll.gameObject.tag == "LeftDoor" || coll.gameObject.tag == "DownDoor")
     {
-        
-        if (direction < 0.25)
-            GetComponent<Rigidbody>().velocity = new Vector3(0, 1, 0) * velocityFactor;
-        else if (direction < 0.5)
-            GetComponent<Rigidbody>().velocity = new Vector3(1, 0, 0) * velocityFactor;
-        else if (direction < 0.75)
-            GetComponent<Rigidbody>().velocity = new Vector3(0, -1, 0) * velocityFactor;
-        else if (direction <= 1)
-            GetComponent<Rigidbody>().velocity = new Vector3(-1, 0, 0) * velocityFactor;
+      direction = (direction + 0.25f) % 1;
+      changeDirection();
     }
+  }
+
+	void takeDamage(int damage) {
+		currentHealth--;
+		if (currentHealth == 0)
+		{
+			RoomManager script = (RoomManager)room.GetComponent(typeof(RoomManager));
+			script.killedEnemy(this.gameObject);
+		}
+	}
+
+  void changeDirection()
+  {
+        
+    if (direction < 0.25)
+      GetComponent<Rigidbody>().velocity = new Vector3(0, 1, 0) * velocityFactor;
+    else if (direction < 0.5)
+      GetComponent<Rigidbody>().velocity = new Vector3(1, 0, 0) * velocityFactor;
+    else if (direction < 0.75)
+      GetComponent<Rigidbody>().velocity = new Vector3(0, -1, 0) * velocityFactor;
+    else if (direction <= 1)
+      GetComponent<Rigidbody>().velocity = new Vector3(-1, 0, 0) * velocityFactor;
+  }
 }

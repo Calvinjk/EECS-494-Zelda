@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 647eca7f095edb34dbcfedcdddba633b
-timeCreated: 1442970891
+timeCreated: 1443370568
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -332,8 +332,8 @@ TextureImporter:
         y: 211
         width: 16
         height: 14
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: enemy_sprites_1
       rect:
@@ -342,8 +342,8 @@ TextureImporter:
         y: 210
         width: 14
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: enemy_sprites_2
       rect:
@@ -352,8 +352,8 @@ TextureImporter:
         y: 211
         width: 16
         height: 14
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: enemy_sprites_3
       rect:
@@ -362,8 +362,8 @@ TextureImporter:
         y: 210
         width: 14
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: enemy_sprites_4
       rect:
@@ -372,8 +372,8 @@ TextureImporter:
         y: 211
         width: 16
         height: 14
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: enemy_sprites_5
       rect:
@@ -382,8 +382,8 @@ TextureImporter:
         y: 210
         width: 14
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: enemy_sprites_6
       rect:
@@ -392,8 +392,8 @@ TextureImporter:
         y: 211
         width: 16
         height: 14
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: enemy_sprites_7
       rect:
@@ -402,8 +402,8 @@ TextureImporter:
         y: 210
         width: 14
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: enemy_sprites_8
       rect:
@@ -412,8 +412,8 @@ TextureImporter:
         y: 211
         width: 14
         height: 15
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: enemy_sprites_9
       rect:
@@ -422,8 +422,8 @@ TextureImporter:
         y: 211
         width: 14
         height: 15
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: enemy_sprites_10
       rect:
@@ -432,8 +432,8 @@ TextureImporter:
         y: 210
         width: 16
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: enemy_sprites_11
       rect:
@@ -442,8 +442,8 @@ TextureImporter:
         y: 213
         width: 8
         height: 10
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: enemy_sprites_12
       rect:
@@ -452,8 +452,8 @@ TextureImporter:
         y: 213
         width: 8
         height: 10
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: enemy_sprites_13
       rect:
@@ -462,8 +462,8 @@ TextureImporter:
         y: 213
         width: 8
         height: 10
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: enemy_sprites_14
       rect:
@@ -472,8 +472,8 @@ TextureImporter:
         y: 210
         width: 14
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: enemy_sprites_15
       rect:
@@ -482,8 +482,8 @@ TextureImporter:
         y: 180
         width: 16
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: enemy_sprites_16
       rect:
@@ -492,8 +492,8 @@ TextureImporter:
         y: 180
         width: 16
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: enemy_sprites_17
       rect:
@@ -502,8 +502,8 @@ TextureImporter:
         y: 180
         width: 16
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: enemy_sprites_18
       rect:
@@ -512,8 +512,8 @@ TextureImporter:
         y: 180
         width: 16
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: enemy_sprites_19
       rect:
@@ -522,8 +522,8 @@ TextureImporter:
         y: 180
         width: 16
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: enemy_sprites_20
       rect:
@@ -532,8 +532,8 @@ TextureImporter:
         y: 180
         width: 16
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: enemy_sprites_21
       rect:
@@ -542,8 +542,8 @@ TextureImporter:
         y: 180
         width: 16
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: enemy_sprites_22
       rect:
@@ -552,8 +552,8 @@ TextureImporter:
         y: 180
         width: 16
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: enemy_sprites_23
       rect:
@@ -562,8 +562,8 @@ TextureImporter:
         y: 180
         width: 16
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: enemy_sprites_24
       rect:
@@ -572,8 +572,8 @@ TextureImporter:
         y: 180
         width: 16
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: enemy_sprites_25
       rect:
@@ -582,8 +582,8 @@ TextureImporter:
         y: 180
         width: 16
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: enemy_sprites_26
       rect:
@@ -592,8 +592,8 @@ TextureImporter:
         y: 183
         width: 8
         height: 10
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: enemy_sprites_27
       rect:
@@ -602,8 +602,8 @@ TextureImporter:
         y: 183
         width: 8
         height: 10
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: enemy_sprites_28
       rect:
@@ -612,8 +612,8 @@ TextureImporter:
         y: 183
         width: 8
         height: 10
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: enemy_sprites_29
       rect:
@@ -622,8 +622,8 @@ TextureImporter:
         y: 180
         width: 14
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: enemy_sprites_30
       rect:
@@ -632,8 +632,8 @@ TextureImporter:
         y: 150
         width: 13
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: enemy_sprites_31
       rect:
@@ -642,8 +642,8 @@ TextureImporter:
         y: 150
         width: 13
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: enemy_sprites_32
       rect:
@@ -652,8 +652,8 @@ TextureImporter:
         y: 150
         width: 13
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: enemy_sprites_33
       rect:
@@ -662,8 +662,8 @@ TextureImporter:
         y: 150
         width: 13
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: enemy_sprites_34
       rect:
@@ -672,8 +672,8 @@ TextureImporter:
         y: 150
         width: 13
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: enemy_sprites_35
       rect:
@@ -682,8 +682,8 @@ TextureImporter:
         y: 150
         width: 13
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: enemy_sprites_36
       rect:
@@ -692,8 +692,8 @@ TextureImporter:
         y: 150
         width: 13
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: enemy_sprites_37
       rect:
@@ -702,8 +702,8 @@ TextureImporter:
         y: 150
         width: 13
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: enemy_sprites_38
       rect:
@@ -712,8 +712,8 @@ TextureImporter:
         y: 151
         width: 15
         height: 15
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: enemy_sprites_39
       rect:
@@ -722,8 +722,8 @@ TextureImporter:
         y: 150
         width: 16
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: enemy_sprites_40
       rect:
@@ -732,8 +732,8 @@ TextureImporter:
         y: 151
         width: 15
         height: 15
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: enemy_sprites_41
       rect:
@@ -742,8 +742,8 @@ TextureImporter:
         y: 151
         width: 15
         height: 15
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: enemy_sprites_42
       rect:
@@ -752,8 +752,8 @@ TextureImporter:
         y: 150
         width: 16
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: enemy_sprites_43
       rect:
@@ -762,8 +762,8 @@ TextureImporter:
         y: 151
         width: 15
         height: 15
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: enemy_sprites_44
       rect:
@@ -772,8 +772,8 @@ TextureImporter:
         y: 150
         width: 14
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: enemy_sprites_45
       rect:
@@ -782,8 +782,8 @@ TextureImporter:
         y: 120
         width: 13
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: enemy_sprites_46
       rect:
@@ -792,8 +792,8 @@ TextureImporter:
         y: 121
         width: 14
         height: 15
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: enemy_sprites_47
       rect:
@@ -802,8 +802,8 @@ TextureImporter:
         y: 120
         width: 13
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: enemy_sprites_48
       rect:
@@ -812,8 +812,8 @@ TextureImporter:
         y: 121
         width: 14
         height: 15
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: enemy_sprites_49
       rect:
@@ -822,8 +822,8 @@ TextureImporter:
         y: 120
         width: 13
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: enemy_sprites_50
       rect:
@@ -832,8 +832,8 @@ TextureImporter:
         y: 121
         width: 14
         height: 15
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: enemy_sprites_51
       rect:
@@ -842,8 +842,8 @@ TextureImporter:
         y: 120
         width: 13
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: enemy_sprites_52
       rect:
@@ -852,8 +852,8 @@ TextureImporter:
         y: 121
         width: 14
         height: 15
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: enemy_sprites_53
       rect:
@@ -862,8 +862,8 @@ TextureImporter:
         y: 120
         width: 14
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: enemy_sprites_54
       rect:
@@ -872,8 +872,8 @@ TextureImporter:
         y: 121
         width: 16
         height: 15
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: enemy_sprites_55
       rect:
@@ -882,8 +882,8 @@ TextureImporter:
         y: 120
         width: 14
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: enemy_sprites_56
       rect:
@@ -892,8 +892,8 @@ TextureImporter:
         y: 120
         width: 14
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: enemy_sprites_57
       rect:
@@ -902,8 +902,8 @@ TextureImporter:
         y: 121
         width: 16
         height: 15
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: enemy_sprites_58
       rect:
@@ -912,8 +912,8 @@ TextureImporter:
         y: 120
         width: 14
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: enemy_sprites_59
       rect:
@@ -922,8 +922,8 @@ TextureImporter:
         y: 120
         width: 14
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: enemy_sprites_60
       rect:
@@ -932,8 +932,8 @@ TextureImporter:
         y: 90
         width: 16
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: enemy_sprites_61
       rect:
@@ -942,8 +942,8 @@ TextureImporter:
         y: 91
         width: 16
         height: 15
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: enemy_sprites_62
       rect:
@@ -952,8 +952,8 @@ TextureImporter:
         y: 90
         width: 14
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: enemy_sprites_63
       rect:
@@ -962,8 +962,8 @@ TextureImporter:
         y: 90
         width: 16
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: enemy_sprites_64
       rect:
@@ -972,8 +972,8 @@ TextureImporter:
         y: 90
         width: 16
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: enemy_sprites_65
       rect:
@@ -982,8 +982,8 @@ TextureImporter:
         y: 91
         width: 16
         height: 15
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: enemy_sprites_66
       rect:
@@ -992,8 +992,8 @@ TextureImporter:
         y: 90
         width: 14
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: enemy_sprites_67
       rect:
@@ -1002,8 +1002,8 @@ TextureImporter:
         y: 90
         width: 16
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: enemy_sprites_68
       rect:
@@ -1012,8 +1012,8 @@ TextureImporter:
         y: 91
         width: 12
         height: 15
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: enemy_sprites_69
       rect:
@@ -1022,8 +1022,8 @@ TextureImporter:
         y: 91
         width: 14
         height: 15
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: enemy_sprites_70
       rect:
@@ -1032,8 +1032,8 @@ TextureImporter:
         y: 90
         width: 16
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: enemy_sprites_71
       rect:
@@ -1042,8 +1042,8 @@ TextureImporter:
         y: 90
         width: 16
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: enemy_sprites_72
       rect:
@@ -1052,8 +1052,8 @@ TextureImporter:
         y: 90
         width: 16
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: enemy_sprites_73
       rect:
@@ -1062,8 +1062,8 @@ TextureImporter:
         y: 90
         width: 16
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: enemy_sprites_74
       rect:
@@ -1072,8 +1072,8 @@ TextureImporter:
         y: 90
         width: 15
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: enemy_sprites_75
       rect:
@@ -1082,8 +1082,8 @@ TextureImporter:
         y: 60
         width: 16
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: enemy_sprites_76
       rect:
@@ -1092,8 +1092,8 @@ TextureImporter:
         y: 60
         width: 16
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: enemy_sprites_77
       rect:
@@ -1102,8 +1102,8 @@ TextureImporter:
         y: 60
         width: 14
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: enemy_sprites_78
       rect:
@@ -1112,8 +1112,8 @@ TextureImporter:
         y: 61
         width: 16
         height: 15
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: enemy_sprites_79
       rect:
@@ -1122,8 +1122,8 @@ TextureImporter:
         y: 60
         width: 16
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: enemy_sprites_80
       rect:
@@ -1132,8 +1132,8 @@ TextureImporter:
         y: 60
         width: 16
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: enemy_sprites_81
       rect:
@@ -1142,8 +1142,8 @@ TextureImporter:
         y: 60
         width: 14
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: enemy_sprites_82
       rect:
@@ -1152,8 +1152,8 @@ TextureImporter:
         y: 61
         width: 16
         height: 15
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: enemy_sprites_83
       rect:
@@ -1162,8 +1162,8 @@ TextureImporter:
         y: 61
         width: 16
         height: 14
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: enemy_sprites_84
       rect:
@@ -1172,8 +1172,8 @@ TextureImporter:
         y: 61
         width: 16
         height: 14
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: enemy_sprites_85
       rect:
@@ -1182,8 +1182,8 @@ TextureImporter:
         y: 60
         width: 16
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: enemy_sprites_86
       rect:
@@ -1192,8 +1192,8 @@ TextureImporter:
         y: 60
         width: 16
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: enemy_sprites_87
       rect:
@@ -1202,8 +1202,8 @@ TextureImporter:
         y: 60
         width: 16
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: enemy_sprites_88
       rect:
@@ -1212,8 +1212,8 @@ TextureImporter:
         y: 60
         width: 16
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: enemy_sprites_89
       rect:
@@ -1222,8 +1222,8 @@ TextureImporter:
         y: 60
         width: 15
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: enemy_sprites_90
       rect:
@@ -1232,8 +1232,8 @@ TextureImporter:
         y: 30
         width: 15
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: enemy_sprites_91
       rect:
@@ -1242,8 +1242,8 @@ TextureImporter:
         y: 30
         width: 16
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: enemy_sprites_92
       rect:
@@ -1252,8 +1252,8 @@ TextureImporter:
         y: 30
         width: 15
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: enemy_sprites_93
       rect:
@@ -1262,8 +1262,8 @@ TextureImporter:
         y: 30
         width: 16
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: enemy_sprites_94
       rect:
@@ -1272,8 +1272,8 @@ TextureImporter:
         y: 30
         width: 15
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: enemy_sprites_95
       rect:
@@ -1282,8 +1282,8 @@ TextureImporter:
         y: 30
         width: 16
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: enemy_sprites_96
       rect:
@@ -1292,8 +1292,8 @@ TextureImporter:
         y: 30
         width: 15
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: enemy_sprites_97
       rect:
@@ -1302,8 +1302,8 @@ TextureImporter:
         y: 30
         width: 16
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: enemy_sprites_98
       rect:
@@ -1312,8 +1312,8 @@ TextureImporter:
         y: 32
         width: 16
         height: 12
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: enemy_sprites_99
       rect:
@@ -1322,8 +1322,8 @@ TextureImporter:
         y: 32
         width: 16
         height: 12
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: enemy_sprites_100
       rect:
@@ -1332,8 +1332,8 @@ TextureImporter:
         y: 31
         width: 16
         height: 15
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: enemy_sprites_101
       rect:
@@ -1342,8 +1342,8 @@ TextureImporter:
         y: 30
         width: 16
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: enemy_sprites_102
       rect:
@@ -1352,8 +1352,8 @@ TextureImporter:
         y: 31
         width: 14
         height: 14
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: enemy_sprites_103
       rect:
@@ -1362,8 +1362,8 @@ TextureImporter:
         y: 31
         width: 14
         height: 14
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: enemy_sprites_104
       rect:
@@ -1372,8 +1372,8 @@ TextureImporter:
         y: 34
         width: 8
         height: 8
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: enemy_sprites_105
       rect:
@@ -1382,8 +1382,8 @@ TextureImporter:
         y: 34
         width: 8
         height: 8
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: enemy_sprites_106
       rect:
@@ -1392,8 +1392,8 @@ TextureImporter:
         y: 0
         width: 15
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: enemy_sprites_107
       rect:
@@ -1402,8 +1402,8 @@ TextureImporter:
         y: 1
         width: 16
         height: 15
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: enemy_sprites_108
       rect:
@@ -1412,8 +1412,8 @@ TextureImporter:
         y: 0
         width: 15
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: enemy_sprites_109
       rect:
@@ -1422,8 +1422,8 @@ TextureImporter:
         y: 1
         width: 16
         height: 15
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: enemy_sprites_110
       rect:
@@ -1432,8 +1432,8 @@ TextureImporter:
         y: 0
         width: 15
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: enemy_sprites_111
       rect:
@@ -1442,8 +1442,8 @@ TextureImporter:
         y: 1
         width: 16
         height: 15
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: enemy_sprites_112
       rect:
@@ -1452,8 +1452,8 @@ TextureImporter:
         y: 0
         width: 15
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: enemy_sprites_113
       rect:
@@ -1462,8 +1462,8 @@ TextureImporter:
         y: 1
         width: 16
         height: 15
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: enemy_sprites_114
       rect:
@@ -1472,8 +1472,8 @@ TextureImporter:
         y: 1
         width: 16
         height: 15
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: enemy_sprites_115
       rect:
@@ -1482,8 +1482,8 @@ TextureImporter:
         y: 1
         width: 16
         height: 15
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: enemy_sprites_116
       rect:
@@ -1492,8 +1492,8 @@ TextureImporter:
         y: 0
         width: 16
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: enemy_sprites_117
       rect:
@@ -1502,8 +1502,8 @@ TextureImporter:
         y: 0
         width: 16
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: enemy_sprites_118
       rect:
@@ -1512,8 +1512,8 @@ TextureImporter:
         y: 0
         width: 12
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: enemy_sprites_119
       rect:
@@ -1522,8 +1522,8 @@ TextureImporter:
         y: 0
         width: 12
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: enemy_sprites_120
       rect:
@@ -1532,8 +1532,8 @@ TextureImporter:
         y: 4
         width: 6
         height: 9
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: enemy_sprites_121
       rect:
@@ -1542,8 +1542,8 @@ TextureImporter:
         y: 4
         width: 6
         height: 9
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 

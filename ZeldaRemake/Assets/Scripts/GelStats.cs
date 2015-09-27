@@ -43,11 +43,15 @@ public class GelStats : EnemyStats {
 
   void OnTriggerEnter(Collider coll)
   {
-    if (coll.gameObject.tag == "Sword" || coll.gameObject.tag == "Boomerang" || coll.gameObject.tag == "Arrow" || coll.gameObject.tag == "Bomb")
+    if (coll.gameObject.tag == "Sword" || coll.gameObject.tag == "Arrow" || coll.gameObject.tag == "Bomb")
     {
 			takeDamage(1);
     }
-    else if (coll.gameObject.tag == "block" || coll.gameObject.tag == "Lock" || coll.gameObject.tag == "UpDoor" || coll.gameObject.tag == "RightDoor" || coll.gameObject.tag == "LeftDoor" || coll.gameObject.tag == "DownDoor")
+		else if (coll.gameObject.tag == "Boomerang") {
+			Destroy(coll.gameObject);
+			takeDamage(1);
+		}
+    else if (coll.gameObject.tag == "block" || coll.gameObject.tag == "Wall" || coll.gameObject.tag == "Lock" || coll.gameObject.tag == "UpDoor" || coll.gameObject.tag == "RightDoor" || coll.gameObject.tag == "LeftDoor" || coll.gameObject.tag == "DownDoor")
     {
       direction = (direction + 0.25f) % 1;
       changeDirection();

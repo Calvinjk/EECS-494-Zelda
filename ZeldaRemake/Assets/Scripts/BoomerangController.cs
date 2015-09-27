@@ -25,7 +25,7 @@ public class BoomerangController : MonoBehaviour {
  
     void OnTriggerEnter(Collider coll)
     {
-        if ((coll.gameObject.tag == "block" || coll.gameObject.tag == "Link") && !reversed)
+        if ((coll.gameObject.tag == "Wall" || coll.gameObject.tag == "Link") && !reversed)
         {
             reversed = true;
             setDirection(direction, -1f);

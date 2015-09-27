@@ -12,7 +12,7 @@ GameObject:
   - 65: {fileID: 6505620}
   m_Layer: 0
   m_Name: Boomerang_Reward
-  m_TagString: Boomerang
+  m_TagString: BoomerangReward
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -84,7 +84,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_TagString
-      value: Boomerang
+      value: BoomerangReward
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_IsTrigger
@@ -92,6 +92,10 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []

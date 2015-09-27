@@ -27,6 +27,9 @@ TagManager:
   - Arrow
   - Bomb
   - Room
+  - BladeTrap
+  - Gel
+  - Wall
   layers:
   - Default
   - TransparentFX
