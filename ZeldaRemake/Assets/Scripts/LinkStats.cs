@@ -74,11 +74,23 @@ public class LinkStats : MonoBehaviour {
 
   void OnTriggerEnter(Collider coll)
   {
-    if (coll.gameObject.tag == "Stalfos" || coll.gameObject.tag == "Gel" || coll.gameObject.tag == "Keese" || coll.gameObject.tag == "Goriya" || coll.gameObject.tag == "GoriyaBoomerang")
+    if (coll.gameObject.tag == "Stalfos" || coll.gameObject.tag == "Gel" || coll.gameObject.tag == "Keese" || coll.gameObject.tag == "Goriya")
     {
       takeDamage(1);
     }
-		else if (coll.gameObject.tag == "BladeTrap" || coll.gameObject.tag == "BossAttack") {
+		else if (coll.gameObject.tag == "GoriyaBoomerang") {
+			if (coll.gameObject.GetComponent<Rigidbody>().velocity.normalized != GetComponent<Rigidbody>().velocity.normalized * -1) {
+				takeDamage(1);
+			}
+		}
+		else if (coll.gameObject.tag == "BossAttack")
+		{
+			if (coll.gameObject.GetComponent<Rigidbody>().velocity.normalized != GetComponent<Rigidbody>().velocity.normalized * -1)
+			{
+				takeDamage(2);
+			}
+		}
+		else if (coll.gameObject.tag == "BladeTrap") {
 			takeDamage(2);
 		}
 		else if (coll.gameObject.tag == "WallMaster") {
