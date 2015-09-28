@@ -20,6 +20,7 @@ public class Tile : MonoBehaviour {
 		bc = GetComponent<BoxCollider>();
 
         sprend = GetComponent<SpriteRenderer>();
+
         //Renderer rend = gameObject.GetComponent<Renderer>();
         //mat = rend.material;
 	}
@@ -27,7 +28,11 @@ public class Tile : MonoBehaviour {
 	public void SetTile(int eX, int eY, int eTileNum = -1) {
 		if (x == eX && y == eY) return; // Don't move this if you don't have to. - JB
 
-		x = eX;
+        //Reset tile stuff
+        sprend.sortingOrder = 0;
+        bc.isTrigger = false;
+
+        x = eX;
 		y = eY;
 		transform.localPosition = new Vector3(x, y, 0);
         gameObject.name = x.ToString("D3")+"x"+y.ToString("D3");
