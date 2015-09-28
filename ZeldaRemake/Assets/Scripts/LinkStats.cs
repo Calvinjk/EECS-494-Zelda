@@ -66,7 +66,7 @@ public class LinkStats : MonoBehaviour {
         SpriteRenderer[] sprites = coll.gameObject.GetComponentsInChildren<SpriteRenderer>();
         foreach (SpriteRenderer sprite in sprites)
         {
-            sprite.sortingOrder = 2;
+            sprite.sortingOrder = 1;
         }
       }
     }

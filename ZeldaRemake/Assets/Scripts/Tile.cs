@@ -121,24 +121,30 @@ public class Tile : MonoBehaviour {
                 break;
             case 'L': // Left Door
                 tag = "LeftDoor";
-                sprend.sortingOrder = 2;
+                sprend.sortingOrder = 3;
                 bc.center = new Vector3(-0.25f, 0, 0);
                 bc.size = new Vector3(0.5f, 1, 1);
                 bc.isTrigger = true;
                 break;
             case 'R': // Right Door
                 tag = "RightDoor";
-                sprend.sortingOrder = 2;
+                sprend.sortingOrder = 3;
                 bc.center = new Vector3(0.25f, 0, 0);
                 bc.size = new Vector3(0.5f, 1, 1);
                 bc.isTrigger = true;
                 break;
             case 'T': //Top Door
                 tag = "UpDoor";
+                sprend.sortingOrder = 3;
+                bc.center = new Vector3(0, 0.25f, 0);
+                bc.size = new Vector3(1, 0.5f, 1);
                 bc.isTrigger = true;
                 break;
             case 'B': // Bottom Door
                 tag = "DownDoor";
+                sprend.sortingOrder = 3;
+                bc.center = new Vector3(0, -0.25f, 0);
+                bc.size = new Vector3(1, 0.5f, 1);
                 bc.isTrigger = true;
                 break;
             

@@ -116,8 +116,7 @@ public class LinkMovement : MonoBehaviour {
       }
     }
 
-    if (knockbackDistance > 0)
-    {
+    if (knockbackDistance > 0) {
       if (currentDir == 'e')
           horizontalInput = -knockbackFactor;
       else if (currentDir == 'w')
@@ -138,15 +137,6 @@ public class LinkMovement : MonoBehaviour {
       GetComponent<Animator>().SetFloat("vertical_vel", newVelocity.y);
       GetComponent<Animator>().SetFloat("horizontal_vel", newVelocity.x);
     }
-
-
-
-    /*
-    if (newVelocity.magnitude == 0)
-      GetComponent<Animator>().speed = 0.00000001f;
-    else
-      GetComponent<Animator>().speed = 1.0f;
-    */
 
     // Return boomerang
     if (boomInstance != null && Vector3.Distance(boomInstance.transform.position, boomStart) >= maxBoomerangDist) {

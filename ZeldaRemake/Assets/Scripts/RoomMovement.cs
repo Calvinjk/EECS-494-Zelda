@@ -51,7 +51,7 @@ public class RoomMovement : MonoBehaviour {
                 moveCamLeft = false;
                 // Move Link
                 Vector3 newLinkPos = transform.position;
-                newLinkPos.x -= 2.5f;
+                newLinkPos.x -= 2f;
                 transform.position = newLinkPos;
             }
         } else if (moveCamRight){
@@ -66,7 +66,7 @@ public class RoomMovement : MonoBehaviour {
                 moveCamRight = false;
                 // Move Link
                 Vector3 newLinkPos = transform.position;
-                newLinkPos.x += 2.5f;
+                newLinkPos.x += 2f;
                 transform.position = newLinkPos;
             }
         } else if (moveCamUp) {
@@ -82,7 +82,7 @@ public class RoomMovement : MonoBehaviour {
                 moveCamUp = false;
                 // Move Link
                 Vector3 newLinkPos = transform.position;
-                newLinkPos.y += 3f;
+                newLinkPos.y += 2f;
                 transform.position = newLinkPos;
             }
         }
@@ -99,7 +99,7 @@ public class RoomMovement : MonoBehaviour {
                 moveCamDown = false;
                 // Move Link
                 Vector3 newLinkPos = transform.position;
-                newLinkPos.y -= 3f;
+                newLinkPos.y -= 2f;
                 transform.position = newLinkPos;
             }
         }
