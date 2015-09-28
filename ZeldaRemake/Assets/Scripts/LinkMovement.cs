@@ -60,37 +60,58 @@ public class LinkMovement : MonoBehaviour {
         verticalInput = 0.0f;
 
     // Grid movement variables
-    //Vector3  newPos  = transform.position;
-    //float   xOffset = newPos.x % 1;
-    //float   yOffset = newPos.y % 1;
+    Vector3  newPos  = transform.position;
+    float   xOffset = newPos.x % 0.5f;
+    float   yOffset = newPos.y % 0.5f;
 
     // Grid movement currently only works for positive X and Y positions
-    if (knockbackDistance <= 0)
-    {
-      if (horizontalInput > 0)
-      {
-        /*
-        if (currentDir == 'n' || currentDir == 's' && yOffset != 0 && yOffset != 0.5) {
-            double deci = newPos.y - Math.Truncate(newPos.y);
+    if (knockbackDistance <= 0) {
+      if (horizontalInput > 0) {
+        double deci = newPos.y - Math.Truncate(newPos.y);
+        if (currentDir == 'n' || currentDir == 's') {  
             if ((deci < 0.75 && deci > 0.5) || (deci < 0.25 && deci > 0)){
                 newPos.y -= yOffset;
             } else {
-                newPos.y += (1 - yOffset);
+                newPos.y += (0.5f - yOffset);
             }
         }
-        */
+        transform.position = newPos;
         currentDir = 'e';
       }
-      else if (horizontalInput < 0)
-      {
+      else if (horizontalInput < 0) {
+        double deci = newPos.y - Math.Truncate(newPos.y);
+        if (currentDir == 'n' || currentDir == 's') {
+            if ((deci < 0.75 && deci > 0.5) || (deci < 0.25 && deci > 0)) {
+                newPos.y -= yOffset;
+            } else {
+                newPos.y += (0.5f - yOffset);
+            }
+        }
+        transform.position = newPos;
         currentDir = 'w';
       }
-      else if (verticalInput > 0)
-      {
+      else if (verticalInput > 0) {
+        double deci = newPos.x - Math.Truncate(newPos.x);
+        if (currentDir == 'e' || currentDir == 'w') {
+            if ((deci < 0.75 && deci > 0.5) || (deci < 0.25 && deci > 0)) {
+                newPos.x -= xOffset;
+            } else {
+                newPos.x += (0.5f - xOffset);
+            }
+        }
+        transform.position = newPos;
         currentDir = 'n';
       }
-      else if (verticalInput < 0)
-      {
+      else if (verticalInput < 0) {
+        double deci = newPos.x - Math.Truncate(newPos.x);
+        if (currentDir == 'e' || currentDir == 'w') {
+            if ((deci < 0.75 && deci > 0.5) || (deci < 0.25 && deci > 0)) {
+                newPos.x -= xOffset;
+            } else {
+                newPos.x += (0.5f - xOffset);
+            }
+        }
+        transform.position = newPos;
         currentDir = 's';
       }
     }
