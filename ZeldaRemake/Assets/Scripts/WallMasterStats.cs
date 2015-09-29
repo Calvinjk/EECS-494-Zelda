@@ -108,7 +108,7 @@ public class WallMasterStats : EnemyStats {
 			damageTimePassed = 0;
 			if (currentHealth <= 0)
 			{
-				BossRoom script = (BossRoom)room.GetComponent(typeof(BossRoom));
+				RoomManager script = (RoomManager) room.GetComponent(typeof(RoomManager));
 				script.killedEnemy(this.gameObject);
 			}
 			char dir;

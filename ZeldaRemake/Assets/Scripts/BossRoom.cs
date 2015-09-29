@@ -3,11 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class BossRoom : MonoBehaviour {
-    public GameObject enemyPrefab;
-    public int numEnemies;
-    public GameObject rewardPrefab;
-    public bool cleared = false;
-    private GameObject boss;
+  public GameObject enemyPrefab;
+  public int numEnemies;
+  public GameObject rewardPrefab;
+  public bool cleared = false;
+  private GameObject boss;
 
 	// Use this for initialization
 	void Start () {
@@ -18,32 +18,33 @@ public class BossRoom : MonoBehaviour {
 	
 	}
 
-    void OnTriggerEnter(Collider coll)
+  void OnTriggerEnter(Collider coll)
+  {
+    if (coll.gameObject.tag == "Link" && !cleared)
     {
-        if (coll.gameObject.tag == "Link" && !cleared)
-        {
-            //set current room
-            spawnEnemies();
-        }
+			if (!cleared)
+				spawnEnemies();
     }
+  }
 
-    public void spawnEnemies()
+  public void spawnEnemies()
+  {
     {
-        {
-            boss = Instantiate(enemyPrefab, new Vector3(74.5f, 50, 0), Quaternion.identity) as GameObject;
-            EnemyStats script = (EnemyStats) boss.GetComponent(typeof(EnemyStats));
-            script.setRoom(this.gameObject);
-        }
+      boss = Instantiate(enemyPrefab, new Vector3(74.5f, 49, 0), Quaternion.identity) as GameObject;
+      EnemyStats script = (EnemyStats) boss.GetComponent(typeof(EnemyStats));
+      script.setRoom(this.gameObject);
     }
+  }
     
-    public void killedEnemy(GameObject enemy)
+  public void killedEnemy(GameObject enemy)
+  {
+    Destroy(enemy);
+		cleared = true;
+    if (rewardPrefab)
     {
-      Destroy(enemy);
-      if (rewardPrefab)
-      {
-          Instantiate(rewardPrefab, this.transform.position, Quaternion.identity);
-      }
+        Instantiate(rewardPrefab, this.transform.position, Quaternion.identity);
     }
+  }
 
   void OnTriggerExit(Collider coll)
   {
