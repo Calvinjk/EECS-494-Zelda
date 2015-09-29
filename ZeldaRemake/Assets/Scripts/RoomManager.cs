@@ -9,6 +9,9 @@ public class RoomManager : MonoBehaviour {
   public bool cleared = false;
   private List <GameObject> enemies;
 	private int numKilled = 0;
+	public GameObject specialEnemyPrefab;
+	private GameObject specialEnemy;
+	private bool specialEnemyDead = false;
 
 	// Use this for initialization
 	void Start () {
@@ -31,7 +34,12 @@ public class RoomManager : MonoBehaviour {
 
   public void spawnEnemies()
   {
-    for (int i = 0; i < numEnemies - numKilled; i++)
+		if (specialEnemyPrefab != null && !specialEnemyDead) {
+			specialEnemy = Instantiate(specialEnemyPrefab, transform.position, Quaternion.identity) as GameObject;
+			EnemyStats script = (EnemyStats) specialEnemy.GetComponent(typeof(EnemyStats));
+			script.setRoom(this.gameObject);
+		}
+		for (int i = 0; i < numEnemies - numKilled; i++)
     {
       GameObject enemy = Instantiate(enemyPrefab, this.transform.position + new Vector3(i - 2, i - 2, 0), Quaternion.identity) as GameObject;
       EnemyStats script = (EnemyStats) enemy.GetComponent(typeof(EnemyStats));
@@ -42,10 +50,17 @@ public class RoomManager : MonoBehaviour {
     
   public void killedEnemy(GameObject enemy)
   {
-    enemies.Remove(enemy);
-		++numKilled;
+		if (specialEnemy == enemy)
+		{
+			specialEnemyDead = true;
+		}
+		else
+		{
+			enemies.Remove(enemy);
+			++numKilled;
+		}
     Destroy(enemy);
-    if (enemies.Count == 0)
+		if (enemies.Count == 0 && ((specialEnemyPrefab != null && specialEnemyDead == true) || (!specialEnemyPrefab)))
     {
       cleared = true;
       if (rewardPrefab)
@@ -55,12 +70,20 @@ public class RoomManager : MonoBehaviour {
     }
   }
 
-    void OnTriggerExit(Collider coll) {
-        if (coll.gameObject.tag == "Link") {
-            foreach (GameObject enemy in enemies) {
-                Destroy(enemy);
-            }
-            enemies.Clear();
+  void OnTriggerExit(Collider coll)
+  {
+    if (coll.gameObject.tag == "Link")
+    {
+      foreach (GameObject enemy in enemies)
+      {
+        Destroy(enemy);
+      }
+      enemies.Clear();
+			if (specialEnemyPrefab != null && !specialEnemyDead)
+			{
+				print("destroyed");
+				Destroy(specialEnemy);
+			}
         }
     }
 }
