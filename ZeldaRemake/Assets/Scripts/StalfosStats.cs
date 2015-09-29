@@ -21,7 +21,6 @@ public class StalfosStats : EnemyStats {
 	private bool stunned = false;
 	private float stunTimePassed = 0;
 	private Vector3 velocity;
-	private GameObject prevColl;
 
 	// Use this for initialization
 	void Start () {
@@ -57,6 +56,8 @@ public class StalfosStats : EnemyStats {
 			if (stunTimePassed >= stunTime) {
 				stunned = false;
 				stunTimePassed = 0;
+				alignWithGrid();
+				changeDirection();
 			}
 		}
 	}
@@ -108,7 +109,7 @@ public class StalfosStats : EnemyStats {
 			else
 			{
 				alignWithGrid();
-
+				GetComponent<Rigidbody>().velocity = Vector3.zero;
 				direction = (direction + 0.25f) % 1;
 				changeDirection();
 			}
