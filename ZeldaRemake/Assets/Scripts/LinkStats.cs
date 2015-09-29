@@ -6,10 +6,10 @@ public class LinkStats : MonoBehaviour {
   public int currentHealth = 6;
   public int numRupees = 0;
   public int numKeys = 0;
-	public int numBombs = 5;
+  public int numBombs = 5;
   public bool invincible = false;
   public float invincDuration = 1;
-	private float duration;
+  private float duration;
   public bool hasBoomerang = false;
   public bool hasBow = false;
 

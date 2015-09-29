@@ -43,22 +43,17 @@ public class RoomManager : MonoBehaviour {
     {
         enemies.Remove(enemy);
         Destroy(enemy);
-        if (enemies.Count == 0)
-        {
+        if (enemies.Count == 0) {
             cleared = true;
-            if (rewardPrefab)
-            {
+            if (rewardPrefab) {
                 Instantiate(rewardPrefab, this.transform.position, Quaternion.identity);
             }
         }
     }
 
-    void OnTriggerExit(Collider coll)
-    {
-        if (coll.gameObject.tag == "Link")
-        {
-            foreach (GameObject enemy in enemies)
-            {
+    void OnTriggerExit(Collider coll) {
+        if (coll.gameObject.tag == "Link") {
+            foreach (GameObject enemy in enemies) {
                 Destroy(enemy);
             }
             enemies.Clear();

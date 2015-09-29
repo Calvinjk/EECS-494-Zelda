@@ -353,6 +353,5 @@ public class LinkMovement : MonoBehaviour {
 			bombInstance = Instantiate(bombPrefab, transform.position, Quaternion.identity) as GameObject;
 			linkStats.numBombs--;
 		}
-	}
-    
+	}  
 }
