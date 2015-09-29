@@ -72,10 +72,11 @@ MonoBehaviour:
   room: {fileID: 0}
   maxHealth: 6
   currentHealth: 6
-  timeBetweenAttacks: 5
+  timeBetweenAttacks: 2.5
   firePrefab: {fileID: 174044, guid: e92b40b096bec124ca4e887dbb101383, type: 2}
-  fireVelocity: 5
+  fireVelocity: 7
   damageTime: .5
+  attackShift: 2
 --- !u!212 &21211622
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -127,7 +128,7 @@ Prefab:
       objectReference: {fileID: 174044, guid: e92b40b096bec124ca4e887dbb101383, type: 2}
     - target: {fileID: 0}
       propertyPath: fireVelocity
-      value: 5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Center.x
@@ -148,6 +149,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_Center.y
       value: .5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: timeBetweenAttacks
+      value: 2.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

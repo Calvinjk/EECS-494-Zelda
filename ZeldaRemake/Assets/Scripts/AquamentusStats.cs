@@ -14,6 +14,7 @@ public class AquamentusStats : EnemyStats {
 	private float damageTimePassed = 0;
 	private bool damaged = false;
 	private bool invincible = false;
+	public float attackShift = 2f;
 
 	// Use this for initialization
 	void Start () {
@@ -40,14 +41,18 @@ public class AquamentusStats : EnemyStats {
 	}
 
 	void attack() {
-		Vector3 direction = link.transform.position - transform.position;
-		direction.Normalize();
-		fire1 = Instantiate(firePrefab, transform.position + new Vector3(0, 1, 0), Quaternion.identity) as GameObject;
+		Vector3 direction1 = (link.transform.position - transform.position) + new Vector3(0, attackShift, 0);
+		Vector3 direction2 = link.transform.position - transform.position;
+		Vector3 direction3 = (link.transform.position - transform.position) + new Vector3(0, -attackShift, 0);
+		direction1.Normalize();
+		direction2.Normalize();
+		direction3.Normalize();
+		fire1 = Instantiate(firePrefab, transform.position , Quaternion.identity) as GameObject;
 		fire2 = Instantiate(firePrefab, transform.position, Quaternion.identity) as GameObject;
-		fire3 = Instantiate(firePrefab, transform.position + new Vector3(0, -1, 0), Quaternion.identity) as GameObject;
-		fire1.GetComponent<Rigidbody>().velocity = direction * fireVelocity;
-		fire2.GetComponent<Rigidbody>().velocity = direction * fireVelocity;
-		fire3.GetComponent<Rigidbody>().velocity = direction * fireVelocity;
+		fire3 = Instantiate(firePrefab, transform.position, Quaternion.identity) as GameObject;
+		fire1.GetComponent<Rigidbody>().velocity = direction1 * fireVelocity;
+		fire2.GetComponent<Rigidbody>().velocity = direction2 * fireVelocity;
+		fire3.GetComponent<Rigidbody>().velocity = direction3 * fireVelocity;
 	}
 
 	public void OnTriggerEnter(Collider coll) {
