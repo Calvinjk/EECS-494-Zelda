@@ -81,7 +81,7 @@ public class KeeseStats : EnemyStats {
 			takeDamage(1);
 
 		}
-    else if (coll.gameObject.tag == "Wall" || coll.gameObject.tag == "Lock" || coll.gameObject.tag == "UpDoor" || coll.gameObject.tag == "RightDoor" || coll.gameObject.tag == "LeftDoor" || coll.gameObject.tag == "DownDoor")
+    else if (coll.gameObject.tag == "EnemyWall" || coll.gameObject.tag == "Wall" || coll.gameObject.tag == "Lock" || coll.gameObject.tag == "UpDoor" || coll.gameObject.tag == "RightDoor" || coll.gameObject.tag == "LeftDoor" || coll.gameObject.tag == "DownDoor")
     {
 			GetComponent<Rigidbody>().velocity = Vector3.zero;
 			alignWithGrid();

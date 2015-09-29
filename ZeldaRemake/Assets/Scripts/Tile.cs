@@ -147,9 +147,15 @@ public class Tile : MonoBehaviour {
                 bc.size = new Vector3(1, 0.5f, 1);
                 bc.isTrigger = true;
                 break;
-            
+						case 'P': 
+								tag = "EnemyWall";
+								bc.center = Vector3.zero;
+								bc.size = Vector3.one;
+								bc.isTrigger = true;
+								break;
 
-            default: // Anything else: _, |, etc.
+
+			default: // Anything else: _, |, etc.
                 bc.enabled = false;
                 break;
 

@@ -8,6 +8,7 @@ public class RoomManager : MonoBehaviour {
   public GameObject rewardPrefab;
   public bool cleared = false;
   private List <GameObject> enemies;
+	private int numKilled = 0;
 
 	// Use this for initialization
 	void Start () {
@@ -16,7 +17,7 @@ public class RoomManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
+		
 	}
 
   void OnTriggerEnter(Collider coll)
@@ -30,7 +31,7 @@ public class RoomManager : MonoBehaviour {
 
   public void spawnEnemies()
   {
-    for (int i = 0; i < numEnemies; i++)
+    for (int i = 0; i < numEnemies - numKilled; i++)
     {
       GameObject enemy = Instantiate(enemyPrefab, this.transform.position + new Vector3(i - 2, i - 2, 0), Quaternion.identity) as GameObject;
       EnemyStats script = (EnemyStats) enemy.GetComponent(typeof(EnemyStats));
@@ -42,6 +43,7 @@ public class RoomManager : MonoBehaviour {
   public void killedEnemy(GameObject enemy)
   {
     enemies.Remove(enemy);
+		++numKilled;
     Destroy(enemy);
     if (enemies.Count == 0)
     {
