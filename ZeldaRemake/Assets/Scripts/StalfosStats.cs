@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public class StalfosStats : EnemyStats {
   public int maxHealth = 3;
@@ -20,22 +21,17 @@ public class StalfosStats : EnemyStats {
 	private bool stunned = false;
 	private float stunTimePassed = 0;
 	private Vector3 velocity;
-	private GameObject prevColl;
 
 	// Use this for initialization
 	void Start () {
 		knockbackDist = maxKnockbackDist;
-    direction = Random.value;
+    direction = UnityEngine.Random.value;
+		alignWithGrid();
     changeDirection();
   }
 	
 	// Update is called once per frame
 	void Update () {
-		if (transform.position.x % 1 == 0 && transform.position.y % 1 == 0 && knockbackDist >= maxKnockbackDist && !stunned) {
-			direction = Random.value;
-			changeDirection();
-		}
-		
 		if (damaged)
 		{
 			damageTimePassed += Time.deltaTime;
@@ -52,6 +48,8 @@ public class StalfosStats : EnemyStats {
 			if (knockbackDist >= maxKnockbackDist) {
 				knockbackDist = maxKnockbackDist;
 				GetComponent<Rigidbody>().velocity = Vector3.zero;
+				alignWithGrid();
+				changeDirection();
 			}
 		}
 		if (stunned) {
@@ -59,6 +57,23 @@ public class StalfosStats : EnemyStats {
 			if (stunTimePassed >= stunTime) {
 				stunned = false;
 				stunTimePassed = 0;
+				alignWithGrid();
+				changeDirection();
+			}
+		}
+	}
+
+	void FixedUpdate() {
+		if (knockbackDist >= maxKnockbackDist && !stunned)
+		{
+			Vector3 newPos = transform.position;
+			float xOffset = newPos.x % 1f;
+			float yOffset = newPos.y % 1f;
+			if (UnityEngine.Random.value <= chanceToChangeDirection && ((xOffset == 0 && (yOffset > 0.95 || yOffset < 0.05)) || (yOffset == 0 && (xOffset > 0.95 || xOffset < 0.05))))
+			{
+				direction = UnityEngine.Random.value;
+				alignWithGrid();
+				changeDirection();
 			}
 		}
 	}
@@ -88,10 +103,14 @@ public class StalfosStats : EnemyStats {
 			{
 				GetComponent<Rigidbody>().velocity = Vector3.zero;
 				knockbackDist = maxKnockbackDist;
+				alignWithGrid();
+				direction = UnityEngine.Random.value;
+				changeDirection();
 			}
-			else if (coll.gameObject != prevColl)
+			else
 			{
-				prevColl = coll.gameObject;
+				alignWithGrid();
+				GetComponent<Rigidbody>().velocity = Vector3.zero;
 				direction = (direction + 0.25f) % 1;
 				changeDirection();
 			}
@@ -180,5 +199,33 @@ public class StalfosStats : EnemyStats {
 			GetComponent<Rigidbody>().velocity = new Vector3(-1, 0, 0) * velocityFactor;
 			dirChar = 'w';
 		}
+	}
+
+	void alignWithGrid (){
+		Vector3 newPos = transform.position;
+    float xOffset = newPos.x % 1f;
+		float yOffset = newPos.y % 1f;
+		double deciY = newPos.y - Math.Truncate(newPos.y);
+		double deciX = newPos.x - Math.Truncate(newPos.x);
+		if (deciY <= 0.5)
+			{
+				newPos.y -= yOffset;
+			}
+		else
+			{
+				newPos.y += (1f - yOffset);
+			}
+		
+
+		if (deciX <= 0.5)
+			{
+				newPos.x -= xOffset;
+			}
+		else
+		{
+			newPos.x += (1f - xOffset);
+		}
+
+		transform.position = newPos;
 	}
 }

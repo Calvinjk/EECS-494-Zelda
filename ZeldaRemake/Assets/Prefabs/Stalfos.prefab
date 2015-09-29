@@ -56,7 +56,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: .200000003}
+  m_Size: {x: .899999976, y: .899999976, z: .200000003}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &11434364
 MonoBehaviour:
@@ -73,10 +73,10 @@ MonoBehaviour:
   maxHealth: 2
   currentHealth: 2
   velocityFactor: 2
-  chanceToChangeDirection: .0199999996
+  chanceToChangeDirection: .200000003
   damageTime: .5
-  maxKnockbackDist: 3
-  knockbackFactor: 10
+  maxKnockbackDist: 2
+  knockbackFactor: 15
   stunTime: .5
 --- !u!212 &21205756
 SpriteRenderer:
@@ -113,11 +113,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 0}
       propertyPath: m_Size.x
-      value: 1
+      value: .899999976
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Size.y
-      value: 1
+      value: .899999976
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_TagString
@@ -158,11 +158,19 @@ Prefab:
         type: 3}
     - target: {fileID: 0}
       propertyPath: knockbackFactor
-      value: 10
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_LocalPosition.x
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: chanceToChangeDirection
+      value: .200000003
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: maxKnockbackDist
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

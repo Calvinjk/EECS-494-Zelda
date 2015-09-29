@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public class WallMasterStats : EnemyStats {
   public int maxHealth = 3;
@@ -19,18 +20,24 @@ public class WallMasterStats : EnemyStats {
 	public float stunTime = 0.5f;
 	private bool stunned = false;
 	private float stunTimePassed = 0;
+	public char firstDir;
+	public char secondDir;
+	private Vector3 startPos;
+	private int step = 0;
+	private Vector3 prevVelocity;
 
 
 
 	// Use this for initialization
 	void Start () {
 		knockbackDist = maxKnockbackDist;
-		direction = Random.value;
-    changeDirection();
+		alignWithGrid();
+		startPos = transform.position;
   }
-	
+
 	// Update is called once per frame
-	void Update () {
+	void Update()
+	{
 		if (damaged)
 		{
 			damageTimePassed += Time.deltaTime;
@@ -49,6 +56,7 @@ public class WallMasterStats : EnemyStats {
 			{
 				knockbackDist = maxKnockbackDist;
 				GetComponent<Rigidbody>().velocity = Vector3.zero;
+				GetComponent<Rigidbody>().velocity = prevVelocity;
 			}
 		}
 		if (stunned)
@@ -58,17 +66,38 @@ public class WallMasterStats : EnemyStats {
 			{
 				stunned = false;
 				stunTimePassed = 0;
+				GetComponent<Rigidbody>().velocity = prevVelocity;
 			}
+		}
+		else if (step == 0)
+		{
+			changeDirection(firstDir);
+			++step;
+		}
+		else if (step == 1 && Vector3.Distance(transform.position, startPos) >= 1)
+		{
+			alignWithGrid();
+			startPos = transform.position;
+			changeDirection(secondDir);
+			++step;
+		}
+		else if (step == 2 && Vector3.Distance(transform.position, startPos) >= 3)
+		{
+			alignWithGrid();
+			startPos = transform.position;
+			changeDirection(firstDir, -1);
+			++step;
+		}
+		else if (step == 3 && Vector3.Distance(transform.position, startPos) >= 1)
+		{
+			WallMasterRoom script = (WallMasterRoom)room.GetComponent(typeof(WallMasterRoom));
+			script.despawnEnemy(this.gameObject);
 		}
 	}
 
-  void FixedUpdate()
+		void FixedUpdate()
   {
-    if (Random.value < chanceToChangeDirection)
-    {
-      direction = Random.value;
-      changeDirection();
-    }
+
   }
 
   void OnTriggerEnter(Collider coll)
@@ -85,16 +114,11 @@ public class WallMasterStats : EnemyStats {
 
 		else if (coll.gameObject.tag == "Boomerang")
 		{
+			prevVelocity = GetComponent<Rigidbody>().velocity;
 			stunned = true;
 			GetComponent<Rigidbody>().velocity = Vector3.zero;
 			Destroy(coll.gameObject);
 		}
-
-		else if (coll.gameObject.tag == "block" || coll.gameObject.tag == "Wall" || coll.gameObject.tag == "Lock" || coll.gameObject.tag == "UpDoor" || coll.gameObject.tag == "RightDoor" || coll.gameObject.tag == "LeftDoor" || coll.gameObject.tag == "DownDoor")
-    {
-      direction = (direction + 0.25f) % 1;
-      changeDirection();
-    }
   }
 
 	public void takeDamage(int damage, GameObject coll = null)
@@ -108,7 +132,7 @@ public class WallMasterStats : EnemyStats {
 			damageTimePassed = 0;
 			if (currentHealth <= 0)
 			{
-				BossRoom script = (BossRoom)room.GetComponent(typeof(BossRoom));
+				WallMasterRoom script = (WallMasterRoom) room.GetComponent(typeof(WallMasterRoom));
 				script.killedEnemy(this.gameObject);
 			}
 			char dir;
@@ -120,24 +144,28 @@ public class WallMasterStats : EnemyStats {
 				{
 					knockbackDist = 0;
 					knockbackPos = transform.position;
+					prevVelocity = GetComponent<Rigidbody>().velocity;
 					GetComponent<Rigidbody>().velocity = new Vector3(0, -1, 0) * knockbackFactor;
 				}
 				else if (dir == 's' && (dirChar == 'n' || dirChar == 's'))
 				{
 					knockbackDist = 0;
 					knockbackPos = transform.position;
+					prevVelocity = GetComponent<Rigidbody>().velocity;
 					GetComponent<Rigidbody>().velocity = new Vector3(0, 1, 0) * knockbackFactor;
 				}
 				else if (dir == 'e' && (dirChar == 'e' || dirChar == 'w'))
 				{
 					knockbackDist = 0;
 					knockbackPos = transform.position;
+					prevVelocity = GetComponent<Rigidbody>().velocity;
 					GetComponent<Rigidbody>().velocity = new Vector3(-1, 0, 0) * knockbackFactor;
 				}
 				else if (dir == 'w' && (dirChar == 'e' || dirChar == 'w'))
 				{
 					knockbackDist = 0;
 					knockbackPos = transform.position;
+					prevVelocity = GetComponent<Rigidbody>().velocity;
 					GetComponent<Rigidbody>().velocity = new Vector3(1, 0, 0) * knockbackFactor;
 				}
 			}
@@ -158,27 +186,55 @@ public class WallMasterStats : EnemyStats {
 		else return 'x';
 	}
 
-	void changeDirection()
+	void changeDirection(char dir, int reverse = 1)
 	{
-		if (direction < 0.25)
+		if (dir == 'n')
 		{
-			GetComponent<Rigidbody>().velocity = new Vector3(0, 1, 0) * velocityFactor;
+			GetComponent<Rigidbody>().velocity = new Vector3(0, 1, 0) * velocityFactor * reverse;
 			dirChar = 'n';
 		}
-		else if (direction < 0.5)
+		else if (dir == 'e')
 		{
-			GetComponent<Rigidbody>().velocity = new Vector3(1, 0, 0) * velocityFactor;
+			GetComponent<Rigidbody>().velocity = new Vector3(1, 0, 0) * velocityFactor * reverse;
 			dirChar = 'e';
 		}
-		else if (direction < 0.75)
+		else if (dir == 's')
 		{
-			GetComponent<Rigidbody>().velocity = new Vector3(0, -1, 0) * velocityFactor;
+			GetComponent<Rigidbody>().velocity = new Vector3(0, -1, 0) * velocityFactor * reverse;
 			dirChar = 's';
 		}
-		else if (direction <= 1)
+		else if (dir == 'w')
 		{
-			GetComponent<Rigidbody>().velocity = new Vector3(-1, 0, 0) * velocityFactor;
+			GetComponent<Rigidbody>().velocity = new Vector3(-1, 0, 0) * velocityFactor * reverse;
 			dirChar = 'w';
 		}
+	}
+	void alignWithGrid()
+	{
+		Vector3 newPos = transform.position;
+		float xOffset = newPos.x % 1f;
+		float yOffset = newPos.y % 1f;
+		double deciY = newPos.y - Math.Truncate(newPos.y);
+		double deciX = newPos.x - Math.Truncate(newPos.x);
+		if (deciY <= 0.5)
+		{
+			newPos.y -= yOffset;
+		}
+		else
+		{
+			newPos.y += (1f - yOffset);
+		}
+
+
+		if (deciX <= 0.5)
+		{
+			newPos.x -= xOffset;
+		}
+		else
+		{
+			newPos.x += (1f - xOffset);
+		}
+
+		transform.position = newPos;
 	}
 }

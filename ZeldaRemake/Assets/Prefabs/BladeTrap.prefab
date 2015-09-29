@@ -177,8 +177,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13276286ad757144196b6c28927a59f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towardFactor: 5
-  awayFactor: -2
+  towardFactor: 7
+  awayFactor: -3
   yDist: 3
   xDist: 5.5
 --- !u!212 &21275518
@@ -220,11 +220,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: towardFactor
-      value: 5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: awayFactor
-      value: -2
+      value: -3
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: xDist

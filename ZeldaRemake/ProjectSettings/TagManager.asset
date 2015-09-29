@@ -30,6 +30,8 @@ TagManager:
   - BladeTrap
   - Gel
   - Wall
+  - EnemyWall
+  - BlockEnemy
   layers:
   - Default
   - TransparentFX

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public class GoriyaStats : EnemyStats
 {
@@ -35,7 +36,8 @@ public class GoriyaStats : EnemyStats
 	void Start()
   {
 		knockbackDist = maxKnockbackDist;
-		direction = Random.value;
+		direction = UnityEngine.Random.value;
+		alignWithGrid();
     changeDirection();
   }
 
@@ -63,6 +65,8 @@ public class GoriyaStats : EnemyStats
 			{
 				knockbackDist = maxKnockbackDist;
 				GetComponent<Rigidbody>().velocity = Vector3.zero;
+				alignWithGrid();
+				changeDirection();
 			}
 		}
 		if (stunned)
@@ -72,61 +76,72 @@ public class GoriyaStats : EnemyStats
 			{
 				stunned = false;
 				stunTimePassed = 0;
+				alignWithGrid();
+				changeDirection();
 			}
 		}
 	}
 
-    void FixedUpdate() {
-        if (!throwing && Random.value < chanceToChangeDirection)
-        {
-            direction = Random.value;
-            changeDirection();
+  void FixedUpdate() {
+		if (knockbackDist >= maxKnockbackDist && !stunned && !throwing)
+		{
+			Vector3 newPos = transform.position;
+			float xOffset = newPos.x % 1f;
+			float yOffset = newPos.y % 1f;
+			if (UnityEngine.Random.value <= chanceToChangeDirection && ((xOffset == 0 && (yOffset > 0.95 || yOffset < 0.05)) || (yOffset == 0 && (xOffset > 0.95 || xOffset < 0.05))))
+			{
+				direction = UnityEngine.Random.value;
+				alignWithGrid();
+				changeDirection();
+			}
+		}
+
+    //Boomerang Logic
+    if (throwing) {
+      if (boomerangInstance == null) {
+        boomerangInstance = Instantiate(boomerangPrefab, transform.position, Quaternion.identity) as GameObject;
+        boomerangInstance.GetComponent<Rigidbody>().angularVelocity = new Vector3(0, 0, boomerangRotationSpeed); //Gives boomerangs rotation
+
+      switch(dirChar) {
+          case 'n':
+            boomerangInstance.transform.position += new Vector3(0, 1, 0);
+            boomerangInstance.GetComponent<Rigidbody>().velocity = new Vector3(0, 1 * boomerangSpeed, 0);
+            break;
+          case 'e':
+            boomerangInstance.transform.position += new Vector3(1, 0, 0);
+            boomerangInstance.GetComponent<Rigidbody>().velocity = new Vector3(1 * boomerangSpeed, 0, 0);
+            break;
+          case 'w':
+            boomerangInstance.transform.position += new Vector3(-1, 0, 0);
+            boomerangInstance.GetComponent<Rigidbody>().velocity = new Vector3(-1 * boomerangSpeed, 0, 0);
+            break;
+          case 's':
+            boomerangInstance.transform.position += new Vector3(0, -1, 0);
+            boomerangInstance.GetComponent<Rigidbody>().velocity = new Vector3(0, -1 * boomerangSpeed, 0);
+            break;
         }
+      }
 
-        //Boomerang Logic
-        if (throwing) {
-            if (boomerangInstance == null) {
-                boomerangInstance = Instantiate(boomerangPrefab, transform.position, Quaternion.identity) as GameObject;
-                boomerangInstance.GetComponent<Rigidbody>().angularVelocity = new Vector3(0, 0, boomerangRotationSpeed); //Gives boomerangs rotation
+      // Return boomerang
+      if (boomerangInstance != null && Vector3.Distance(boomerangInstance.transform.position, transform.position) >= maxBoomerangDistance) {
+        boomerangLeaving = false;
+      }
 
-                switch(dirChar) {
-                    case 'n':
-                        boomerangInstance.transform.position += new Vector3(0, 1, 0);
-                        boomerangInstance.GetComponent<Rigidbody>().velocity = new Vector3(0, 1 * boomerangSpeed, 0);
-                        break;
-                    case 'e':
-                        boomerangInstance.transform.position += new Vector3(1, 0, 0);
-                        boomerangInstance.GetComponent<Rigidbody>().velocity = new Vector3(1 * boomerangSpeed, 0, 0);
-                        break;
-                    case 'w':
-                        boomerangInstance.transform.position += new Vector3(-1, 0, 0);
-                        boomerangInstance.GetComponent<Rigidbody>().velocity = new Vector3(-1 * boomerangSpeed, 0, 0);
-                        break;
-                    case 's':
-                        boomerangInstance.transform.position += new Vector3(0, -1, 0);
-                        boomerangInstance.GetComponent<Rigidbody>().velocity = new Vector3(0, -1 * boomerangSpeed, 0);
-                        break;
-                }
-            }
-
-            // Return boomerang
-            if (boomerangInstance != null && Vector3.Distance(boomerangInstance.transform.position, transform.position) >= maxBoomerangDistance) {
-                boomerangLeaving = false;
-            }
-
-            if (boomerangInstance != null && !boomerangLeaving) {
-                if (Vector3.Distance(boomerangInstance.transform.position, transform.position) < 0.4) {
-                    Destroy(boomerangInstance);
-                    throwing = false;
-                    timePassed = 0;
-                }
-                //Direction vector
-                Vector3 dir = transform.position - boomerangInstance.transform.position;
-                dir.Normalize();
-                boomerangInstance.transform.position += dir * boomerangReturnSpeed;
-            }
-        }
+      if (boomerangInstance != null && !boomerangLeaving) {
+        if (Vector3.Distance(boomerangInstance.transform.position, transform.position) < 0.4) {
+          Destroy(boomerangInstance);
+          throwing = false;
+          timePassed = 0;
+					alignWithGrid();
+					changeDirection();
+				}
+        //Direction vector
+        Vector3 dir = transform.position - boomerangInstance.transform.position;
+        dir.Normalize();
+        boomerangInstance.transform.position += dir * boomerangReturnSpeed;
+      }
     }
+  }
 
   void OnTriggerEnter(Collider coll)
   {
@@ -153,9 +168,13 @@ public class GoriyaStats : EnemyStats
 			{
 				GetComponent<Rigidbody>().velocity = Vector3.zero;
 				knockbackDist = maxKnockbackDist;
+				alignWithGrid();
+				direction = UnityEngine.Random.value;
+				changeDirection();
 			}
 			else
 			{
+				alignWithGrid();
 				direction = (direction + 0.25f) % 1;
 				changeDirection();
 			}
@@ -252,5 +271,34 @@ public class GoriyaStats : EnemyStats
     boomerangLeaving = true;
     GetComponent<Rigidbody>().velocity = Vector3.zero;
   }
+
+	void alignWithGrid()
+	{
+		Vector3 newPos = transform.position;
+		float xOffset = newPos.x % 1f;
+		float yOffset = newPos.y % 1f;
+		double deciY = newPos.y - Math.Truncate(newPos.y);
+		double deciX = newPos.x - Math.Truncate(newPos.x);
+		if (deciY <= 0.5)
+		{
+			newPos.y -= yOffset;
+		}
+		else
+		{
+			newPos.y += (1f - yOffset);
+		}
+
+
+		if (deciX <= 0.5)
+		{
+			newPos.x -= xOffset;
+		}
+		else
+		{
+			newPos.x += (1f - xOffset);
+		}
+
+		transform.position = newPos;
+	}
 
 }

@@ -74,7 +74,8 @@ MonoBehaviour:
   currentHealth: 1
   velocityFactor: 2.5
   chanceToChangeDirection: .5
-  movementPeriod: .300000012
+  movementTime: .400000006
+  waitTime: .75
 --- !u!212 &21248624
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -153,6 +154,10 @@ Prefab:
       value: 
       objectReference: {fileID: 21300208, guid: 4500230935ff17445861984f3a8cacbc,
         type: 3}
+    - target: {fileID: 0}
+      propertyPath: movementTime
+      value: .400000006
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 174970}

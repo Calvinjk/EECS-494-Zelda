@@ -5,15 +5,16 @@ public class BladeTrapController : MonoBehaviour {
 	private bool isTriggered = false;
 	public float towardFactor = 3.0f;
 	public float awayFactor = -1.0f;
-	public float yDist = 3.5f;
-	public float xDist = 6f;
+	public float yDist = 3.25f;
+	public float xDist = 5.75f;
 	private bool reversed = false;
 	private float timePassed = 0f;
 	private char direction;
+	private Vector3 startPos;
 
 	// Use this for initialization
 	void Start () {
-	
+		startPos = transform.position;
 	}
 	
 	// Update is called once per frame
@@ -41,6 +42,7 @@ public class BladeTrapController : MonoBehaviour {
 				reversed = false;
 				isTriggered = false;
 				timePassed = 0;
+				transform.position = startPos;
 			}
 			else if ((direction == 'e' || direction == 'w') && timePassed * awayFactor <= -xDist)
 			{
@@ -48,6 +50,7 @@ public class BladeTrapController : MonoBehaviour {
 				reversed = false;
 				isTriggered = false;
 				timePassed = 0;
+				transform.position = startPos;
 			}
 		}
 	}
