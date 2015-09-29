@@ -24,16 +24,16 @@ public class WallTriggerBottom : MonoBehaviour {
 				if (coll.transform.position.x - transform.position.x > 0)
 				{
 					Vector3 spawnLocation = transform.position;
-					spawnLocation.x += 1;
-					spawnLocation.y -= 1;
-					room.spawnEnemy(spawnLocation, 'e', 'n');
+					spawnLocation.x += 4;
+					spawnLocation.y -= 4;
+					room.spawnEnemy(spawnLocation, 'n', 'w');
 				}
 				else
 				{
 					Vector3 spawnLocation = transform.position;
-					spawnLocation.x -= 1;
-					spawnLocation.y -= 1;
-					room.spawnEnemy(spawnLocation, 'w', 'n');
+					spawnLocation.x -= 4;
+					spawnLocation.y -= 4;
+					room.spawnEnemy(spawnLocation, 'n', 'e');
 				}
 				timePassed = 0;
 				spawned = true;

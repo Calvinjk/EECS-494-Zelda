@@ -26,6 +26,7 @@ public class StalfosStats : EnemyStats {
 	void Start () {
 		knockbackDist = maxKnockbackDist;
     direction = UnityEngine.Random.value;
+		alignWithGrid();
     changeDirection();
   }
 	

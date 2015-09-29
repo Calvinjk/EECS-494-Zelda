@@ -314,8 +314,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: faf91d1a8be593840a846078973a5d3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 0}
-  numEnemies: 0
+  enemyPrefab: {fileID: 184674, guid: e57640eaff7b4a1419b1d040f844d5df, type: 2}
+  numEnemies: 4
   rewardPrefab: {fileID: 0}
   cleared: 0
   numKilled: 0

@@ -37,6 +37,7 @@ public class GoriyaStats : EnemyStats
   {
 		knockbackDist = maxKnockbackDist;
 		direction = UnityEngine.Random.value;
+		alignWithGrid();
     changeDirection();
   }
 
