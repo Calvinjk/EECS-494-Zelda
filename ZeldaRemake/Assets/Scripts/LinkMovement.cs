@@ -350,7 +350,23 @@ public class LinkMovement : MonoBehaviour {
 	{
 		if (bombInstance == null && swordInstance == null && thrownSword == null && bowInstance == null && boomInstance == null && linkStats.numBombs > 0)
 		{
-			bombInstance = Instantiate(bombPrefab, transform.position, Quaternion.identity) as GameObject;
+			Vector3 bombPos = transform.position;
+			if (currentDir == 'n') {
+				bombPos.y += 0.5f;
+			}
+			else if (currentDir == 'e')
+			{
+				bombPos.x += 0.5f;
+			}
+			else if (currentDir == 's')
+			{
+				bombPos.y -= 0.5f;
+			}
+			else if (currentDir == 'w')
+			{
+				bombPos.x -= 0.5f;
+			}
+			bombInstance = Instantiate(bombPrefab, bombPos, Quaternion.identity) as GameObject;
 			linkStats.numBombs--;
 		}
 	}

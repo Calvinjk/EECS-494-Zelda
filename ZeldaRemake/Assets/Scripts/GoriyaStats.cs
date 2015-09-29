@@ -152,7 +152,7 @@ public class GoriyaStats : EnemyStats
 
 		else if (coll.gameObject.tag == "Bomb")
 		{
-			takeDamage(2, coll.gameObject);
+			takeDamage(3, coll.gameObject);
 		}
 
 		else if (coll.gameObject.tag == "Boomerang")
