@@ -63,7 +63,7 @@ public class LinkStats : MonoBehaviour {
 		}
 		else if (coll.gameObject.tag == "BombItem")
 		{
-			numBombs += 3;
+			numBombs += 4;
 			Destroy(coll.gameObject);
 		}
 		else if (coll.gameObject.tag == "Triforce") {
