@@ -78,6 +78,12 @@ MonoBehaviour:
   maxKnockbackDist: 3
   knockbackFactor: 5
   stunTime: .5
+  firstDir: 0
+  secondDir: 0
+  heartPrefab: {fileID: 145050, guid: 0a2e4fec7059396469f91cd72e455530, type: 2}
+  rupeePrefab: {fileID: 153426, guid: a8fad7b91328f3d4dbddced289d1010d, type: 2}
+  bigRupeePrefab: {fileID: 116392, guid: bb649eddc16fe6e4299e6c6fc45cf5f0, type: 2}
+  bombItemPrefab: {fileID: 105074, guid: 09d9c900538fcce44b0d6f87ba2fb928, type: 2}
 --- !u!212 &21290758
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -152,6 +158,22 @@ Prefab:
       value: 
       objectReference: {fileID: 21300048, guid: 647eca7f095edb34dbcfedcdddba633b,
         type: 3}
+    - target: {fileID: 0}
+      propertyPath: rupeePrefab
+      value: 
+      objectReference: {fileID: 153426, guid: a8fad7b91328f3d4dbddced289d1010d, type: 2}
+    - target: {fileID: 0}
+      propertyPath: bigRupeePrefab
+      value: 
+      objectReference: {fileID: 116392, guid: bb649eddc16fe6e4299e6c6fc45cf5f0, type: 2}
+    - target: {fileID: 0}
+      propertyPath: bombItemPrefab
+      value: 
+      objectReference: {fileID: 105074, guid: 09d9c900538fcce44b0d6f87ba2fb928, type: 2}
+    - target: {fileID: 0}
+      propertyPath: heartPrefab
+      value: 
+      objectReference: {fileID: 145050, guid: 0a2e4fec7059396469f91cd72e455530, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 184674}

@@ -25,6 +25,10 @@ public class WallMasterStats : EnemyStats {
 	private Vector3 startPos;
 	private int step = 0;
 	private Vector3 prevVelocity;
+	public GameObject heartPrefab;
+	public GameObject rupeePrefab;
+	public GameObject bigRupeePrefab;
+	public GameObject bombItemPrefab;
 
 
 
@@ -132,6 +136,7 @@ public class WallMasterStats : EnemyStats {
 			damageTimePassed = 0;
 			if (currentHealth <= 0)
 			{
+				dropItem();
 				WallMasterRoom script = (WallMasterRoom) room.GetComponent(typeof(WallMasterRoom));
 				script.killedEnemy(this.gameObject);
 			}
@@ -236,5 +241,28 @@ public class WallMasterStats : EnemyStats {
 		}
 
 		transform.position = newPos;
+	}
+
+	void dropItem() {
+		if (UnityEngine.Random.Range(0, 3) == 0)
+		{
+			int itemNum = UnityEngine.Random.Range(0, 3);
+			if (itemNum == 0)
+			{
+				Instantiate(heartPrefab, transform.position, Quaternion.identity);
+			}
+			else if (itemNum == 1)
+			{
+				Instantiate(rupeePrefab, transform.position, Quaternion.identity);
+			}
+			else if (itemNum == 2)
+			{
+				Instantiate(bigRupeePrefab, transform.position, Quaternion.identity);
+			}
+			else if (itemNum == 3)
+			{
+				Instantiate(bombItemPrefab, transform.position, Quaternion.identity);
+			}
+		}
 	}
 }

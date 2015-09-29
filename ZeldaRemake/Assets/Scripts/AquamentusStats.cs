@@ -15,6 +15,7 @@ public class AquamentusStats : EnemyStats {
 	private bool damaged = false;
 	private bool invincible = false;
 	public float attackShift = 2f;
+	public GameObject bigHeartPrefab;
 
 	// Use this for initialization
 	void Start () {
@@ -75,6 +76,7 @@ public class AquamentusStats : EnemyStats {
 			damageTimePassed = 0;
 			if (currentHealth <= 0)
 			{
+				Instantiate(bigHeartPrefab, transform.position, Quaternion.identity);
 				BossRoom script = (BossRoom)room.GetComponent(typeof(BossRoom));
 				script.killedEnemy(this.gameObject);
 			}
