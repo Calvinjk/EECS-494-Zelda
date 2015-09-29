@@ -32,6 +32,11 @@ TagManager:
   - Wall
   - EnemyWall
   - BlockEnemy
+  - BombItem
+  - BigHeart
+  - BigRupee
+  - Heart
+  - Triforce
   layers:
   - Default
   - TransparentFX

@@ -84,6 +84,10 @@ MonoBehaviour:
   maxKnockbackDist: 3
   knockbackFactor: 5
   stunTime: .5
+  heartPrefab: {fileID: 145050, guid: 0a2e4fec7059396469f91cd72e455530, type: 2}
+  rupeePrefab: {fileID: 153426, guid: a8fad7b91328f3d4dbddced289d1010d, type: 2}
+  bigRupeePrefab: {fileID: 116392, guid: bb649eddc16fe6e4299e6c6fc45cf5f0, type: 2}
+  bombItemPrefab: {fileID: 104516, guid: f80395dd5a5c3984598e54e68d270f22, type: 2}
 --- !u!212 &21217938
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -161,6 +165,22 @@ Prefab:
       propertyPath: chanceToChangeDirection
       value: .200000003
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: bigRupeePrefab
+      value: 
+      objectReference: {fileID: 116392, guid: bb649eddc16fe6e4299e6c6fc45cf5f0, type: 2}
+    - target: {fileID: 0}
+      propertyPath: bombItemPrefab
+      value: 
+      objectReference: {fileID: 104516, guid: f80395dd5a5c3984598e54e68d270f22, type: 2}
+    - target: {fileID: 0}
+      propertyPath: heartPrefab
+      value: 
+      objectReference: {fileID: 145050, guid: 0a2e4fec7059396469f91cd72e455530, type: 2}
+    - target: {fileID: 0}
+      propertyPath: rupeePrefab
+      value: 
+      objectReference: {fileID: 153426, guid: a8fad7b91328f3d4dbddced289d1010d, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 187900}

@@ -31,6 +31,10 @@ public class GoriyaStats : EnemyStats
 	public float stunTime = 0.5f;
 	private bool stunned = false;
 	private float stunTimePassed = 0;
+	public GameObject heartPrefab;
+	public GameObject rupeePrefab;
+	public GameObject bigRupeePrefab;
+	public GameObject bombItemPrefab;
 
 	// Use this for initialization
 	void Start()
@@ -152,7 +156,7 @@ public class GoriyaStats : EnemyStats
 
 		else if (coll.gameObject.tag == "Bomb")
 		{
-			takeDamage(2, coll.gameObject);
+			takeDamage(3, coll.gameObject);
 		}
 
 		else if (coll.gameObject.tag == "Boomerang")
@@ -162,7 +166,7 @@ public class GoriyaStats : EnemyStats
 			Destroy(coll.gameObject);
 		}
 
-		else if (coll.gameObject.tag == "block" || coll.gameObject.tag == "Wall" || coll.gameObject.tag == "Lock" || coll.gameObject.tag == "UpDoor" || coll.gameObject.tag == "RightDoor" || coll.gameObject.tag == "LeftDoor" || coll.gameObject.tag == "DownDoor")
+		else if (coll.gameObject.tag == "EnemyWall" || coll.gameObject.tag == "block" || coll.gameObject.tag == "Wall" || coll.gameObject.tag == "Lock" || coll.gameObject.tag == "UpDoor" || coll.gameObject.tag == "RightDoor" || coll.gameObject.tag == "LeftDoor" || coll.gameObject.tag == "DownDoor")
     {
 			if (knockbackDist < maxKnockbackDist)
 			{
@@ -191,6 +195,7 @@ public class GoriyaStats : EnemyStats
 			damageTimePassed = 0;
 			if (currentHealth <= 0)
 			{
+				dropItem();
 				RoomManager script = (RoomManager)room.GetComponent(typeof(RoomManager));
 				script.killedEnemy(this.gameObject);
 			}
@@ -301,4 +306,27 @@ public class GoriyaStats : EnemyStats
 		transform.position = newPos;
 	}
 
+	void dropItem()
+	{
+		if (UnityEngine.Random.Range(0, 3) == 0)
+		{
+			int itemNum = UnityEngine.Random.Range(0, 3);
+			if (itemNum == 0)
+			{
+				Instantiate(heartPrefab, transform.position, Quaternion.identity);
+			}
+			else if (itemNum == 1)
+			{
+				Instantiate(rupeePrefab, transform.position, Quaternion.identity);
+			}
+			else if (itemNum == 2)
+			{
+				Instantiate(bigRupeePrefab, transform.position, Quaternion.identity);
+			}
+			else if (itemNum == 3)
+			{
+				Instantiate(bombItemPrefab, transform.position, Quaternion.identity);
+			}
+		}
+	}
 }

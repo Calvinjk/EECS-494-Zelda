@@ -45,8 +45,33 @@ public class LinkStats : MonoBehaviour {
       numRupees++;
       Destroy(coll.gameObject);
     }
+		else if (coll.gameObject.tag == "BigRupee") {
+			numRupees += 5;
+			Destroy(coll.gameObject);
+		}
+		else if (coll.gameObject.tag == "Heart")
+		{
+			currentHealth += 2;
+			if (currentHealth > maxHealth)
+				currentHealth = maxHealth;
+			Destroy(coll.gameObject);
+		}
+		else if (coll.gameObject.tag == "BigHeart")
+		{
+			currentHealth = maxHealth;
+			Destroy(coll.gameObject);
+		}
+		else if (coll.gameObject.tag == "BombItem")
+		{
+			numBombs += 3;
+			Destroy(coll.gameObject);
+		}
+		else if (coll.gameObject.tag == "Triforce") {
+			transform.position = new Vector3(39.5f, 1.5f, 0f);
+			Camera.main.transform.position = new Vector3(39.5f, 5f, -8f);
+		}
 
-    else if (coll.gameObject.tag == "Key")
+		else if (coll.gameObject.tag == "Key")
     {
       numKeys++;
       Destroy(coll.gameObject);
