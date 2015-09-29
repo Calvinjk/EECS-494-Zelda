@@ -72,8 +72,12 @@ MonoBehaviour:
   room: {fileID: 0}
   maxHealth: 1
   currentHealth: 1
-  velocityFactor: 2.5
-  chanceToChangeDirection: .0199999996
+  velocityFactor: 5
+  acceleration: .0299999993
+  deceleration: .0500000007
+  decelDist: 2
+  waitTime: 2
+  keyPrefab: {fileID: 155126, guid: 2fa0a6b3d8e45cf4ab26e2468d83ed44, type: 2}
 --- !u!212 &21206470
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -117,7 +121,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: velocityFactor
-      value: 2.5
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Mass
@@ -171,6 +175,22 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_LocalScale.y
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: acceleration
+      value: .0299999993
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: decelDist
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: keyPrefab
+      value: 
+      objectReference: {fileID: 155126, guid: 2fa0a6b3d8e45cf4ab26e2468d83ed44, type: 2}
+    - target: {fileID: 0}
+      propertyPath: deceleration
+      value: .0500000007
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

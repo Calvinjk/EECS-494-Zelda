@@ -27,6 +27,7 @@ public class GelStats : EnemyStats {
 			GetComponent<Rigidbody>().velocity = Vector3.zero;
 			waiting = true;
 			timePassed = 0;
+			alignWithGrid();
 		}
 		else if (timePassed >= waitTime && waiting)
 		{
@@ -68,11 +69,11 @@ public class GelStats : EnemyStats {
 		}
     else if (coll.gameObject.tag == "block" || coll.gameObject.tag == "Wall" || coll.gameObject.tag == "Lock" || coll.gameObject.tag == "UpDoor" || coll.gameObject.tag == "RightDoor" || coll.gameObject.tag == "LeftDoor" || coll.gameObject.tag == "DownDoor")
     {
-			alignWithGrid();
 			direction = (direction + 0.25f) % 1;
 			changeDirection();
-    }
-  }
+			alignWithGrid();
+		}
+	}
 
 	void takeDamage(int damage) {
 		currentHealth -= damage;
