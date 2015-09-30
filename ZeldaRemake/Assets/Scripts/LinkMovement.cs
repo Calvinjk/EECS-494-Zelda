@@ -29,13 +29,15 @@ public class LinkMovement : MonoBehaviour {
 	public GameObject bombPrefab;
     public string itemB = "";
 	private GameObject bombInstance;
+    public HUD hud;
    
 
   LinkStats linkStats;
 
   // Use this for initialization
   void Start () {
-    linkStats = (LinkStats)GetComponent(typeof(LinkStats));
+        linkStats = (LinkStats)GetComponent(typeof(LinkStats));
+        hud = (HUD)GameObject.Find("HUD").GetComponent(typeof(HUD));
 	}
 	
 	// Update is called once per frame
@@ -49,6 +51,11 @@ public class LinkMovement : MonoBehaviour {
       verticalInput = 0.0f;
     }
 
+    //Link can't move while accessing his inventory
+    if (hud.paused) {
+            horizontalInput = 0.0f;
+            verticalInput = 0.0f;
+    }
 
     //link should not be able to move diagonally
     if (horizontalInput != 0.0f)
@@ -133,7 +140,10 @@ public class LinkMovement : MonoBehaviour {
       GetComponent<Animator>().SetFloat("horizontal_vel", newVelocity.x);
     }
 
-    Combat();
+        if (!hud.paused)
+        {
+            Combat();
+        }
   }
 
   void Combat()
@@ -245,12 +255,15 @@ public class LinkMovement : MonoBehaviour {
 	}
 
 	void bowAttack() {
-		if (bombInstance == null && swordInstance == null && thrownSword == null && bowInstance == null && boomInstance == null) {
+		if (bombInstance == null && swordInstance == null && thrownSword == null && bowInstance == null && boomInstance == null && linkStats.numRupees > 0) {
 			bowInstance = Instantiate(bowPrefab, transform.position, Quaternion.identity) as GameObject;
 			arrowInstance = Instantiate(arrowPrefab, transform.position, Quaternion.identity) as GameObject;
 			bowCooldown = maxCooldown;
+            linkStats.numRupees--;
+            HUD.transform.Find("RupeeCount1").GetComponent<UnityEngine.UI.Text>().text = "X" + linkStats.numRupees.ToString();
+            HUD.transform.Find("RupeeCount2").GetComponent<UnityEngine.UI.Text>().text = "X" + linkStats.numRupees.ToString();
 
-			if (currentDir == 'n')
+            if (currentDir == 'n')
 			{
 				bowInstance.transform.position += new Vector3(0, .6f, 0);
 				bowInstance.transform.Rotate(new Vector3(0, 0, 1), 90);
