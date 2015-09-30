@@ -11,13 +11,17 @@ public class HUD : MonoBehaviour {
     LinkStats       linkStats;
     LinkMovement    linkMovement;
     public Dictionary<string, bool> roomsVisited;
-
+    public string curRoom = "c1";
+    public GameObject link;
+    public Vector3 oldPos;
 
     // Use this for initialization
     void Start () {    
         linkStats = (LinkStats)GameObject.Find("Link").GetComponent(typeof(LinkStats));
         linkMovement = (LinkMovement)GameObject.Find("Link").GetComponent(typeof(LinkMovement));
+        link = GameObject.Find("Link");
         roomsVisited = new Dictionary<string, bool>();
+        roomsVisited.Add("c1", true);
     }
 	
 	// Update is called once per frame
@@ -25,14 +29,21 @@ public class HUD : MonoBehaviour {
         //Make sure the correct information displays
         if (Input.GetKeyDown(KeyCode.Return)) {
             if (!paused) {
+                //Move Link out of harm's way
+                oldPos = link.transform.position;
+                link.transform.position = new Vector3(500,0,0);
+
                 //Images
                 transform.Find("ItemSelect").GetComponent<UnityEngine.UI.Image>().enabled   = true;
                 transform.Find("SwordSprite2").GetComponent<UnityEngine.UI.Image>().enabled = true;
 
                 //Re-draw the map
                 foreach(KeyValuePair<string, bool> room in roomsVisited) {
-                    transform.Find(room.Key).GetComponent<UnityEngine.UI.Image>().enabled = true;
+                    transform.Find("ItemSelect").Find("InventoryMap").Find(room.Key).GetComponent<UnityEngine.UI.Image>().enabled = true;
                 }
+                transform.Find("ItemSelect").Find("InventoryMap").Find("Position").GetComponent<UnityEngine.UI.Image>().GetComponent<RectTransform>().position =
+                    transform.Find("ItemSelect").Find("InventoryMap").Find(curRoom).GetComponent<UnityEngine.UI.Image>().GetComponent<RectTransform>().position;
+                transform.Find("ItemSelect").Find("InventoryMap").Find("Position").GetComponent<UnityEngine.UI.Image>().enabled = true;
 
                 //Weapon Checks
                 if (linkStats.hasBoomerang == true) {
@@ -87,6 +98,9 @@ public class HUD : MonoBehaviour {
                 
                 paused = true;
             } else { //DESTROY EVERYTHING
+                //Bring link back!
+                link.transform.position = oldPos;
+
                 //Images
                 transform.Find("ItemSelect").GetComponent<UnityEngine.UI.Image>().enabled       = false;
                 transform.Find("SwordSprite2").GetComponent<UnityEngine.UI.Image>().enabled     = false;
@@ -100,13 +114,14 @@ public class HUD : MonoBehaviour {
                 transform.Find("SelectionArrow2").GetComponent<UnityEngine.UI.Image>().enabled  = false;
                 transform.Find("SelectionArrow3").GetComponent<UnityEngine.UI.Image>().enabled  = false;
                 transform.Find("Compass").GetComponent<UnityEngine.UI.Image>().enabled          = false;
-                transform.Find("Compass").GetComponent<UnityEngine.UI.Image>().enabled          = false;
+                transform.Find("Map").GetComponent<UnityEngine.UI.Image>().enabled          = false;
 
                 //Delete the map
                 foreach (KeyValuePair<string, bool> room in roomsVisited)
                 {
-                    transform.Find(room.Key).GetComponent<UnityEngine.UI.Image>().enabled = false;
+                    transform.Find("ItemSelect").Find("InventoryMap").Find(room.Key).GetComponent<UnityEngine.UI.Image>().enabled = false;
                 }
+                transform.Find("ItemSelect").Find("InventoryMap").Find("Position").GetComponent<UnityEngine.UI.Image>().enabled = false;
 
                 //Text
                 transform.Find("RupeeCount2").GetComponent<UnityEngine.UI.Text>().enabled   = false;
