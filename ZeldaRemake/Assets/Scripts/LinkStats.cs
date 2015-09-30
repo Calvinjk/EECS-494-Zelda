@@ -12,10 +12,11 @@ public class LinkStats : MonoBehaviour {
   private float duration;
   public bool hasBoomerang = false;
   public bool hasBow = false;
+	private LinkMovement movement;
 
 	// Use this for initialization
 	void Start () {
-		
+		movement = (LinkMovement) GetComponent(typeof(LinkMovement));
 	}
 	
 	// Update is called once per frame
@@ -104,16 +105,14 @@ public class LinkStats : MonoBehaviour {
       takeDamage(1);
     }
 		else if (coll.gameObject.tag == "GoriyaBoomerang") {
-			if (coll.gameObject.GetComponent<Rigidbody>().velocity.normalized != GetComponent<Rigidbody>().velocity.normalized * -1) {
+			BoomerangController script = (BoomerangController)coll.gameObject.GetComponent(typeof(BoomerangController));
+			if (script.getDirection() != movement.currentDir) {
 				takeDamage(1);
 			}
 		}
 		else if (coll.gameObject.tag == "BossAttack")
 		{
-			if (coll.gameObject.GetComponent<Rigidbody>().velocity.normalized != GetComponent<Rigidbody>().velocity.normalized * -1)
-			{
-				takeDamage(2);
-			}
+			takeDamage(2);
 		}
 		else if (coll.gameObject.tag == "BladeTrap") {
 			takeDamage(2);
@@ -125,7 +124,11 @@ public class LinkStats : MonoBehaviour {
 				Camera.main.transform.position = new Vector3(39.5f, 5f, -8f);
 			}
 		}
-  }
+		else if (coll.gameObject.tag == "Boomerang")
+		{
+			Destroy(coll.gameObject);
+		}
+	}
 
   void takeDamage(int damage)
   {

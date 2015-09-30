@@ -11,6 +11,7 @@ GameObject:
   - 212: {fileID: 21205822}
   - 65: {fileID: 6505620}
   - 54: {fileID: 5491704}
+  - 114: {fileID: 11405174}
   m_Layer: 0
   m_Name: Boomerang_Link
   m_TagString: Boomerang
@@ -57,6 +58,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: .5, y: .875, z: .200000003}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &11405174
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 135334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 957b2be820778784aa10b043b6962028, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 5
+  rotationSpeed: 1
+  maxDistance: 4
 --- !u!212 &21205822
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -138,6 +153,14 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_LocalPosition.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: speed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: maxDistance
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

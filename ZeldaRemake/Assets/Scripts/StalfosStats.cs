@@ -98,7 +98,6 @@ public class StalfosStats : EnemyStats {
 		{
 			stunned = true;
 			GetComponent<Rigidbody>().velocity = Vector3.zero;
-			Destroy(coll.gameObject);
 		}
 
 		else if (coll.gameObject.tag == "EnemyWall" || coll.gameObject.tag == "block" || coll.gameObject.tag == "Wall" || coll.gameObject.tag == "Lock" || coll.gameObject.tag == "UpDoor" || coll.gameObject.tag == "RightDoor" || coll.gameObject.tag == "LeftDoor" || coll.gameObject.tag == "DownDoor")

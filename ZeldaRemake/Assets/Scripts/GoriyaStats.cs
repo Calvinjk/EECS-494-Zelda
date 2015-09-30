@@ -15,11 +15,6 @@ public class GoriyaStats : EnemyStats
   private float timePassed = 0f;
   private bool throwing = false;
   public float timeBetweenThrows = 5f;
-  private bool boomerangLeaving = false;
-  public float boomerangSpeed = 1.0f;
-  public float boomerangReturnSpeed = 1.0f;
-  public float boomerangRotationSpeed = 1.0f;
-  public float maxBoomerangDistance = 5.0f;
 	private bool damaged = false;
 	private float damageTimePassed = 0;
 	public float damageTime = 0.5f;
@@ -104,48 +99,11 @@ public class GoriyaStats : EnemyStats
     if (throwing) {
       if (boomerangInstance == null) {
         boomerangInstance = Instantiate(boomerangPrefab, transform.position, Quaternion.identity) as GameObject;
-        boomerangInstance.GetComponent<Rigidbody>().angularVelocity = new Vector3(0, 0, boomerangRotationSpeed); //Gives boomerangs rotation
-
-      switch(dirChar) {
-          case 'n':
-            boomerangInstance.transform.position += new Vector3(0, 1, 0);
-            boomerangInstance.GetComponent<Rigidbody>().velocity = new Vector3(0, 1 * boomerangSpeed, 0);
-            break;
-          case 'e':
-            boomerangInstance.transform.position += new Vector3(1, 0, 0);
-            boomerangInstance.GetComponent<Rigidbody>().velocity = new Vector3(1 * boomerangSpeed, 0, 0);
-            break;
-          case 'w':
-            boomerangInstance.transform.position += new Vector3(-1, 0, 0);
-            boomerangInstance.GetComponent<Rigidbody>().velocity = new Vector3(-1 * boomerangSpeed, 0, 0);
-            break;
-          case 's':
-            boomerangInstance.transform.position += new Vector3(0, -1, 0);
-            boomerangInstance.GetComponent<Rigidbody>().velocity = new Vector3(0, -1 * boomerangSpeed, 0);
-            break;
+				BoomerangController script = (BoomerangController)boomerangInstance.GetComponent(typeof(BoomerangController));
+				script.init(dirChar, this.gameObject);
         }
       }
-
-      // Return boomerang
-      if (boomerangInstance != null && Vector3.Distance(boomerangInstance.transform.position, transform.position) >= maxBoomerangDistance) {
-        boomerangLeaving = false;
-      }
-
-      if (boomerangInstance != null && !boomerangLeaving) {
-        if (Vector3.Distance(boomerangInstance.transform.position, transform.position) < 0.4) {
-          Destroy(boomerangInstance);
-          throwing = false;
-          timePassed = 0;
-					alignWithGrid();
-					changeDirection();
-				}
-        //Direction vector
-        Vector3 dir = transform.position - boomerangInstance.transform.position;
-        dir.Normalize();
-        boomerangInstance.transform.position += dir * boomerangReturnSpeed;
-      }
     }
-  }
 
   void OnTriggerEnter(Collider coll)
   {
@@ -163,7 +121,14 @@ public class GoriyaStats : EnemyStats
 		{
 			stunned = true;
 			GetComponent<Rigidbody>().velocity = Vector3.zero;
-			Destroy(coll.gameObject);
+		}
+		else if (coll.gameObject.tag == "GoriyaBoomerang")
+		{
+			Destroy(boomerangInstance);
+			throwing = false;
+			timePassed = 0;
+			alignWithGrid();
+			changeDirection();
 		}
 
 		else if (coll.gameObject.tag == "EnemyWall" || coll.gameObject.tag == "block" || coll.gameObject.tag == "Wall" || coll.gameObject.tag == "Lock" || coll.gameObject.tag == "UpDoor" || coll.gameObject.tag == "RightDoor" || coll.gameObject.tag == "LeftDoor" || coll.gameObject.tag == "DownDoor")
@@ -273,7 +238,6 @@ public class GoriyaStats : EnemyStats
   void throwBoomerang()
   {
     throwing = true;
-    boomerangLeaving = true;
     GetComponent<Rigidbody>().velocity = Vector3.zero;
   }
 

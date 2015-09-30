@@ -10,10 +10,6 @@ public class LinkMovement : MonoBehaviour {
   public GameObject boomPrefab;
   public GameObject bowPrefab;
   public GameObject arrowPrefab;
-  public float boomerangSpeed = 1.0f;
-  public float boomerangReturnSpeed = 1.0f;
-  public float boomerangRotationSpeed = 1.0f;
-  public float maxBoomerangDist = 1.0f;
   public float arrowSpeed = 1.0f;
   public int swordCooldown = 30;
   public int maxCooldown = 15;
@@ -29,8 +25,6 @@ public class LinkMovement : MonoBehaviour {
   public GameObject bowInstance;
   public GameObject arrowInstance;
 	public GameObject thrownSword;
-  public Vector3 boomStart;
-  public bool boomerangReturning = false;
 	public GameObject bombPrefab;
 	public char itemB = 's';
 	public char itemA;
@@ -136,22 +130,6 @@ public class LinkMovement : MonoBehaviour {
     {
       GetComponent<Animator>().SetFloat("vertical_vel", newVelocity.y);
       GetComponent<Animator>().SetFloat("horizontal_vel", newVelocity.x);
-    }
-
-    // Return boomerang
-    if (boomInstance != null && Vector3.Distance(boomInstance.transform.position, boomStart) >= maxBoomerangDist) {
-      boomerangReturning = true;
-    }
-
-    if (boomInstance != null && boomerangReturning) {
-      if(Vector3.Distance(boomInstance.transform.position, transform.position) < 0.4) {
-          Destroy(boomInstance);
-          boomerangReturning = false;
-      }
-      // Direction vector
-      Vector3 dir = transform.position - boomInstance.transform.position;
-      dir.Normalize();  //Make dir a unit vector
-      boomInstance.transform.position += dir * boomerangReturnSpeed;
     }
 
     Combat();
@@ -272,34 +250,11 @@ public class LinkMovement : MonoBehaviour {
 	}
 
 	void boomerangAttack() {
-		if (bombInstance == null && swordInstance == null && thrownSword == null && bowInstance == null && boomInstance == null) {
+		if (bombInstance == null && swordInstance == null && thrownSword == null && bowInstance == null && boomInstance == null)
+		{
 			boomInstance = Instantiate(boomPrefab, transform.position, Quaternion.identity) as GameObject;
-			boomInstance.GetComponent<Rigidbody>().angularVelocity = new Vector3(0, 0, boomerangRotationSpeed);
-			boomStart = transform.position;
-
-			if (currentDir == 'n')
-			{
-				boomInstance.transform.position += new Vector3(0, 1, 0);
-				boomInstance.GetComponent<Rigidbody>().velocity = new Vector3(0, 1 * boomerangSpeed, 0);
-			}
-			else if (currentDir == 'e')
-			{
-				boomInstance.transform.position += new Vector3(1, 0, 0);
-				boomInstance.transform.Rotate(new Vector3(0, 0, 1), 270);
-				boomInstance.GetComponent<Rigidbody>().velocity = new Vector3(1 * boomerangSpeed, 0, 0);
-			}
-			else if (currentDir == 'w')
-			{
-				boomInstance.transform.position += new Vector3(-1, 0, 0);
-				boomInstance.transform.Rotate(new Vector3(0, 0, 1), 90);
-				boomInstance.GetComponent<Rigidbody>().velocity = new Vector3(-1 * boomerangSpeed, 0, 0);
-			}
-			else if (currentDir == 's')
-			{
-				boomInstance.transform.position += new Vector3(0, -1, 0);
-				boomInstance.transform.Rotate(new Vector3(0, 0, 1), 180);
-				boomInstance.GetComponent<Rigidbody>().velocity = new Vector3(0, -1 * boomerangSpeed, 0);
-			}
+			BoomerangController script = (BoomerangController)boomInstance.GetComponent(typeof(BoomerangController));
+			script.init(currentDir, this.gameObject);
 		}
 	}
 
