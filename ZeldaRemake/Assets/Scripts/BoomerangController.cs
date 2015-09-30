@@ -21,6 +21,8 @@ public class BoomerangController : WeaponController {
 		}
     else if (returning)
 		{
+			if (thrower == null)
+				Destroy(this.gameObject);
 			Vector3 dir = thrower.transform.position - transform.position;
 			dir.Normalize();
 			GetComponent<Rigidbody>().velocity = dir * speed;
@@ -56,7 +58,7 @@ public class BoomerangController : WeaponController {
 	}
 
 	void OnTriggerEnter(Collider coll) {
-		if (coll.gameObject.tag != "Room" && coll.gameObject.tag != "block" && !returning) {
+		if (!returning && coll.gameObject.tag != "Room" && coll.gameObject.tag != "block" && coll.gameObject.tag != "BombItem" && coll.gameObject.tag != "Rupee" && coll.gameObject.tag != "Heart" && coll.gameObject.tag != "BigRupee") {
 			returning = true;
 		}
   }

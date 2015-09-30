@@ -105,7 +105,7 @@ public class HUD : MonoBehaviour {
                 transform.Find("SelectionArrow2").GetComponent<UnityEngine.UI.Image>().enabled  = false;
                 transform.Find("SelectionArrow3").GetComponent<UnityEngine.UI.Image>().enabled  = false;
                 transform.Find("Compass").GetComponent<UnityEngine.UI.Image>().enabled          = false;
-                transform.Find("Compass").GetComponent<UnityEngine.UI.Image>().enabled          = false;
+                transform.Find("Map").GetComponent<UnityEngine.UI.Image>().enabled          = false;
 
                 //Delete the map
                 foreach (KeyValuePair<string, bool> room in roomsVisited)

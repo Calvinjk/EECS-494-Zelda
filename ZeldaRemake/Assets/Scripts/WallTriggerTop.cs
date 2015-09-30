@@ -47,7 +47,6 @@ public class WallTriggerTop : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider coll) { 
-    print("entered");
 		if (coll.gameObject.tag == "Link") {
 			entered = true;
 			link = coll.gameObject;
@@ -55,7 +54,6 @@ public class WallTriggerTop : MonoBehaviour {
 	}
 	void OnTriggerExit(Collider coll)
 	{
-		print("exited");
 		if (coll.gameObject.tag == "Link")
 		{
 			entered = false;

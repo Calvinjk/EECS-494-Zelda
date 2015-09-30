@@ -76,6 +76,10 @@ public class AquamentusStats : EnemyStats {
 			damageTimePassed = 0;
 			if (currentHealth <= 0)
 			{
+
+				GameObject door = GameObject.Find("BossBlockedDoor");
+				door.GetComponent<BoxCollider>().enabled = false;
+				door.GetComponent<SpriteRenderer>().sortingOrder = 0;
 				Instantiate(bigHeartPrefab, transform.position, Quaternion.identity);
 				BossRoom script = (BossRoom)room.GetComponent(typeof(BossRoom));
 				script.killedEnemy(this.gameObject);

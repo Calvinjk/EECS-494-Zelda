@@ -206,7 +206,6 @@ public class LinkStats : MonoBehaviour {
 		else if (coll.gameObject.tag == "EnemyWall" && linkMovement.knockbackDistance > 0) {
 			linkMovement.knockbackDistance = 0;
 			GetComponent<Rigidbody>().velocity = Vector3.zero;
-			print("triggered");
 		}
 	}
 
@@ -214,7 +213,6 @@ public class LinkStats : MonoBehaviour {
 		if (coll.gameObject.tag == "EnemyWall" && linkMovement.knockbackDistance > 0) {
 			linkMovement.knockbackDistance = 0;
 			GetComponent<Rigidbody>().velocity = Vector3.zero;
-			print("triggered");
 		}
 	}
 

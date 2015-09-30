@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class RoomManager : MonoBehaviour {
+public class BlockedRoomManager : MonoBehaviour {
   public GameObject enemyPrefab;
   public int numEnemies;
   public GameObject rewardPrefab;
@@ -12,7 +12,6 @@ public class RoomManager : MonoBehaviour {
 	public GameObject specialEnemyPrefab;
 	private GameObject specialEnemy;
 	private bool specialEnemyDead = false;
-	public List<Vector3> spawnPositions;
 
 	// Use this for initialization
 	void Start () {
@@ -30,22 +29,22 @@ public class RoomManager : MonoBehaviour {
     {
       //set current room
       spawnEnemies();
-    }
-  }
+		}
+	}
 
   public void spawnEnemies()
   {
 		if (specialEnemyPrefab != null && !specialEnemyDead) {
 			specialEnemy = Instantiate(specialEnemyPrefab, transform.position, Quaternion.identity) as GameObject;
-			EnemyStats script = (EnemyStats) specialEnemy.GetComponent(typeof(EnemyStats));
-			script.setRoom(this.gameObject);
+			KeeseStatsBlocked script = (KeeseStatsBlocked) specialEnemy.GetComponent(typeof(KeeseStatsBlocked));
+			script.rm = this.gameObject;
 		}
 		for (int i = 0; i < numEnemies - numKilled; i++)
     {
-      GameObject enemy = Instantiate(enemyPrefab, spawnPositions[i], Quaternion.identity) as GameObject;
-      EnemyStats script = (EnemyStats) enemy.GetComponent(typeof(EnemyStats));
-      script.setRoom(this.gameObject);
-      enemies.Add(enemy);
+      GameObject enemy = Instantiate(enemyPrefab, this.transform.position + new Vector3(i - 2, i - 2, 0), Quaternion.identity) as GameObject;
+      KeeseStatsBlocked script = (KeeseStatsBlocked) enemy.GetComponent(typeof(KeeseStatsBlocked));
+      script.rm = this.gameObject;
+			enemies.Add(enemy);
     }
   }
     
@@ -64,7 +63,9 @@ public class RoomManager : MonoBehaviour {
 		if (enemies.Count == 0 && ((specialEnemyPrefab != null && specialEnemyDead == true) || (!specialEnemyPrefab)))
     {
       cleared = true;
-      if (rewardPrefab)
+			transform.Find("BlockedDoorTrigger/BlockedDoor").GetComponent<BoxCollider>().enabled = false;
+			transform.Find("BlockedDoorTrigger/BlockedDoor").GetComponent<SpriteRenderer>().sortingOrder = 0;
+			if (rewardPrefab)
       {
         Instantiate(rewardPrefab, this.transform.position, Quaternion.identity);
       }
