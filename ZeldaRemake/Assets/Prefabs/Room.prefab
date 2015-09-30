@@ -56,6 +56,7 @@ MonoBehaviour:
   numEnemies: 1
   rewardPrefab: {fileID: 0}
   cleared: 0
+  specialEnemyPrefab: {fileID: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
