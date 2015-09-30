@@ -3086,7 +3086,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 418668, guid: 86c104a82060cab4db1d116d38f7e664, type: 2}
       propertyPath: m_RootOrder
-      value: 32
+      value: 33
       objectReference: {fileID: 0}
     - target: {fileID: 11458224, guid: 86c104a82060cab4db1d116d38f7e664, type: 2}
       propertyPath: swordPrefab
@@ -3102,7 +3102,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11402720, guid: 86c104a82060cab4db1d116d38f7e664, type: 2}
       propertyPath: cameraSpeed
-      value: .5
+      value: .200000003
       objectReference: {fileID: 0}
     - target: {fileID: 102338, guid: 86c104a82060cab4db1d116d38f7e664, type: 2}
       propertyPath: m_TagString
@@ -3200,6 +3200,10 @@ Prefab:
       propertyPath: HUD
       value: 
       objectReference: {fileID: 568206725}
+    - target: {fileID: 11402720, guid: 86c104a82060cab4db1d116d38f7e664, type: 2}
+      propertyPath: moveCamDown
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 86c104a82060cab4db1d116d38f7e664, type: 2}
   m_IsPrefabParent: 0
@@ -3433,7 +3437,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 36
+  m_RootOrder: 37
 --- !u!1001 &1563980223
 Prefab:
   m_ObjectHideFlags: 0

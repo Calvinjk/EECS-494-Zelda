@@ -3,7 +3,7 @@ using System.Collections;
 
 public class ArrowController : WeaponController {
 
-    public float arrowLifetime = 1000f;
+    public float arrowLifetime = 4f;
 
     // Use this for initialization
     void Start()
@@ -14,7 +14,7 @@ public class ArrowController : WeaponController {
     // Update is called once per frame
     void Update()
     {
-        --arrowLifetime;
+        arrowLifetime -= Time.deltaTime;
         if (arrowLifetime <= 0)
         {
             Destroy(this.gameObject);
