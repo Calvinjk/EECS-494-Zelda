@@ -4,25 +4,30 @@ using System.Collections;
 public class FloorMovement : MonoBehaviour {
 
     public float    moveSpeed   = 1.0f;
+    public bool     roomCleared = false;
     public bool     ______________________;
     public bool     hasMoved    = false;
     public bool     moving      = false;
     public char     moveDir;
     public Vector3  dest;
     public Vector3  curPos;
+    public RoomManager roomManager;
 
 	// Use this for initialization
 	void Start () {
         curPos = transform.position;
-	}
+        roomManager = (RoomManager)GameObject.Find("Left4").GetComponent(typeof(RoomManager));
+    }
 	
 	// Update is called once per frame
 	void Update () {
-	
+	    if (roomManager.cleared) {
+            roomCleared = true;
+        }
 	}
 
     void OnCollisionEnter(Collision coll) {
-        if (!hasMoved && !moving) {
+        if (!hasMoved && !moving && roomCleared) {
             if (coll.gameObject.tag == "Link") {
                 LinkMovement script = (LinkMovement)coll.gameObject.GetComponent(typeof(LinkMovement));
                 moveDir = script.currentDir;
@@ -42,6 +47,9 @@ public class FloorMovement : MonoBehaviour {
                         dest.x = transform.position.x - 1f;
                         break;
                 }
+
+                GameObject.Find("GelDoor").GetComponent<BoxCollider>().enabled = false;
+                GameObject.Find("GelDoor").GetComponent<SpriteRenderer>().sortingOrder = 1;
             }
         }
     }
