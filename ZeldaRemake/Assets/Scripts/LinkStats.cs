@@ -145,12 +145,14 @@ public class LinkStats : MonoBehaviour {
 
         else if (coll.gameObject.tag == "Compass") {
             hasCompass = true;
+            HUD.transform.Find("TriforceIcon").GetComponent<UnityEngine.UI.Image>().enabled = true;
             Destroy(coll.gameObject);
         }
 
         else if (coll.gameObject.tag == "Map")
         {
             hasMap = true;
+            HUD.transform.Find("MiniMap").GetComponent<UnityEngine.UI.Image>().enabled = true;
             Destroy(coll.gameObject);
         }
     }

@@ -37,7 +37,7 @@ public class HUD : MonoBehaviour {
 
                 //Map and compass checks
                 if (linkStats.hasMap) {
-
+                    transform.Find("Map").GetComponent<UnityEngine.UI.Image>().enabled = true;
                 }
                 if (linkStats.hasCompass) {
                     transform.Find("Compass").GetComponent<UnityEngine.UI.Image>().enabled = true;
@@ -89,6 +89,7 @@ public class HUD : MonoBehaviour {
                 transform.Find("SelectionArrow1").GetComponent<UnityEngine.UI.Image>().enabled  = false;
                 transform.Find("SelectionArrow2").GetComponent<UnityEngine.UI.Image>().enabled  = false;
                 transform.Find("SelectionArrow3").GetComponent<UnityEngine.UI.Image>().enabled  = false;
+                transform.Find("Compass").GetComponent<UnityEngine.UI.Image>().enabled          = false;
                 transform.Find("Compass").GetComponent<UnityEngine.UI.Image>().enabled          = false;
 
                 //Text
