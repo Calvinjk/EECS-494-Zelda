@@ -12,6 +12,7 @@ public class RoomManager : MonoBehaviour {
 	public GameObject specialEnemyPrefab;
 	private GameObject specialEnemy;
 	private bool specialEnemyDead = false;
+	public List<Vector3> spawnPositions;
 
 	// Use this for initialization
 	void Start () {
@@ -41,7 +42,7 @@ public class RoomManager : MonoBehaviour {
 		}
 		for (int i = 0; i < numEnemies - numKilled; i++)
     {
-      GameObject enemy = Instantiate(enemyPrefab, this.transform.position + new Vector3(i - 2, i - 2, 0), Quaternion.identity) as GameObject;
+      GameObject enemy = Instantiate(enemyPrefab, spawnPositions[i], Quaternion.identity) as GameObject;
       EnemyStats script = (EnemyStats) enemy.GetComponent(typeof(EnemyStats));
       script.setRoom(this.gameObject);
       enemies.Add(enemy);
