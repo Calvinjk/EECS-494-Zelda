@@ -21,6 +21,8 @@ public class BoomerangController : WeaponController {
 		}
     else if (returning)
 		{
+			if (thrower == null)
+				Destroy(this.gameObject);
 			Vector3 dir = thrower.transform.position - transform.position;
 			dir.Normalize();
 			GetComponent<Rigidbody>().velocity = dir * speed;
