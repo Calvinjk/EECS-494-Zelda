@@ -21,6 +21,7 @@ public class LinkMovement : MonoBehaviour {
 	public float maxKnockback = 10f;
 	public float knockbackFactor = 1.5f;
 	public float thrownSwordSpeed = 5f;
+    public GameObject HUD;
 	public bool ______________________;
   public char currentDir = 's';
   private float knockbackDistance = 0f;
@@ -32,9 +33,9 @@ public class LinkMovement : MonoBehaviour {
   public Vector3 boomStart;
   public bool boomerangReturning = false;
 	public GameObject bombPrefab;
-	public char itemB = 's';
-	public char itemA;
+    public string itemB = "";
 	private GameObject bombInstance;
+   
 
   LinkStats linkStats;
 
@@ -167,44 +168,29 @@ public class LinkMovement : MonoBehaviour {
 				throwSword();
 		}
 
-    if (Input.GetKeyDown(KeyCode.S))
-    {
-			if (itemB == 's')
+        if (Input.GetKeyDown(KeyCode.S)) {
 				swordAttack();
-
-			else if (itemB == 'b')
-				boomerangAttack();
-
-			else if (itemB == 'w')
-			{
-				bowAttack();
-			}
-			else if (itemB == 'm')
-			{
-				bombAttack();
-			}
 		}
 
 		if (Input.GetKeyDown(KeyCode.A)) {
-			if (itemA == 's')
-				swordAttack();
-
-			else if (itemA == 'b')
-				boomerangAttack();
-
-			else if (itemA == 'w') {
-				bowAttack();
-			}
-			else if (itemA == 'm') {
-				bombAttack();
-			}
-
+            if (itemB == "boom")
+            {
+                boomerangAttack();
+            }
+            else if (itemB == "bomb")
+            {
+                bombAttack();
+            }
+            else if (itemB == "bow")
+            {
+                bowAttack();
+            }
 		}
 
-    if (bowCooldown > 0)
-        bowCooldown--;
-    else if (bowInstance != null)
-        Destroy(bowInstance);
+        if (bowCooldown > 0)
+            bowCooldown--;
+        else if (bowInstance != null)
+            Destroy(bowInstance);
 	}
 
 	public void throwSword() {
@@ -368,6 +354,12 @@ public class LinkMovement : MonoBehaviour {
 			}
 			bombInstance = Instantiate(bombPrefab, bombPos, Quaternion.identity) as GameObject;
 			linkStats.numBombs--;
+            HUD.transform.Find("BombCount1").GetComponent<UnityEngine.UI.Text>().text = "X" + linkStats.numBombs.ToString();
+            HUD.transform.Find("BombCount2").GetComponent<UnityEngine.UI.Text>().text = "X" + linkStats.numBombs.ToString();
+            if (linkStats.numBombs == 0) {
+                itemB = "";
+                HUD.transform.Find("BombSprite1").GetComponent<UnityEngine.UI.Image>().enabled = false;
+            }
 		}
 	}  
 }
