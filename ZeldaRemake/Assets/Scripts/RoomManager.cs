@@ -81,7 +81,6 @@ public class RoomManager : MonoBehaviour {
       enemies.Clear();
 			if (specialEnemyPrefab != null && !specialEnemyDead)
 			{
-				print("destroyed");
 				Destroy(specialEnemy);
 			}
         }

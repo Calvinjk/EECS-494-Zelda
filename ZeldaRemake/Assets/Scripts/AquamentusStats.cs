@@ -62,7 +62,7 @@ public class AquamentusStats : EnemyStats {
 		}
 		if (coll.gameObject.tag == "Bomb")
 		{
-			takeDamage(2);
+			takeDamage(3);
 		}
 	}
 

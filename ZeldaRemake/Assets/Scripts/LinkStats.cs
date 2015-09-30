@@ -81,7 +81,7 @@ public class LinkStats : MonoBehaviour {
 		}
 		else if (coll.gameObject.tag == "BombItem")
 		{
-			numBombs += 3;
+            numBombs += 4;
             HUD.transform.Find("BombCount1").GetComponent<UnityEngine.UI.Text>().text = "X" + numBombs.ToString();
             HUD.transform.Find("BombCount2").GetComponent<UnityEngine.UI.Text>().text = "X" + numBombs.ToString();
             Destroy(coll.gameObject);
@@ -150,16 +150,14 @@ public class LinkStats : MonoBehaviour {
       takeDamage(1);
     }
 		else if (coll.gameObject.tag == "GoriyaBoomerang") {
-			if (coll.gameObject.GetComponent<Rigidbody>().velocity.normalized != GetComponent<Rigidbody>().velocity.normalized * -1) {
+			BoomerangController script = (BoomerangController)coll.gameObject.GetComponent(typeof(BoomerangController));
+			if (script.getDirection() != linkMovement.currentDir) {
 				takeDamage(1);
 			}
 		}
 		else if (coll.gameObject.tag == "BossAttack")
 		{
-			if (coll.gameObject.GetComponent<Rigidbody>().velocity.normalized != GetComponent<Rigidbody>().velocity.normalized * -1)
-			{
-				takeDamage(2);
-			}
+			takeDamage(2);
 		}
 		else if (coll.gameObject.tag == "BladeTrap") {
 			takeDamage(2);
@@ -171,7 +169,11 @@ public class LinkStats : MonoBehaviour {
 				Camera.main.transform.position = new Vector3(39.5f, 5f, -8f);
 			}
 		}
-  }
+		else if (coll.gameObject.tag == "Boomerang")
+		{
+			Destroy(coll.gameObject);
+		}
+	}
 
   void takeDamage(int damage)
   {

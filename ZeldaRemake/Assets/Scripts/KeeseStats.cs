@@ -77,7 +77,6 @@ public class KeeseStats : EnemyStats {
 			takeDamage(1);
     }
 		else if (coll.gameObject.tag == "Boomerang") {
-			Destroy(coll.gameObject);
 			takeDamage(1);
 
 		}

@@ -121,7 +121,6 @@ public class WallMasterStats : EnemyStats {
 			prevVelocity = GetComponent<Rigidbody>().velocity;
 			stunned = true;
 			GetComponent<Rigidbody>().velocity = Vector3.zero;
-			Destroy(coll.gameObject);
 		}
   }
 
