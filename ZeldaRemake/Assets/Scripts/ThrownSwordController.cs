@@ -2,6 +2,7 @@
 using System.Collections;
 
 public class ThrownSwordController : WeaponController {
+	private float maxTime = 4f;
 
 	// Use this for initialization
 	void Start () {
@@ -10,7 +11,9 @@ public class ThrownSwordController : WeaponController {
 	
 	// Update is called once per frame
 	void Update () {
-	
+		maxTime -= Time.deltaTime;
+		if (maxTime <= 0)
+			Destroy(this.gameObject);
 	}
 
 	void OnTriggerEnter(Collider coll)

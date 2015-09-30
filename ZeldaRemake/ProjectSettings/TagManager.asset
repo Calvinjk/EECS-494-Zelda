@@ -38,6 +38,8 @@ TagManager:
   - Heart
   - Triforce
   - BowReward
+  - ReturnTrigger
+  - ExitTrigger
   layers:
   - Default
   - TransparentFX
