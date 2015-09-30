@@ -20,7 +20,7 @@ public class LinkMovement : MonoBehaviour {
     public GameObject HUD;
 	public bool ______________________;
   public char currentDir = 's';
-  private float knockbackDistance = 0f;
+  public float knockbackDistance = 0f;
   public GameObject swordInstance;
   public GameObject boomInstance;
   public GameObject bowInstance;

@@ -203,6 +203,19 @@ public class LinkStats : MonoBehaviour {
 			Camera.main.transform.position = cameraPos;
 			transform.position = new Vector3(23, 60, 0);
 		}
+		else if (coll.gameObject.tag == "EnemyWall" && linkMovement.knockbackDistance > 0) {
+			linkMovement.knockbackDistance = 0;
+			GetComponent<Rigidbody>().velocity = Vector3.zero;
+			print("triggered");
+		}
+	}
+
+	void OnTriggerExit(Collider coll) {
+		if (coll.gameObject.tag == "EnemyWall" && linkMovement.knockbackDistance > 0) {
+			linkMovement.knockbackDistance = 0;
+			GetComponent<Rigidbody>().velocity = Vector3.zero;
+			print("triggered");
+		}
 	}
 
   void takeDamage(int damage)

@@ -117,6 +117,8 @@ MonoBehaviour:
   invincDuration: 1
   hasBoomerang: 0
   hasBow: 0
+  hasCompass: 0
+  hasMap: 0
   HUD: {fileID: 0}
 --- !u!114 &11458224
 MonoBehaviour:
@@ -139,12 +141,13 @@ MonoBehaviour:
   swordCooldown: 0
   maxCooldown: 15
   bowCooldown: 45
-  maxKnockback: 10
+  maxKnockback: 5
   knockbackFactor: 5
   thrownSwordSpeed: 10
   HUD: {fileID: 0}
   ______________________: 0
   currentDir: 101
+  knockbackDistance: 0
   swordInstance: {fileID: 0}
   boomInstance: {fileID: 0}
   bowInstance: {fileID: 0}
@@ -191,7 +194,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: maxKnockback
-      value: 10
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: knockbackFactor
