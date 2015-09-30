@@ -284,6 +284,8 @@ public class LinkMovement : MonoBehaviour {
 				arrowInstance.transform.Rotate(new Vector3(0, 0, 1), 270);
 				arrowInstance.GetComponent<Rigidbody>().velocity = new Vector3(0, -arrowSpeed, 0);
 			}
+			ArrowController script = (ArrowController)arrowInstance.GetComponent(typeof(ArrowController));
+			script.setDirection(currentDir);
 		}
 	}
 
