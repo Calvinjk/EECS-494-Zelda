@@ -16,7 +16,6 @@ public class LinkStats : MonoBehaviour {
     LinkMovement linkMovement;
 
     // Use this for initialization
-
     void Start () {
         linkMovement = (LinkMovement)GetComponent(typeof(LinkMovement));
 

@@ -96,7 +96,6 @@ public class HUD : MonoBehaviour {
         if (paused) {
             switch (curItem) {
                 case 0:
-                    print("ERROR IN SELECTION PROCESS. INVALID ITEM");
                     break;
                 case 1:
                     if (Input.GetKeyDown(KeyCode.LeftArrow)) {
