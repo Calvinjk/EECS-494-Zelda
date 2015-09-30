@@ -41,6 +41,7 @@ TagManager:
   - ReturnTrigger
   - ExitTrigger
   - Compass
+  - Map
   layers:
   - Default
   - TransparentFX
