@@ -12,6 +12,8 @@ public class LinkStats : MonoBehaviour {
   private float duration;
   public bool hasBoomerang = false;
   public bool hasBow = false;
+    public bool hasCompass = false;
+    public bool hasMap = false;
   public GameObject HUD;
     LinkMovement linkMovement;
 
@@ -140,7 +142,18 @@ public class LinkStats : MonoBehaviour {
                 }
             }
         }
-  }
+
+        else if (coll.gameObject.tag == "Compass") {
+            hasCompass = true;
+            Destroy(coll.gameObject);
+        }
+
+        else if (coll.gameObject.tag == "Map")
+        {
+            hasMap = true;
+            Destroy(coll.gameObject);
+        }
+    }
 
   void OnTriggerEnter(Collider coll)
   {

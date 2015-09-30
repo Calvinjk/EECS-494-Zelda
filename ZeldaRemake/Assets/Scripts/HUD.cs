@@ -18,6 +18,7 @@ public class HUD : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        //Make sure the correct information displays
         if (Input.GetKeyDown(KeyCode.Return)) {
             if (!paused) {
                 //Images
@@ -32,6 +33,14 @@ public class HUD : MonoBehaviour {
                 }            
                 if (linkStats.hasBow == true) {
                     transform.Find("BowSprite3").GetComponent<UnityEngine.UI.Image>().enabled = true;
+                }
+
+                //Map and compass checks
+                if (linkStats.hasMap) {
+
+                }
+                if (linkStats.hasCompass) {
+                    transform.Find("Compass").GetComponent<UnityEngine.UI.Image>().enabled = true;
                 }
 
                 //Where to put selection arrow
@@ -67,7 +76,7 @@ public class HUD : MonoBehaviour {
                 transform.Find("HeartCount2").GetComponent<UnityEngine.UI.Text>().enabled   = true;
                 
                 paused = true;
-            } else {
+            } else { //DESTROY EVERYTHING
                 //Images
                 transform.Find("ItemSelect").GetComponent<UnityEngine.UI.Image>().enabled       = false;
                 transform.Find("SwordSprite2").GetComponent<UnityEngine.UI.Image>().enabled     = false;
@@ -80,6 +89,7 @@ public class HUD : MonoBehaviour {
                 transform.Find("SelectionArrow1").GetComponent<UnityEngine.UI.Image>().enabled  = false;
                 transform.Find("SelectionArrow2").GetComponent<UnityEngine.UI.Image>().enabled  = false;
                 transform.Find("SelectionArrow3").GetComponent<UnityEngine.UI.Image>().enabled  = false;
+                transform.Find("Compass").GetComponent<UnityEngine.UI.Image>().enabled          = false;
 
                 //Text
                 transform.Find("RupeeCount2").GetComponent<UnityEngine.UI.Text>().enabled   = false;
