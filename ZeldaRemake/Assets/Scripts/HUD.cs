@@ -11,6 +11,7 @@ public class HUD : MonoBehaviour {
     LinkStats       linkStats;
     LinkMovement    linkMovement;
     public Dictionary<string, bool> roomsVisited;
+    public string curRoom = "c1";
 
 
     // Use this for initialization
@@ -18,6 +19,7 @@ public class HUD : MonoBehaviour {
         linkStats = (LinkStats)GameObject.Find("Link").GetComponent(typeof(LinkStats));
         linkMovement = (LinkMovement)GameObject.Find("Link").GetComponent(typeof(LinkMovement));
         roomsVisited = new Dictionary<string, bool>();
+        roomsVisited.Add("c1", true);
     }
 	
 	// Update is called once per frame
@@ -31,8 +33,11 @@ public class HUD : MonoBehaviour {
 
                 //Re-draw the map
                 foreach(KeyValuePair<string, bool> room in roomsVisited) {
-                    transform.Find(room.Key).GetComponent<UnityEngine.UI.Image>().enabled = true;
+                    transform.Find("ItemSelect").Find("InventoryMap").Find(room.Key).GetComponent<UnityEngine.UI.Image>().enabled = true;
                 }
+                transform.Find("ItemSelect").Find("InventoryMap").Find("Position").GetComponent<UnityEngine.UI.Image>().GetComponent<RectTransform>().position =
+                    transform.Find("ItemSelect").Find("InventoryMap").Find(curRoom).GetComponent<UnityEngine.UI.Image>().GetComponent<RectTransform>().position;
+                transform.Find("ItemSelect").Find("InventoryMap").Find("Position").GetComponent<UnityEngine.UI.Image>().enabled = true;
 
                 //Weapon Checks
                 if (linkStats.hasBoomerang == true) {
@@ -105,8 +110,9 @@ public class HUD : MonoBehaviour {
                 //Delete the map
                 foreach (KeyValuePair<string, bool> room in roomsVisited)
                 {
-                    transform.Find(room.Key).GetComponent<UnityEngine.UI.Image>().enabled = false;
+                    transform.Find("ItemSelect").Find("InventoryMap").Find(room.Key).GetComponent<UnityEngine.UI.Image>().enabled = false;
                 }
+                transform.Find("ItemSelect").Find("InventoryMap").Find("Position").GetComponent<UnityEngine.UI.Image>().enabled = false;
 
                 //Text
                 transform.Find("RupeeCount2").GetComponent<UnityEngine.UI.Text>().enabled   = false;
