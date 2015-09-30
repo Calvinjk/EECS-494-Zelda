@@ -172,6 +172,22 @@ public class LinkStats : MonoBehaviour {
 		{
 			Destroy(coll.gameObject);
 		}
+		else if (coll.gameObject.tag == "ExitTrigger")
+		{
+			Vector3 cameraPos = Camera.main.transform.position;
+			cameraPos.x = 200;
+			cameraPos.y = 200;
+			Camera.main.transform.position = cameraPos;
+			transform.position = new Vector3(195, 203, 0);
+		}
+		else if (coll.gameObject.tag == "ReturnTrigger")
+		{
+			Vector3 cameraPos = Camera.main.transform.position;
+			cameraPos.x = 23;
+			cameraPos.y = 60;
+			Camera.main.transform.position = cameraPos;
+			transform.position = new Vector3(23, 60, 0);
+		}
 	}
 
   void takeDamage(int damage)

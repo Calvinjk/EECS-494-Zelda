@@ -117,6 +117,7 @@ MonoBehaviour:
   invincDuration: 1
   hasBoomerang: 0
   hasBow: 0
+  HUD: {fileID: 0}
 --- !u!114 &11458224
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -134,10 +135,6 @@ MonoBehaviour:
   boomPrefab: {fileID: 135334, guid: 30d9113ec1ab5104d829b2c6a7609b0b, type: 2}
   bowPrefab: {fileID: 0}
   arrowPrefab: {fileID: 0}
-  boomerangSpeed: 1
-  boomerangReturnSpeed: .0199999996
-  boomerangRotationSpeed: 1
-  maxBoomerangDist: 1
   arrowSpeed: 1
   swordCooldown: 0
   maxCooldown: 15
@@ -145,6 +142,7 @@ MonoBehaviour:
   maxKnockback: 10
   knockbackFactor: 5
   thrownSwordSpeed: 10
+  HUD: {fileID: 0}
   ______________________: 0
   currentDir: 101
   swordInstance: {fileID: 0}
@@ -152,11 +150,8 @@ MonoBehaviour:
   bowInstance: {fileID: 0}
   arrowInstance: {fileID: 0}
   thrownSword: {fileID: 0}
-  boomStart: {x: 0, y: 0, z: 0}
-  boomerangReturning: 0
   bombPrefab: {fileID: 105074, guid: 09d9c900538fcce44b0d6f87ba2fb928, type: 2}
-  itemB: 115
-  itemA: 0
+  itemB: 
 --- !u!212 &21289638
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -237,6 +232,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_LocalPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: itemB
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
