@@ -160,6 +160,7 @@ public class GoriyaStats : EnemyStats
 			damageTimePassed = 0;
 			if (currentHealth <= 0)
 			{
+				Destroy(boomerangInstance);
 				dropItem();
 				RoomManager script = (RoomManager)room.GetComponent(typeof(RoomManager));
 				script.killedEnemy(this.gameObject);
