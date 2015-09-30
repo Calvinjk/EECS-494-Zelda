@@ -207,7 +207,7 @@ public class StalfosStats : EnemyStats {
 
 	void alignWithGrid (){
 		Vector3 newPos = transform.position;
-    float xOffset = newPos.x % 1f;
+        float xOffset = newPos.x % 1f;
 		float yOffset = newPos.y % 1f;
 		double deciY = newPos.y - Math.Truncate(newPos.y);
 		double deciX = newPos.x - Math.Truncate(newPos.x);
