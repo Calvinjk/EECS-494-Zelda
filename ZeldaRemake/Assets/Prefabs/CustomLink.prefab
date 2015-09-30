@@ -1,0 +1,194 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &189122
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 438976}
+  - 212: {fileID: 21274594}
+  - 114: {fileID: 11461486}
+  - 54: {fileID: 5421178}
+  - 65: {fileID: 6512350}
+  - 95: {fileID: 9554624}
+  - 114: {fileID: 11427952}
+  - 114: {fileID: 11460132}
+  m_Layer: 0
+  m_Name: CustomLink
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &438976
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 189122}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 16.4400005, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!54 &5421178
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 189122}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: .0500000007
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 120
+  m_CollisionDetection: 0
+--- !u!65 &6512350
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 189122}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: .9375, y: .800000012, z: .200000003}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!95 &9554624
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 189122}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &11427952
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 189122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2c452af4545e2f4fb509a5ac64dde84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 6
+  currentHealth: 6
+  numRupees: 0
+  numKeys: 0
+  numBombs: 5
+  invincible: 0
+  invincDuration: 1
+  hasBoomerang: 0
+  hasBow: 0
+  hasCompass: 0
+  hasMap: 0
+  HUD: {fileID: 0}
+--- !u!114 &11460132
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 189122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82b5e748d6dcdd04d81c992020557a2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraSpeed: 1
+  _________________________: 0
+  moveCamUp: 0
+  moveCamDown: 0
+  moveCamLeft: 0
+  moveCamRight: 0
+  oldCamPos: {x: 0, y: 0, z: 0}
+  newCamPos: {x: 0, y: 0, z: 0}
+--- !u!114 &11461486
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 189122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4ce0c9c1ab660943965c371c454663a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  velocityFactor: 4
+  swordPrefab: {fileID: 130804, guid: 47678643f4e832948bd10bbf7d475eaf, type: 2}
+  thrownSwordPrefab: {fileID: 164340, guid: 2132f91de1b3eb549aa2c0e3bbd05a4b, type: 2}
+  boomPrefab: {fileID: 135334, guid: 30d9113ec1ab5104d829b2c6a7609b0b, type: 2}
+  bowPrefab: {fileID: 0}
+  arrowPrefab: {fileID: 0}
+  arrowSpeed: 1
+  swordCooldown: 0
+  maxCooldown: 15
+  bowCooldown: 45
+  maxKnockback: 5
+  knockbackFactor: 5
+  thrownSwordSpeed: 10
+  HUD: {fileID: 0}
+  ______________________: 0
+  currentDir: 101
+  knockbackDistance: 0
+  swordInstance: {fileID: 0}
+  boomInstance: {fileID: 0}
+  bowInstance: {fileID: 0}
+  arrowInstance: {fileID: 0}
+  thrownSword: {fileID: 0}
+  bombPrefab: {fileID: 105074, guid: 09d9c900538fcce44b0d6f87ba2fb928, type: 2}
+  itemB: 
+--- !u!212 &21274594
+SpriteRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 189122}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_ReflectionProbeUsage: 0
+  m_ProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_ImportantGI: 0
+  m_AutoUVMaxDistance: .5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingOrder: 4
+  m_Sprite: {fileID: 21300030, guid: 45afd34443b96473598b76e2b1778b4e, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 189122}
+  m_IsPrefabParent: 1
