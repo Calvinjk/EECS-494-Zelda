@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class HUD : MonoBehaviour {
 
@@ -9,11 +10,14 @@ public class HUD : MonoBehaviour {
     public int      curItem = 0;
     LinkStats       linkStats;
     LinkMovement    linkMovement;
+    public Dictionary<string, bool> roomsVisited;
+
 
     // Use this for initialization
     void Start () {    
         linkStats = (LinkStats)GameObject.Find("Link").GetComponent(typeof(LinkStats));
         linkMovement = (LinkMovement)GameObject.Find("Link").GetComponent(typeof(LinkMovement));
+        roomsVisited = new Dictionary<string, bool>();
     }
 	
 	// Update is called once per frame
@@ -24,6 +28,12 @@ public class HUD : MonoBehaviour {
                 //Images
                 transform.Find("ItemSelect").GetComponent<UnityEngine.UI.Image>().enabled   = true;
                 transform.Find("SwordSprite2").GetComponent<UnityEngine.UI.Image>().enabled = true;
+
+                //Re-draw the map
+                foreach(KeyValuePair<string, bool> room in roomsVisited) {
+                    transform.Find(room.Key).GetComponent<UnityEngine.UI.Image>().enabled = true;
+                }
+
                 //Weapon Checks
                 if (linkStats.hasBoomerang == true) {
                     transform.Find("BoomerangSprite3").GetComponent<UnityEngine.UI.Image>().enabled = true;
@@ -91,6 +101,12 @@ public class HUD : MonoBehaviour {
                 transform.Find("SelectionArrow3").GetComponent<UnityEngine.UI.Image>().enabled  = false;
                 transform.Find("Compass").GetComponent<UnityEngine.UI.Image>().enabled          = false;
                 transform.Find("Compass").GetComponent<UnityEngine.UI.Image>().enabled          = false;
+
+                //Delete the map
+                foreach (KeyValuePair<string, bool> room in roomsVisited)
+                {
+                    transform.Find(room.Key).GetComponent<UnityEngine.UI.Image>().enabled = false;
+                }
 
                 //Text
                 transform.Find("RupeeCount2").GetComponent<UnityEngine.UI.Text>().enabled   = false;
