@@ -55,11 +55,8 @@ public class KeeseStats : EnemyStats {
 			GetComponent<Rigidbody>().velocity = direction * curVel;
 			distToNext = Mathf.Abs(Vector3.Distance(transform.position, nextBlock));
 		}
-		else if (distToNext <= decelDist && curVel == 0)
-		{
-			curVel = 1f;
-		}
-		if (distToNext <= 0.1 && !waiting) {
+
+		else if (distToNext <= 0.1 && !waiting) {
 			GetComponent<Rigidbody>().velocity = Vector3.zero;
 			curVel = 0;
 			distToNext = 0;
@@ -67,6 +64,10 @@ public class KeeseStats : EnemyStats {
 			nextBlock = Vector3.zero;
 			waiting = true;
 			timePassed = 0;
+		}
+		else
+		{
+			curVel = 1f;
 		}
 	}
 
