@@ -42,6 +42,7 @@ TagManager:
   - ExitTrigger
   - Compass
   - Map
+  - Pit
   layers:
   - Default
   - TransparentFX

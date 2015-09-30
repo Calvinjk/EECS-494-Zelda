@@ -52,6 +52,11 @@ public class LinkStats : MonoBehaviour {
   }
 
   void OnCollisionEnter(Collision coll) {
+
+			if (coll.gameObject.tag == "Wall" || coll.gameObject.tag == "block") {
+				linkMovement.dashing = false;
+				GetComponent<Rigidbody>().velocity = Vector3.zero;
+			}
         if (coll.gameObject.tag == "Rupee") {           
             numRupees++;
             HUD.transform.Find("RupeeCount1").GetComponent<UnityEngine.UI.Text>().text = "X" + numRupees.ToString();
@@ -163,6 +168,7 @@ public class LinkStats : MonoBehaviour {
     {
       takeDamage(1);
     }
+
 		else if (coll.gameObject.tag == "GoriyaBoomerang") {
 			BoomerangController script = (BoomerangController)coll.gameObject.GetComponent(typeof(BoomerangController));
 			if (script.getDirection() != linkMovement.currentDir) {
@@ -206,6 +212,18 @@ public class LinkStats : MonoBehaviour {
 		else if (coll.gameObject.tag == "EnemyWall" && linkMovement.knockbackDistance > 0) {
 			linkMovement.knockbackDistance = 0;
 			GetComponent<Rigidbody>().velocity = Vector3.zero;
+		}
+	}
+
+	void OnTriggerStay(Collider coll)
+	{
+		if (coll.gameObject.tag == "Pit")
+		{
+			if (!linkMovement.dashing)
+			{
+				takeDamage(2);
+				transform.position = new Vector3(39.5f, 1.5f, 0);
+			}
 		}
 	}
 
