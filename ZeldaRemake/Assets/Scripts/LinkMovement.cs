@@ -134,21 +134,23 @@ public class LinkMovement : MonoBehaviour {
       knockbackDistance--;
     }
 
-		if (dashing && Vector3.Distance(dashStartPos, transform.position) < dashDistance)
-		{
-			if (currentDir == 'e')
-				horizontalInput = dashingSpeed;
-			else if (currentDir == 'w')
-				horizontalInput = -dashingSpeed;
-			else if (currentDir == 's')
-				verticalInput = -dashingSpeed;
-			else if (currentDir == 'n')
-				verticalInput = dashingSpeed;
-		}
-		else if (dashing && Vector3.Distance(dashStartPos, transform.position) >= dashDistance)
-			dashing = false;
+        if (dashing && Vector3.Distance(dashStartPos, transform.position) < dashDistance)
+        {
+            if (currentDir == 'e')
+                horizontalInput = dashingSpeed;
+            else if (currentDir == 'w')
+                horizontalInput = -dashingSpeed;
+            else if (currentDir == 's')
+                verticalInput = -dashingSpeed;
+            else if (currentDir == 'n')
+                verticalInput = dashingSpeed;
+        }
+        else if (dashing && Vector3.Distance(dashStartPos, transform.position) >= dashDistance)
+        {
+            dashing = false;
+        }
 
-			Vector3 newVelocity = new Vector3(horizontalInput, verticalInput, 0);
+	Vector3 newVelocity = new Vector3(horizontalInput, verticalInput, 0);
     GetComponent<Rigidbody>().velocity = newVelocity * velocityFactor;
 
     //animate
@@ -179,8 +181,10 @@ public class LinkMovement : MonoBehaviour {
 		}
 
 		if (Input.GetKeyDown(KeyCode.A)) {
-				dash();
-						/*
+            if (itemB == "boot")
+            {
+                dash();
+            }
             if (itemB == "boom")
             {
                 boomerangAttack();
@@ -193,7 +197,6 @@ public class LinkMovement : MonoBehaviour {
             {
                 bowAttack();
             }
-						*/
 		}
 
         if (bowCooldown > 0)
@@ -205,8 +208,6 @@ public class LinkMovement : MonoBehaviour {
 	public void dash() {
 		dashing = true;
 		dashStartPos = transform.position;
-		
-
 	}
 
 	public void throwSword() {

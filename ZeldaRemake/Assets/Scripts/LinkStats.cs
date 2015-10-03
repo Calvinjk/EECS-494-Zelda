@@ -2,19 +2,20 @@
 using System.Collections;
 
 public class LinkStats : MonoBehaviour {
-  public int maxHealth = 6;
-  public int currentHealth = 6;
-  public int numRupees = 0;
-  public int numKeys = 0;
-  public int numBombs = 5;
-  public bool invincible = false;
-  public float invincDuration = 1;
-  private float duration;
-  public bool hasBoomerang = false;
-  public bool hasBow = false;
+    public int maxHealth = 6;
+    public int currentHealth = 6;
+    public int numRupees = 0;
+    public int numKeys = 0;
+    public int numBombs = 5;
+    public bool invincible = false;
+    public float invincDuration = 1;
+    private float duration;
+    public bool hasBoomerang = false;
+    public bool hasBow = false;
+    public bool hasBoots = false;
     public bool hasCompass = false;
     public bool hasMap = false;
-  public GameObject HUD;
+    public GameObject HUD;
     LinkMovement linkMovement;
 
     // Use this for initialization
@@ -53,10 +54,11 @@ public class LinkStats : MonoBehaviour {
 
   void OnCollisionEnter(Collision coll) {
 
-			if (coll.gameObject.tag == "Wall" || coll.gameObject.tag == "block") {
-				linkMovement.dashing = false;
-				GetComponent<Rigidbody>().velocity = Vector3.zero;
-			}
+		if (coll.gameObject.tag == "Wall" || coll.gameObject.tag == "block" || coll.gameObject.tag == "UpDoor" || coll.gameObject.tag == "DownDoor" ||
+                coll.gameObject.tag == "LeftDoor" || coll.gameObject.tag == "RightDoor") {
+			linkMovement.dashing = false;
+			GetComponent<Rigidbody>().velocity = Vector3.zero;
+		}
         if (coll.gameObject.tag == "Rupee") {           
             numRupees++;
             HUD.transform.Find("RupeeCount1").GetComponent<UnityEngine.UI.Text>().text = "X" + numRupees.ToString();
@@ -98,11 +100,22 @@ public class LinkStats : MonoBehaviour {
                 HUD.transform.Find("BombSprite1").GetComponent<UnityEngine.UI.Image>().enabled = true;
             }
 		}
-		else if (coll.gameObject.tag == "Triforce") {
+        else if (coll.gameObject.tag == "Shoes")
+        {
+            hasBoots = true;
+            Destroy(coll.gameObject);
+
+            //If no secondary weapon is equipped, equip the boots you just picked up
+            if (linkMovement.itemB == "")
+            {
+                linkMovement.itemB = "boot";
+                //Look at above to deal with HUD stuff --TODO
+            }
+        }
+        else if (coll.gameObject.tag == "Triforce") {
 			transform.position = new Vector3(39.5f, 1.5f, 0f);
 			Camera.main.transform.position = new Vector3(39.5f, 5f, -8f);
 		}
-
 		else if (coll.gameObject.tag == "Key") {
             numKeys++;
             HUD.transform.Find("KeyCount1").GetComponent<UnityEngine.UI.Text>().text = "X" + numKeys.ToString();
@@ -222,7 +235,7 @@ public class LinkStats : MonoBehaviour {
 			if (!linkMovement.dashing)
 			{
 				takeDamage(2);
-				transform.position = new Vector3(39.5f, 1.5f, 0);
+				//transform.position = new Vector3(39.5f, 1.5f, 0);
 			}
 		}
 	}
