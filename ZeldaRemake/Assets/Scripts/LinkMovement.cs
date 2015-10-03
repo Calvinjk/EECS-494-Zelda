@@ -17,6 +17,8 @@ public class LinkMovement : MonoBehaviour {
 	public float maxKnockback = 10f;
 	public float knockbackFactor = 1.5f;
 	public float thrownSwordSpeed = 5f;
+    public float dashingSpeed = 5f;
+    public float dashDistance = 2f;
     public GameObject HUD;
 	public bool ______________________;
   public char currentDir = 's';
@@ -31,9 +33,7 @@ public class LinkMovement : MonoBehaviour {
 	private GameObject bombInstance;
     public HUD hud;
 	public bool dashing = false;
-	public float dashingSpeed = 5f;
-	private Vector3 dashStartPos;
-	public float dashDistance = 2f;
+    private Vector3 dashStartPos;
    
 
   LinkStats linkStats;
