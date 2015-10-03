@@ -45,6 +45,8 @@ TagManager:
   - Pit
   - PressurePlate
   - Shoes
+  - BossBack
+  - BossFront
   layers:
   - Default
   - TransparentFX

@@ -190,7 +190,7 @@ public class LinkStats : MonoBehaviour {
 				takeDamage(1);
 			}
 		}
-		else if (coll.gameObject.tag == "BossAttack")
+		else if (coll.gameObject.tag == "BossAttack" || coll.gameObject.tag == "BossBack" || coll.gameObject.tag == "BossFront")
 		{
 			takeDamage(2);
 		}
