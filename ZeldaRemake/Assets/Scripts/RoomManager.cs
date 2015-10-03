@@ -63,6 +63,7 @@ public class RoomManager : MonoBehaviour {
     Destroy(enemy);
 		if (enemies.Count == 0 && ((specialEnemyPrefab != null && specialEnemyDead == true) || (!specialEnemyPrefab)))
     {
+			onClear();
       cleared = true;
       if (rewardPrefab)
       {
@@ -86,4 +87,8 @@ public class RoomManager : MonoBehaviour {
 			}
         }
     }
+
+	public virtual void onClear() {
+
+	}
 }

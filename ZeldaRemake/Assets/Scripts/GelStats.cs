@@ -66,7 +66,7 @@ public class GelStats : EnemyStats {
 		else if (coll.gameObject.tag == "Boomerang") {
 			takeDamage(1);
 		}
-    else if (coll.gameObject.tag == "EnemyWall" || coll.gameObject.tag == "block" || coll.gameObject.tag == "Wall" || coll.gameObject.tag == "Lock" || coll.gameObject.tag == "UpDoor" || coll.gameObject.tag == "RightDoor" || coll.gameObject.tag == "LeftDoor" || coll.gameObject.tag == "DownDoor")
+    else if (coll.gameObject.tag == "Pit" || coll.gameObject.tag == "EnemyWall" || coll.gameObject.tag == "block" || coll.gameObject.tag == "Wall" || coll.gameObject.tag == "Lock" || coll.gameObject.tag == "UpDoor" || coll.gameObject.tag == "RightDoor" || coll.gameObject.tag == "LeftDoor" || coll.gameObject.tag == "DownDoor")
     {
 			direction = (direction + 0.25f) % 1;
 			changeDirection();

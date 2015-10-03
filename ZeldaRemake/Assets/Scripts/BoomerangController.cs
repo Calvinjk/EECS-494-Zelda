@@ -58,7 +58,7 @@ public class BoomerangController : WeaponController {
 	}
 
 	void OnTriggerEnter(Collider coll) {
-		if (!returning && coll.gameObject.tag != "Room" && coll.gameObject.tag != "block" && coll.gameObject.tag != "BombItem" && coll.gameObject.tag != "Rupee" && coll.gameObject.tag != "Heart" && coll.gameObject.tag != "BigRupee") {
+		if (!returning && coll.gameObject.tag != "Pit" && coll.gameObject.tag != "Room" && coll.gameObject.tag != "block" && coll.gameObject.tag != "BombItem" && coll.gameObject.tag != "Rupee" && coll.gameObject.tag != "Heart" && coll.gameObject.tag != "BigRupee") {
 			returning = true;
 		}
   }
