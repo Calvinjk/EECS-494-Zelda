@@ -48,19 +48,33 @@ public class SlidingBarTrap : MonoBehaviour {
         if ((pressurePlate.triggered && transform.position != startPos) || (!pressurePlate.triggered && transform.position != endPos)) { 
             switch (dir) {
                 case 'n':
-                    if (transform.position.y < endPos.y) {
-                        transform.position = new Vector3(0, transform.position.y + (0.1f * speed), 0);
-                    }
-                    else {
-                        transform.position = endPos;
+                    if (!pressurePlate.triggered) {
+                        if (transform.position.y < endPos.y) {
+                            transform.position = new Vector3(transform.position.x, transform.position.y + (0.1f * speed), 0);
+                        } else {
+                            transform.position = endPos;
+                        }
+                    } else {
+                        if (transform.position.y > startPos.y) {
+                            transform.position = new Vector3(transform.position.x, transform.position.y - (0.1f * speed), 0);
+                        } else {
+                            transform.position = startPos;
+                        }
                     }
                     break;
                 case 's':
-                    if (transform.position.y > endPos.y) {
-                        transform.position = new Vector3(0, transform.position.y - (0.1f * speed), 0);
-                    }
-                    else {
-                        transform.position = endPos;
+                    if (!pressurePlate.triggered) {
+                        if (transform.position.y > endPos.y) {
+                            transform.position = new Vector3(transform.position.x, transform.position.y - (0.1f * speed), 0);
+                        } else {
+                            transform.position = endPos;
+                        }
+                    } else {
+                        if (transform.position.y < startPos.y) {
+                            transform.position = new Vector3(transform.position.x, transform.position.y + (0.1f * speed), 0);
+                        } else {
+                            transform.position = startPos;
+                        }
                     }
                     break;
                 case 'e':
