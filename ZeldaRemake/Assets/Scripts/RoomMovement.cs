@@ -19,6 +19,7 @@ public class RoomMovement : MonoBehaviour {
 
     
     void OnTriggerEnter(Collider other) {
+				
         if (other.tag == "LeftDoor") {
             // Move Camera
             newCamPos.x = oldCamPos.x - 16.0f;
@@ -53,7 +54,9 @@ public class RoomMovement : MonoBehaviour {
                 Vector3 newLinkPos = transform.position;
                 newLinkPos.x -= 2f;
                 transform.position = newLinkPos;
-            }
+				LinkStats stats = (LinkStats)GetComponent(typeof(LinkStats));
+				stats.returnPos = transform.position;
+			}
         } else if (moveCamRight){
             if (oldCamPos.x <= newCamPos.x) {
                 oldCamPos.x += 1.0f * cameraSpeed;
@@ -68,7 +71,9 @@ public class RoomMovement : MonoBehaviour {
                 Vector3 newLinkPos = transform.position;
                 newLinkPos.x += 2f;
                 transform.position = newLinkPos;
-            }
+				LinkStats stats = (LinkStats)GetComponent(typeof(LinkStats));
+				stats.returnPos = transform.position;
+			}
         } else if (moveCamUp) {
             if (oldCamPos.y <= newCamPos.y) {
                 oldCamPos.y += 1.0f * cameraSpeed;
@@ -84,7 +89,9 @@ public class RoomMovement : MonoBehaviour {
                 Vector3 newLinkPos = transform.position;
                 newLinkPos.y += 2f;
                 transform.position = newLinkPos;
-            }
+				LinkStats stats = (LinkStats)GetComponent(typeof(LinkStats));
+				stats.returnPos = transform.position;
+			}
         }
         else if (moveCamDown) {
             if (oldCamPos.y >= newCamPos.y) {
@@ -101,7 +108,10 @@ public class RoomMovement : MonoBehaviour {
                 Vector3 newLinkPos = transform.position;
                 newLinkPos.y -= 2f;
                 transform.position = newLinkPos;
-            }
+								LinkStats stats = (LinkStats)GetComponent(typeof(LinkStats));
+								stats.returnPos = transform.position;
+						}
         }
+
     }
 }

@@ -17,9 +17,11 @@ public class LinkStats : MonoBehaviour {
     public bool hasMap = false;
     public GameObject HUD;
     LinkMovement linkMovement;
+		public Vector3 returnPos;
 
     // Use this for initialization
     void Start () {
+				returnPos = transform.position;
         linkMovement = (LinkMovement)GetComponent(typeof(LinkMovement));
 
         HUD.transform.Find("RupeeCount1").GetComponent<UnityEngine.UI.Text>().text = "X" + numRupees.ToString();
@@ -234,8 +236,8 @@ public class LinkStats : MonoBehaviour {
 		{
 			if (!linkMovement.dashing)
 			{
-				takeDamage(2);
-				//transform.position = new Vector3(39.5f, 1.5f, 0);
+				takeDamage(2, false);
+				transform.position = returnPos;
 			}
 		}
 	}
@@ -247,13 +249,14 @@ public class LinkStats : MonoBehaviour {
 		}
 	}
 
-  void takeDamage(int damage)
+  void takeDamage(int damage, bool shouldKnockback = true)
   {
     if (!invincible)
     {
       LinkMovement moveScript = GetComponent<LinkMovement>();
-      moveScript.knockBack();
-      currentHealth -= damage;
+			if (shouldKnockback)
+					moveScript.knockBack();
+			currentHealth -= damage;
             HUD.transform.Find("HeartCount1").GetComponent<UnityEngine.UI.Text>().text = currentHealth.ToString() + "/" + maxHealth.ToString();
             HUD.transform.Find("HeartCount2").GetComponent<UnityEngine.UI.Text>().text = currentHealth.ToString() + "/" + maxHealth.ToString();
             invincible = true;
