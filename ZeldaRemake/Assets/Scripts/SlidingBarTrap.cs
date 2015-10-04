@@ -40,7 +40,9 @@ public class SlidingBarTrap : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        Move();
+        if (pressurePlate.activated) {
+            Move();
+        }
 	}
 
     public void Move() {
