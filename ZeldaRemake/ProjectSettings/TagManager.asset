@@ -47,6 +47,7 @@ TagManager:
   - Shoes
   - BossBack
   - BossFront
+  - SetPos
   layers:
   - Default
   - TransparentFX

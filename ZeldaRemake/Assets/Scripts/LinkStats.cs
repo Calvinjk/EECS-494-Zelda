@@ -228,6 +228,9 @@ public class LinkStats : MonoBehaviour {
 			linkMovement.knockbackDistance = 0;
 			GetComponent<Rigidbody>().velocity = Vector3.zero;
 		}
+		else if (coll.gameObject.tag == "SetPos") {
+			returnPos = transform.position;
+		}
 	}
 
 	void OnTriggerStay(Collider coll)
