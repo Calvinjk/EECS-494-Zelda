@@ -117,9 +117,11 @@ MonoBehaviour:
   invincDuration: 1
   hasBoomerang: 0
   hasBow: 0
+  hasBoots: 0
   hasCompass: 0
   hasMap: 0
   HUD: {fileID: 0}
+  returnPos: {x: 0, y: 0, z: 0}
 --- !u!114 &11458224
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -144,6 +146,8 @@ MonoBehaviour:
   maxKnockback: 5
   knockbackFactor: 5
   thrownSwordSpeed: 10
+  dashingSpeed: 5
+  dashDistance: 2
   HUD: {fileID: 0}
   ______________________: 0
   currentDir: 101
@@ -155,6 +159,12 @@ MonoBehaviour:
   thrownSword: {fileID: 0}
   bombPrefab: {fileID: 105074, guid: 09d9c900538fcce44b0d6f87ba2fb928, type: 2}
   itemB: 
+  hud: {fileID: 0}
+  dashing: 0
+  dashCooldown: .5
+  dashTimeLeft: 0
+  stunTime: 1
+  stunTimeLeft: 0
 --- !u!212 &21289638
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -239,6 +249,14 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: itemB
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: stunTime
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: stunTimeLeft
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

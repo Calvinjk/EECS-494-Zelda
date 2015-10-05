@@ -59,6 +59,7 @@ public class LinkStats : MonoBehaviour {
 		if (coll.gameObject.tag == "Wall" || coll.gameObject.tag == "block" || coll.gameObject.tag == "UpDoor" || coll.gameObject.tag == "DownDoor" ||
                 coll.gameObject.tag == "LeftDoor" || coll.gameObject.tag == "RightDoor") {
 			linkMovement.dashing = false;
+			linkMovement.dashTimeLeft = 0;
 			GetComponent<Rigidbody>().velocity = Vector3.zero;
 		}
         if (coll.gameObject.tag == "Rupee") {           
@@ -188,20 +189,28 @@ public class LinkStats : MonoBehaviour {
 			BoomerangController script = (BoomerangController)coll.gameObject.GetComponent(typeof(BoomerangController));
 			if (script.getDirection() != linkMovement.currentDir) {
 				takeDamage(1);
+				linkMovement.dashing = false;
+				linkMovement.dashTimeLeft = 0;
 			}
 		}
 		else if (coll.gameObject.tag == "BossAttack" || coll.gameObject.tag == "BossBack" || coll.gameObject.tag == "BossFront")
 		{
 			takeDamage(2);
+			linkMovement.dashing = false;
+			linkMovement.dashTimeLeft = 0;
 		}
 		else if (coll.gameObject.tag == "BladeTrap") {
 			takeDamage(2);
+			linkMovement.dashing = false;
+			linkMovement.dashTimeLeft = 0;
 		}
 		else if (coll.gameObject.tag == "WallMaster") {
 			if (!invincible)
 			{
 				transform.position = new Vector3(39.5f, 1.5f, 0f);
 				Camera.main.transform.position = new Vector3(39.5f, 5f, -8f);
+				linkMovement.dashing = false;
+				linkMovement.dashTimeLeft = 0;
 			}
 		}
 		else if (coll.gameObject.tag == "Boomerang")
@@ -241,6 +250,7 @@ public class LinkStats : MonoBehaviour {
 			{
 				takeDamage(2, false);
 				transform.position = returnPos;
+				linkMovement.stunTimeLeft = linkMovement.stunTime;
 			}
 		}
 	}

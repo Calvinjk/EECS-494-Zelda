@@ -34,6 +34,10 @@ public class LinkMovement : MonoBehaviour {
     public HUD hud;
 	public bool dashing = false;
     private Vector3 dashStartPos;
+	public float dashCooldown = 0.5f;
+	public float dashTimeLeft = 0;
+	public float stunTime = 0.5f;
+	public float stunTimeLeft = 0;
    
 
   LinkStats linkStats;
@@ -46,93 +50,93 @@ public class LinkMovement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-    float horizontalInput = Input.GetAxis("Horizontal");
-    float verticalInput = Input.GetAxis("Vertical");
+		float horizontalInput = Input.GetAxis("Horizontal");
+		float verticalInput = Input.GetAxis("Vertical");
 
-    if (swordCooldown > 0 || knockbackDistance > 0 || bowCooldown > 0)
-    {
-      horizontalInput = 0.0f;
-      verticalInput = 0.0f;
-    }
+		if (swordCooldown > 0 || knockbackDistance > 0 || bowCooldown > 0 || stunTimeLeft > 0)
+		{
+		  horizontalInput = 0.0f;
+		  verticalInput = 0.0f;
+		}
 
-    //Link can't move while accessing his inventory
-    if (hud.paused) {
-            horizontalInput = 0.0f;
-            verticalInput = 0.0f;
-    }
+		//Link can't move while accessing his inventory
+		if (hud.paused) {
+				horizontalInput = 0.0f;
+				verticalInput = 0.0f;
+		}
 
-    //link should not be able to move diagonally
-    if (horizontalInput != 0.0f)
-        verticalInput = 0.0f;
+		//link should not be able to move diagonally
+		if (horizontalInput != 0.0f)
+			verticalInput = 0.0f;
 
-    // Grid movement variables
-    Vector3  newPos  = transform.position;
-    float   xOffset = newPos.x % 0.5f;
-    float   yOffset = newPos.y % 0.5f;
+		// Grid movement variables
+		Vector3  newPos  = transform.position;
+		float   xOffset = newPos.x % 0.5f;
+		float   yOffset = newPos.y % 0.5f;
 
-    // Grid movement currently only works for positive X and Y positions
-    if (knockbackDistance <= 0) {
-      if (horizontalInput > 0) {
-        double deci = newPos.y - Math.Truncate(newPos.y);
-        if (currentDir == 'n' || currentDir == 's') {  
-            if ((deci < 0.75 && deci > 0.5) || (deci < 0.25 && deci > 0)){
-                newPos.y -= yOffset;
-            } else {
-                newPos.y += (0.5f - yOffset);
-            }
-        }
-        transform.position = newPos;
-        currentDir = 'e';
-      }
-      else if (horizontalInput < 0) {
-        double deci = newPos.y - Math.Truncate(newPos.y);
-        if (currentDir == 'n' || currentDir == 's') {
-            if ((deci < 0.75 && deci > 0.5) || (deci < 0.25 && deci > 0)) {
-                newPos.y -= yOffset;
-            } else {
-                newPos.y += (0.5f - yOffset);
-            }
-        }
-        transform.position = newPos;
-        currentDir = 'w';
-      }
-      else if (verticalInput > 0) {
-        double deci = newPos.x - Math.Truncate(newPos.x);
-        if (currentDir == 'e' || currentDir == 'w') {
-            if ((deci < 0.75 && deci > 0.5) || (deci < 0.25 && deci > 0)) {
-                newPos.x -= xOffset;
-            } else {
-                newPos.x += (0.5f - xOffset);
-            }
-        }
-        transform.position = newPos;
-        currentDir = 'n';
-      }
-      else if (verticalInput < 0) {
-        double deci = newPos.x - Math.Truncate(newPos.x);
-        if (currentDir == 'e' || currentDir == 'w') {
-            if ((deci < 0.75 && deci > 0.5) || (deci < 0.25 && deci > 0)) {
-                newPos.x -= xOffset;
-            } else {
-                newPos.x += (0.5f - xOffset);
-            }
-        }
-        transform.position = newPos;
-        currentDir = 's';
-      }
-    }
+		// Grid movement currently only works for positive X and Y positions
+		if (knockbackDistance <= 0 && stunTimeLeft <= 0) {
+		  if (horizontalInput > 0) {
+			double deci = newPos.y - Math.Truncate(newPos.y);
+			if (currentDir == 'n' || currentDir == 's') {  
+				if ((deci < 0.75 && deci > 0.5) || (deci < 0.25 && deci > 0)){
+					newPos.y -= yOffset;
+				} else {
+					newPos.y += (0.5f - yOffset);
+				}
+			}
+			transform.position = newPos;
+			currentDir = 'e';
+		  }
+		  else if (horizontalInput < 0) {
+			double deci = newPos.y - Math.Truncate(newPos.y);
+			if (currentDir == 'n' || currentDir == 's') {
+				if ((deci < 0.75 && deci > 0.5) || (deci < 0.25 && deci > 0)) {
+					newPos.y -= yOffset;
+				} else {
+					newPos.y += (0.5f - yOffset);
+				}
+			}
+			transform.position = newPos;
+			currentDir = 'w';
+		  }
+		  else if (verticalInput > 0) {
+			double deci = newPos.x - Math.Truncate(newPos.x);
+			if (currentDir == 'e' || currentDir == 'w') {
+				if ((deci < 0.75 && deci > 0.5) || (deci < 0.25 && deci > 0)) {
+					newPos.x -= xOffset;
+				} else {
+					newPos.x += (0.5f - xOffset);
+				}
+			}
+			transform.position = newPos;
+			currentDir = 'n';
+		  }
+		  else if (verticalInput < 0) {
+			double deci = newPos.x - Math.Truncate(newPos.x);
+			if (currentDir == 'e' || currentDir == 'w') {
+				if ((deci < 0.75 && deci > 0.5) || (deci < 0.25 && deci > 0)) {
+					newPos.x -= xOffset;
+				} else {
+					newPos.x += (0.5f - xOffset);
+				}
+			}
+			transform.position = newPos;
+			currentDir = 's';
+		  }
+		}
 
-    if (knockbackDistance > 0) {
-      if (currentDir == 'e')
-          horizontalInput = -knockbackFactor;
-      else if (currentDir == 'w')
-          horizontalInput = knockbackFactor;
-      else if (currentDir == 's')
-          verticalInput = knockbackFactor;
-      else if (currentDir == 'n')
-          verticalInput = -knockbackFactor;
-      knockbackDistance--;
-    }
+		if (knockbackDistance > 0) {
+		  if (currentDir == 'e')
+			  horizontalInput = -knockbackFactor;
+		  else if (currentDir == 'w')
+			  horizontalInput = knockbackFactor;
+		  else if (currentDir == 's')
+			  verticalInput = knockbackFactor;
+		  else if (currentDir == 'n')
+			  verticalInput = -knockbackFactor;
+		  knockbackDistance--;
+		}
 
         if (dashing && Vector3.Distance(dashStartPos, transform.position) < dashDistance)
         {
@@ -145,16 +149,23 @@ public class LinkMovement : MonoBehaviour {
             else if (currentDir == 'n')
                 verticalInput = dashingSpeed;
         }
-        else if (dashing && Vector3.Distance(dashStartPos, transform.position) >= dashDistance)
+        if (dashing && Vector3.Distance(dashStartPos, transform.position) >= dashDistance)
         {
             dashing = false;
+			dashTimeLeft = dashCooldown;
         }
+		if (!dashing && dashTimeLeft > 0) {
+			dashTimeLeft -= Time.deltaTime;
+		}
+		if (stunTimeLeft > 0) {
+			stunTimeLeft -= Time.deltaTime;
+		}
 
 	Vector3 newVelocity = new Vector3(horizontalInput, verticalInput, 0);
     GetComponent<Rigidbody>().velocity = newVelocity * velocityFactor;
 
     //animate
-    if (knockbackDistance <= 0)
+    if (knockbackDistance <= 0 && stunTimeLeft <= 0)
     {
       GetComponent<Animator>().SetFloat("vertical_vel", newVelocity.y);
       GetComponent<Animator>().SetFloat("horizontal_vel", newVelocity.x);
@@ -206,8 +217,11 @@ public class LinkMovement : MonoBehaviour {
 	}
 
 	public void dash() {
-		dashing = true;
-		dashStartPos = transform.position;
+		if (!dashing && dashTimeLeft <= 0)
+		{
+			dashing = true;
+			dashStartPos = transform.position;
+		}
 	}
 
 	public void throwSword() {
