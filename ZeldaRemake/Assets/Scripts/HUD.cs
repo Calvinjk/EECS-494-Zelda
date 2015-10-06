@@ -55,6 +55,9 @@ public class HUD : MonoBehaviour {
                 if (linkStats.hasBow == true) {
                     transform.Find("BowSprite3").GetComponent<UnityEngine.UI.Image>().enabled = true;
                 }
+                if (linkStats.hasBoots == true) {
+                    transform.Find("BootsSprite3").GetComponent<UnityEngine.UI.Image>().enabled = true;
+                }
 
                 //Map and compass checks
                 if (linkStats.hasMap) {
@@ -89,6 +92,14 @@ public class HUD : MonoBehaviour {
                         selected = true;
                     }
                 }
+                if (linkMovement.itemB == "boot") {
+                    transform.Find("BootsSprite2").GetComponent<UnityEngine.UI.Image>().enabled = true;
+                    if (!selected) {
+                        transform.Find("SelectionArrow1").GetComponent<UnityEngine.UI.Image>().enabled = true;
+                        curItem = 4;
+                        selected = true;
+                    }
+                }
 
                 //Text
                 transform.Find("RupeeCount2").GetComponent<UnityEngine.UI.Text>().enabled   = true;
@@ -107,14 +118,16 @@ public class HUD : MonoBehaviour {
                 transform.Find("BombSprite2").GetComponent<UnityEngine.UI.Image>().enabled      = false;
                 transform.Find("BowSprite2").GetComponent<UnityEngine.UI.Image>().enabled       = false;
                 transform.Find("BoomerangSprite2").GetComponent<UnityEngine.UI.Image>().enabled = false;
+                transform.Find("BootsSprite2").GetComponent<UnityEngine.UI.Image>().enabled     = false;
                 transform.Find("BombSprite3").GetComponent<UnityEngine.UI.Image>().enabled      = false;
                 transform.Find("BoomerangSprite3").GetComponent<UnityEngine.UI.Image>().enabled = false;
                 transform.Find("BowSprite3").GetComponent<UnityEngine.UI.Image>().enabled       = false;
+                transform.Find("BootsSprite3").GetComponent<UnityEngine.UI.Image>().enabled     = false;
                 transform.Find("SelectionArrow1").GetComponent<UnityEngine.UI.Image>().enabled  = false;
                 transform.Find("SelectionArrow2").GetComponent<UnityEngine.UI.Image>().enabled  = false;
                 transform.Find("SelectionArrow3").GetComponent<UnityEngine.UI.Image>().enabled  = false;
                 transform.Find("Compass").GetComponent<UnityEngine.UI.Image>().enabled          = false;
-                transform.Find("Map").GetComponent<UnityEngine.UI.Image>().enabled          = false;
+                transform.Find("Map").GetComponent<UnityEngine.UI.Image>().enabled              = false;
 
                 //Delete the map
                 foreach (KeyValuePair<string, bool> room in roomsVisited)
@@ -203,6 +216,15 @@ public class HUD : MonoBehaviour {
                             transform.Find("BowSprite1").GetComponent<UnityEngine.UI.Image>().enabled       = true;
                             linkMovement.itemB = "bow";
                             curItem = 3;
+                        } else if (linkStats.hasBoots) {
+                            transform.Find("SelectionArrow2").GetComponent<UnityEngine.UI.Image>().enabled  = false;
+                            transform.Find("SelectionArrow1").GetComponent<UnityEngine.UI.Image>().enabled  = true;
+                            transform.Find("BombSprite2").GetComponent<UnityEngine.UI.Image>().enabled      = false;
+                            transform.Find("BootsSprite2").GetComponent<UnityEngine.UI.Image>().enabled     = true;
+                            transform.Find("BombSprite1").GetComponent<UnityEngine.UI.Image>().enabled      = false;
+                            transform.Find("BootsSprite1").GetComponent<UnityEngine.UI.Image>().enabled     = true;
+                            linkMovement.itemB = "boot";
+                            curItem = 4;
                         }
                     } if (Input.GetKeyDown(KeyCode.RightArrow)) {
                         if (linkStats.hasBow) {
@@ -223,6 +245,15 @@ public class HUD : MonoBehaviour {
                             transform.Find("BoomerangSprite1").GetComponent<UnityEngine.UI.Image>().enabled = true;
                             linkMovement.itemB = "boom";
                             curItem = 1;
+                        } else if (linkStats.hasBoots) {
+                            transform.Find("SelectionArrow2").GetComponent<UnityEngine.UI.Image>().enabled  = false;
+                            transform.Find("SelectionArrow1").GetComponent<UnityEngine.UI.Image>().enabled  = true;
+                            transform.Find("BombSprite2").GetComponent<UnityEngine.UI.Image>().enabled      = false;
+                            transform.Find("BootsSprite2").GetComponent<UnityEngine.UI.Image>().enabled     = true;
+                            transform.Find("BombSprite1").GetComponent<UnityEngine.UI.Image>().enabled      = false;
+                            transform.Find("BootsSprite1").GetComponent<UnityEngine.UI.Image>().enabled     = true;
+                            linkMovement.itemB = "boot";
+                            curItem = 4;
                         }
                     }
                     break;
@@ -270,6 +301,20 @@ public class HUD : MonoBehaviour {
                         }
                     }
                     break;
+                case 4:
+                    if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.RightArrow)) {
+                        if (linkStats.numBombs > 0) {
+                            transform.Find("SelectionArrow1").GetComponent<UnityEngine.UI.Image>().enabled  = false;
+                            transform.Find("SelectionArrow2").GetComponent<UnityEngine.UI.Image>().enabled  = true;
+                            transform.Find("BootsSprite2").GetComponent<UnityEngine.UI.Image>().enabled     = false;
+                            transform.Find("BombSprite2").GetComponent<UnityEngine.UI.Image>().enabled      = true;
+                            transform.Find("BootsSprite1").GetComponent<UnityEngine.UI.Image>().enabled     = false;
+                            transform.Find("BombSprite1").GetComponent<UnityEngine.UI.Image>().enabled      = true;
+                            linkMovement.itemB = "bomb";
+                            curItem = 2;
+                        }
+                    }
+                        break;
                 default:
                     print("ERROR IN SELECTION PROCESS. INVALID ITEM");
                     break;
