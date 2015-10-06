@@ -17,7 +17,8 @@ public class LinkStats : MonoBehaviour {
     public bool hasMap = false;
     public GameObject HUD;
     LinkMovement linkMovement;
-		public Vector3 returnPos;
+	public Vector3 returnPos;
+	public bool canFall = true;
 
     // Use this for initialization
     void Start () {
@@ -51,6 +52,7 @@ public class LinkStats : MonoBehaviour {
 			if (invincible)
 				duration = 10000000;
 			else duration = 0;
+			canFall = !canFall;
 		}
   }
 
@@ -246,7 +248,7 @@ public class LinkStats : MonoBehaviour {
 	{
 		if (coll.gameObject.tag == "Pit")
 		{
-			if (!linkMovement.dashing)
+			if (!linkMovement.dashing && canFall)
 			{
 				takeDamage(2, false);
 				transform.position = returnPos;

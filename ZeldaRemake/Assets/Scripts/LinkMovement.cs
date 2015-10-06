@@ -187,11 +187,11 @@ public class LinkMovement : MonoBehaviour {
 				throwSword();
 		}
 
-        if (Input.GetKeyDown(KeyCode.S)) {
+        if (Input.GetKeyDown(KeyCode.A)) {
 				swordAttack();
 		}
 
-		if (Input.GetKeyDown(KeyCode.A)) {
+		if (Input.GetKeyDown(KeyCode.S)) {
             if (itemB == "boot")
             {
                 dash();
