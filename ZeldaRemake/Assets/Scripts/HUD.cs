@@ -59,6 +59,12 @@ public class HUD : MonoBehaviour {
                     transform.Find("BootsSprite3").GetComponent<UnityEngine.UI.Image>().enabled = true;
                 }
 
+                if (linkMovement.itemB == "bomb") {
+                    transform.Find("BombSprite4").GetComponent<UnityEngine.UI.Image>().enabled = true;
+                } else if (linkMovement.itemB == "boot") { 
+                   transform.Find("BootsSprite4").GetComponent<UnityEngine.UI.Image>().enabled = true;
+                }
+
                 //Map and compass checks
                 if (linkStats.hasMap) {
                     transform.Find("Map").GetComponent<UnityEngine.UI.Image>().enabled = true;
@@ -128,6 +134,8 @@ public class HUD : MonoBehaviour {
                 transform.Find("SelectionArrow3").GetComponent<UnityEngine.UI.Image>().enabled  = false;
                 transform.Find("Compass").GetComponent<UnityEngine.UI.Image>().enabled          = false;
                 transform.Find("Map").GetComponent<UnityEngine.UI.Image>().enabled              = false;
+                transform.Find("BombSprite4").GetComponent<UnityEngine.UI.Image>().enabled      = false;
+                transform.Find("BootsSprite4").GetComponent<UnityEngine.UI.Image>().enabled     = false;
 
                 //Delete the map
                 foreach (KeyValuePair<string, bool> room in roomsVisited)
