@@ -189,6 +189,8 @@ public class CustomBossStats : EnemyStats {
 			pitInstance = Instantiate(pitPrefab, transform.position, Quaternion.identity) as GameObject;
 			GetComponent<Rigidbody>().velocity = Vector3.zero;
 			attacking = true;
+			RoomManager script = (RoomManager)room.GetComponent(typeof(RoomManager));
+
 
 			if (dirChar == 'n')
 			{
@@ -214,6 +216,7 @@ public class CustomBossStats : EnemyStats {
 				pitInstance.transform.position += new Vector3(-0.5f, -2f, 0);
 			}
 			hammerInstance.GetComponent<WeaponController>().setDirection(dirChar);
+			script.pits.Add(pitInstance);
 		}
 	}
 

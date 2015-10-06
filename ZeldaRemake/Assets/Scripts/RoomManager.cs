@@ -3,16 +3,18 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class RoomManager : MonoBehaviour {
-  public GameObject enemyPrefab;
-  public int numEnemies;
-  public GameObject rewardPrefab;
-  public bool cleared = false;
-  private List <GameObject> enemies;
+	public GameObject enemyPrefab;
+	public int numEnemies;
+	public GameObject rewardPrefab;
+	public bool cleared = false;
+	private List <GameObject> enemies;
 	private int numKilled = 0;
 	public GameObject specialEnemyPrefab;
 	private GameObject specialEnemy;
 	private bool specialEnemyDead = false;
 	public List<Vector3> spawnPositions;
+	public List<GameObject> pits;
+
 
 	// Use this for initialization
 	void Start () {
@@ -72,18 +74,21 @@ public class RoomManager : MonoBehaviour {
     }
   }
 
-  void OnTriggerExit(Collider coll)
-  {
-    if (coll.gameObject.tag == "Link")
+    void OnTriggerExit(Collider coll)
     {
-      foreach (GameObject enemy in enemies)
-      {
-        Destroy(enemy);
-      }
-      enemies.Clear();
+		if (coll.gameObject.tag == "Link")
+		{
+		    foreach (GameObject enemy in enemies)
+		    {
+			  Destroy(enemy);
+		    }
+		    enemies.Clear();
 			if (specialEnemyPrefab != null && !specialEnemyDead)
 			{
 				Destroy(specialEnemy);
+			}
+			foreach (GameObject pit in pits) {
+				Destroy(pit);
 			}
         }
     }

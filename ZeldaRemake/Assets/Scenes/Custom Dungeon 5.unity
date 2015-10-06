@@ -4526,11 +4526,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 114014, guid: c1fd8af36e1b3a540b36d30c589d7716, type: 2}
   numEnemies: 1
-  rewardPrefab: {fileID: 103272, guid: ca1b677b90e6229498c6161e431cff2d, type: 2}
+  rewardPrefab: {fileID: 0}
   cleared: 0
   specialEnemyPrefab: {fileID: 0}
   spawnPositions:
   - {x: 322, y: 48.5, z: 0}
+  pits: []
 --- !u!65 &175479396
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5472,6 +5473,7 @@ MonoBehaviour:
   - {x: 326.5, y: 26, z: 0}
   - {x: 318.5, y: 24, z: 0}
   - {x: 317.5, y: 27, z: 0}
+  pits: []
 --- !u!1001 &217195028
 Prefab:
   m_ObjectHideFlags: 0
@@ -43764,6 +43766,7 @@ MonoBehaviour:
   - {x: 340.5, y: 12, z: 0}
   - {x: 342.5, y: 14, z: 0}
   - {x: 338.5, y: 13, z: 0}
+  pits: []
 --- !u!65 &1615192719
 BoxCollider:
   m_ObjectHideFlags: 0
