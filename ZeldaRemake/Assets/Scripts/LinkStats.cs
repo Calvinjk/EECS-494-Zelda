@@ -277,7 +277,7 @@ public class LinkStats : MonoBehaviour {
             invincible = true;
 			duration = invincDuration;
 			GetComponent<SpriteRenderer>().color = new Color(1, 0, 0);
-      if (currentHealth == 0)
+      if (currentHealth <= 0)
       {
 				Application.LoadLevel(Application.loadedLevelName);
       }
