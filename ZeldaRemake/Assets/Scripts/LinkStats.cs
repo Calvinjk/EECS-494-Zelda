@@ -114,7 +114,7 @@ public class LinkStats : MonoBehaviour {
             if (linkMovement.itemB == "")
             {
                 linkMovement.itemB = "boot";
-                //Look at above to deal with HUD stuff --TODO
+                HUD.transform.Find("BootsSprite1").GetComponent<UnityEngine.UI.Image>().enabled = true;
             }
         }
         else if (coll.gameObject.tag == "Triforce") {
