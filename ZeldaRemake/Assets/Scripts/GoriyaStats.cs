@@ -30,6 +30,7 @@ public class GoriyaStats : EnemyStats
 	public GameObject rupeePrefab;
 	public GameObject bigRupeePrefab;
 	public GameObject bombItemPrefab;
+	public float moveFromWallDist = 0.25f;
 
 	// Use this for initialization
 	void Start()
@@ -137,14 +138,16 @@ public class GoriyaStats : EnemyStats
 			{
 				GetComponent<Rigidbody>().velocity = Vector3.zero;
 				knockbackDist = maxKnockbackDist;
+				moveFromWall(coll.gameObject);
 				alignWithGrid();
 				direction = UnityEngine.Random.value;
 				changeDirection();
 			}
 			else
 			{
+				moveFromWall(coll.gameObject);
 				alignWithGrid();
-				direction = (direction + 0.25f) % 1;
+				direction = (direction + 0.5f) % 1;
 				changeDirection();
 			}
 		}
@@ -236,11 +239,11 @@ public class GoriyaStats : EnemyStats
     }
   }
 
-  void throwBoomerang()
-  {
-    throwing = true;
-    GetComponent<Rigidbody>().velocity = Vector3.zero;
-  }
+    void throwBoomerang()
+    {
+		throwing = true;
+		GetComponent<Rigidbody>().velocity = Vector3.zero;
+    }
 
 	void alignWithGrid()
 	{
@@ -269,6 +272,44 @@ public class GoriyaStats : EnemyStats
 		}
 
 		transform.position = newPos;
+	}
+
+	void moveFromWall(GameObject wall) {
+		float xDist = wall.transform.position.x - transform.position.x;
+		float yDist = wall.transform.position.y - transform.position.y;
+		float currentY = transform.position.y;
+		float currentX = transform.position.x;
+
+		if (Mathf.Abs(xDist) > Mathf.Abs(yDist))
+		{
+			if (yDist > 0)
+			{
+				
+				transform.position = new Vector3(currentX, currentY - moveFromWallDist, 0);
+				print("moved down");
+			}
+			else
+			{
+				transform.position = new Vector3(currentX, currentY + moveFromWallDist, 0);
+				print("moved up");
+
+			}
+		}
+		else
+		{
+			if (xDist > 0)
+			{
+				transform.position = new Vector3(currentX - moveFromWallDist, currentY, 0);
+				print("moved left");
+
+			}
+			else
+			{
+				transform.position = new Vector3(currentX + moveFromWallDist, currentY, 0);
+				print("moved right");
+
+			}
+		}
 	}
 
 	void dropItem()
