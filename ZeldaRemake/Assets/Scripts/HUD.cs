@@ -29,9 +29,17 @@ public class HUD : MonoBehaviour {
         transform.Find("Minimap").Find("Position").GetComponent<UnityEngine.UI.Image>().GetComponent<RectTransform>().position =
             transform.Find("Minimap").Find(curRoom).GetComponent<UnityEngine.UI.Image>().GetComponent<RectTransform>().position;
 
+		if (Input.GetKeyDown(KeyCode.RightShift)) {
+			if (Time.timeScale == 0 && !paused)
+				Time.timeScale = 1;
+			else Time.timeScale = 0;
+		}
         //Make sure the correct information displays
         if (Input.GetKeyDown(KeyCode.Return)) {
-            if (!paused) {
+			if (Time.timeScale == 0 && paused)
+				Time.timeScale = 1;
+			else Time.timeScale = 0;
+			if (!paused) {
                 //Images
                 transform.Find("ItemSelect").GetComponent<UnityEngine.UI.Image>().enabled   = true;
                 transform.Find("SwordSprite2").GetComponent<UnityEngine.UI.Image>().enabled = true;
