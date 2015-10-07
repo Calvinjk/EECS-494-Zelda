@@ -53,7 +53,7 @@ public class LinkStats : MonoBehaviour {
 				duration = 10000000;
 			else duration = 0;
 			canFall = !canFall;
-		}
+	}
   }
 
   void OnCollisionEnter(Collision coll) {
