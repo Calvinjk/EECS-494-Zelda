@@ -19,6 +19,7 @@ public class ChallengeEnemy : MonoBehaviour {
 	private Vector3 velocity;
 	private Vector3 currentPos;
 	private GameObject link;
+	public GameObject heartPrefab;
 
 	// Use this for initialization
 	void Start () {
@@ -119,6 +120,7 @@ public class ChallengeEnemy : MonoBehaviour {
 			GameObject door = GameObject.Find("ChallengeBlockedDoor");
 			door.GetComponent<SpriteRenderer>().sortingOrder = -1;
 			door.GetComponent<BoxCollider>().isTrigger = true;
+			Instantiate(heartPrefab, transform.position, Quaternion.identity);
 			Destroy(this.gameObject);
 		}
 		else

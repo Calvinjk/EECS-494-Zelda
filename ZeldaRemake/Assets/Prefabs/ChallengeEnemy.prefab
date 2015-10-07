@@ -76,6 +76,7 @@ MonoBehaviour:
   maxKnockbackDist: 1
   knockbackFactor: 15
   stunTime: .5
+  heartPrefab: {fileID: 130540, guid: e8d43748514f06a41a4c2e3b31d096ae, type: 2}
 --- !u!212 &21201560
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -121,6 +122,10 @@ Prefab:
       propertyPath: maxKnockbackDist
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: heartPrefab
+      value: 
+      objectReference: {fileID: 130540, guid: e8d43748514f06a41a4c2e3b31d096ae, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 187432}

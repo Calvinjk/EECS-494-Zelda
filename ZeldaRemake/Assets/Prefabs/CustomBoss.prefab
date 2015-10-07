@@ -164,8 +164,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   room: {fileID: 0}
-  maxHealth: 10
-  currentHealth: 10
+  maxHealth: 8
+  currentHealth: 8
   velocityFactor: 1
   damageTime: .5
   stepDistance: 1
@@ -236,6 +236,14 @@ Prefab:
       value: 
       objectReference: {fileID: 11416178, guid: 5a2f7a191ce9ade4da192d6e2a857af0,
         type: 2}
+    - target: {fileID: 0}
+      propertyPath: maxHealth
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: currentHealth
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 114014}

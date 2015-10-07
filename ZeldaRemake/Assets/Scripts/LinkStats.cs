@@ -262,7 +262,7 @@ public class LinkStats : MonoBehaviour {
 		{
 			if (!linkMovement.dashing && canFall)
 			{
-				takeDamage(2, false);
+				takeDamage(1, false);
 				transform.position = returnPos;
 				linkMovement.stunTimeLeft = linkMovement.stunTime;
 			}
