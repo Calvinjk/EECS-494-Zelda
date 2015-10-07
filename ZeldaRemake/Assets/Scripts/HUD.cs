@@ -13,7 +13,6 @@ public class HUD : MonoBehaviour {
     public Dictionary<string, bool> roomsVisited;
     public string curRoom = "c1";
     public GameObject link;
-    public Vector3 oldPos;
 
     // Use this for initialization
     void Start () {    
@@ -33,10 +32,6 @@ public class HUD : MonoBehaviour {
         //Make sure the correct information displays
         if (Input.GetKeyDown(KeyCode.Return)) {
             if (!paused) {
-                //Move Link out of harm's way
-                oldPos = link.transform.position;
-                link.transform.position = new Vector3(500,0,0);
-
                 //Images
                 transform.Find("ItemSelect").GetComponent<UnityEngine.UI.Image>().enabled   = true;
                 transform.Find("SwordSprite2").GetComponent<UnityEngine.UI.Image>().enabled = true;
@@ -119,9 +114,6 @@ public class HUD : MonoBehaviour {
                 
                 paused = true;
             } else { //DESTROY EVERYTHING
-                //Bring link back!
-                link.transform.position = oldPos;
-
                 //Images
                 transform.Find("ItemSelect").GetComponent<UnityEngine.UI.Image>().enabled       = false;
                 transform.Find("SwordSprite2").GetComponent<UnityEngine.UI.Image>().enabled     = false;
