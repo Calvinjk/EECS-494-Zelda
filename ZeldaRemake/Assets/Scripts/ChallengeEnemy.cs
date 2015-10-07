@@ -6,8 +6,6 @@ public class ChallengeEnemy : MonoBehaviour {
   public int maxHealth = 100;
   public int currentHealth = 100;
   public float velocityFactor = 1.0f;
-  public float chanceToChangeDirection = 0.02f;
-  private float direction;
 	public float damageTime = 0.5f;
 	private float damageTimePassed = 0;
 	private bool damaged = false;
@@ -19,11 +17,14 @@ public class ChallengeEnemy : MonoBehaviour {
 	private bool stunned = false;
 	private float stunTimePassed = 0;
 	private Vector3 velocity;
+	private char dirChar;
+	private Vector3 currentPos;
+	private GameObject link;
 
 	// Use this for initialization
 	void Start () {
+		link = GameObject.Find("Link");
 		knockbackDist = maxKnockbackDist;
-    direction = UnityEngine.Random.value;
 		alignWithGrid();
     changeDirection();
   }
@@ -59,15 +60,13 @@ public class ChallengeEnemy : MonoBehaviour {
 		}
 	}
 
-	void FixedUpdate() {
+	void FixedUpdate()
+	{
 		if (knockbackDist >= maxKnockbackDist && !stunned)
 		{
-			Vector3 newPos = transform.position;
-			float xOffset = newPos.x % 1f;
-			float yOffset = newPos.y % 1f;
-			if (UnityEngine.Random.value <= chanceToChangeDirection && ((xOffset == 0 && (yOffset > 0.95 || yOffset < 0.05)) || (yOffset == 0 && (xOffset > 0.95 || xOffset < 0.05))))
+			if (Vector3.Distance(currentPos, transform.position) >= 1)
 			{
-				direction = UnityEngine.Random.value;
+				GetComponent<Rigidbody>().velocity = Vector3.zero;
 				alignWithGrid();
 				changeDirection();
 			}
@@ -103,14 +102,12 @@ public class ChallengeEnemy : MonoBehaviour {
 				GetComponent<Rigidbody>().velocity = Vector3.zero;
 				knockbackDist = maxKnockbackDist;
 				alignWithGrid();
-				direction = UnityEngine.Random.value;
 				changeDirection();
 			}
 			else
 			{
 				alignWithGrid();
 				GetComponent<Rigidbody>().velocity = Vector3.zero;
-				direction = (direction + 0.25f) % 1;
 				changeDirection();
 			}
     }
@@ -178,18 +175,38 @@ public class ChallengeEnemy : MonoBehaviour {
 
   void changeDirection()
   {
-		if (direction < 0.25)
+		float xDist = link.transform.position.x - transform.position.x;
+		float yDist = link.transform.position.y - transform.position.y;
+
+		if (Mathf.Abs(xDist) > Mathf.Abs(yDist))
 		{
-			GetComponent<Rigidbody>().velocity = new Vector3(0, 1, 0) * velocityFactor;
+			if (xDist < 0)
+			{
+				dirChar = 'w';
+				currentPos = transform.position;
+				GetComponent<Rigidbody>().velocity = new Vector3(-velocityFactor, 0, 0);
+			}
+			else
+			{
+				dirChar = 'e';
+				currentPos = transform.position;
+				GetComponent<Rigidbody>().velocity = new Vector3(velocityFactor, 0, 0);
+			}
 		}
-		else if (direction < 0.5) { 
-			GetComponent<Rigidbody>().velocity = new Vector3(1, 0, 0) * velocityFactor;
-		}
-		else if (direction < 0.75) { 
-			GetComponent<Rigidbody>().velocity = new Vector3(0, -1, 0) * velocityFactor;
-		}
-		else if (direction <= 1) { 
-			GetComponent<Rigidbody>().velocity = new Vector3(-1, 0, 0) * velocityFactor;
+		else
+		{
+			if (yDist < 0)
+			{
+				dirChar = 's';
+				currentPos = transform.position;
+				GetComponent<Rigidbody>().velocity = new Vector3(0, -velocityFactor, 0);
+			}
+			else
+			{
+				dirChar = 'n';
+				currentPos = transform.position;
+				GetComponent<Rigidbody>().velocity = new Vector3(0, velocityFactor, 0);
+			}
 		}
 	}
 

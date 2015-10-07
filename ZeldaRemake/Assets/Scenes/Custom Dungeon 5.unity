@@ -12377,6 +12377,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 177
       objectReference: {fileID: 0}
+    - target: {fileID: 155126, guid: 2fa0a6b3d8e45cf4ab26e2468d83ed44, type: 2}
+      propertyPath: m_TagString
+      value: ChallengeKey
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2fa0a6b3d8e45cf4ab26e2468d83ed44, type: 2}
   m_IsPrefabParent: 0
@@ -12397,42 +12401,42 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 187432, guid: 71649fa6a9e1deb4db7a0da20293e159, type: 2}
   pitPos:
-  - {x: 332.5, y: 32, z: 0}
-  - {x: 333.5, y: 32, z: 0}
-  - {x: 334.5, y: 32, z: 0}
-  - {x: 335.5, y: 32, z: 0}
-  - {x: 336.5, y: 32, z: 0}
-  - {x: 337.5, y: 32, z: 0}
-  - {x: 338.5, y: 32, z: 0}
-  - {x: 339.5, y: 32, z: 0}
-  - {x: 340.5, y: 32, z: 0}
-  - {x: 341.5, y: 32, z: 0}
-  - {x: 342.5, y: 32, z: 0}
-  - {x: 343.5, y: 32, z: 0}
-  - {x: 343.5, y: 33, z: 0}
-  - {x: 343.5, y: 34, z: 0}
-  - {x: 343.5, y: 35, z: 0}
-  - {x: 343.5, y: 36, z: 0}
-  - {x: 343.5, y: 37, z: 0}
-  - {x: 332.5, y: 38, z: 0}
-  - {x: 333.5, y: 38, z: 0}
-  - {x: 334.5, y: 38, z: 0}
-  - {x: 335.5, y: 38, z: 0}
-  - {x: 336.5, y: 38, z: 0}
-  - {x: 337.5, y: 38, z: 0}
-  - {x: 338.5, y: 38, z: 0}
-  - {x: 339.5, y: 38, z: 0}
-  - {x: 340.5, y: 38, z: 0}
-  - {x: 341.5, y: 38, z: 0}
-  - {x: 342.5, y: 38, z: 0}
-  - {x: 343.5, y: 38, z: 0}
-  - {x: 332.5, y: 33, z: 0}
-  - {x: 332.5, y: 34, z: 0}
-  - {x: 332.5, y: 35, z: 0}
-  - {x: 332.5, y: 36, z: 0}
-  - {x: 332.5, y: 37, z: 0}
+  - {x: 331, y: 32, z: 0}
+  - {x: 332, y: 32, z: 0}
+  - {x: 333, y: 32, z: 0}
+  - {x: 334, y: 32, z: 0}
+  - {x: 335, y: 32, z: 0}
+  - {x: 336, y: 32, z: 0}
+  - {x: 337, y: 32, z: 0}
+  - {x: 338, y: 32, z: 0}
+  - {x: 339, y: 32, z: 0}
+  - {x: 340, y: 32, z: 0}
+  - {x: 341, y: 32, z: 0}
+  - {x: 342, y: 32, z: 0}
+  - {x: 342, y: 33, z: 0}
+  - {x: 342, y: 34, z: 0}
+  - {x: 342, y: 35, z: 0}
+  - {x: 342, y: 36, z: 0}
+  - {x: 342, y: 37, z: 0}
+  - {x: 331, y: 38, z: 0}
+  - {x: 332, y: 38, z: 0}
+  - {x: 333, y: 38, z: 0}
+  - {x: 334, y: 38, z: 0}
+  - {x: 335, y: 38, z: 0}
+  - {x: 336, y: 38, z: 0}
+  - {x: 337, y: 38, z: 0}
+  - {x: 338, y: 38, z: 0}
+  - {x: 339, y: 38, z: 0}
+  - {x: 340, y: 38, z: 0}
+  - {x: 341, y: 38, z: 0}
+  - {x: 342, y: 38, z: 0}
+  - {x: 331, y: 33, z: 0}
+  - {x: 331, y: 34, z: 0}
+  - {x: 331, y: 35, z: 0}
+  - {x: 331, y: 36, z: 0}
+  - {x: 331, y: 37, z: 0}
   pitPrefab: {fileID: 154092, guid: 18f5bc5d8c979be4380234fcc9c32f22, type: 2}
-  enemyPos: {x: 340.5, y: 35, z: 0}
+  enemyPos: {x: 339, y: 35, z: 0}
 --- !u!1 &445086002
 GameObject:
   m_ObjectHideFlags: 0

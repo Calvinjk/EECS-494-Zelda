@@ -48,6 +48,7 @@ TagManager:
   - BossBack
   - BossFront
   - SetPos
+  - ChallengeKey
   layers:
   - Default
   - TransparentFX
