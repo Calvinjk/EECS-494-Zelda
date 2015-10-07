@@ -14,6 +14,7 @@ public class RoomManager : MonoBehaviour {
 	private bool specialEnemyDead = false;
 	public List<Vector3> spawnPositions;
 	public List<GameObject> pits;
+	public GameObject enemyWeapon;
 
 
 	// Use this for initialization
@@ -89,6 +90,9 @@ public class RoomManager : MonoBehaviour {
 			}
 			foreach (GameObject pit in pits) {
 				Destroy(pit);
+			}
+			if (enemyWeapon != null) {
+				Destroy(enemyWeapon);
 			}
         }
     }
