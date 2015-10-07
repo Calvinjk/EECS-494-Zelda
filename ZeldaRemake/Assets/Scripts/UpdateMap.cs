@@ -18,7 +18,9 @@ public class UpdateMap : MonoBehaviour {
 	void OnTriggerEnter(Collider coll) {
 		if (coll.gameObject.tag == "Link" && roomStr != "") {
             hud.curRoom = roomStr;
-            hud.roomsVisited.Add(roomStr, true);
+            if (!hud.roomsVisited.ContainsKey(roomStr)) {
+                hud.roomsVisited.Add(roomStr, true);
+            }
 		}
 	}
 }

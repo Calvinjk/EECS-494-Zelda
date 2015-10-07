@@ -26,6 +26,10 @@ public class HUD : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        //Keep the minimap updated
+        transform.Find("Minimap").Find("Position").GetComponent<UnityEngine.UI.Image>().GetComponent<RectTransform>().position =
+            transform.Find("Minimap").Find(curRoom).GetComponent<UnityEngine.UI.Image>().GetComponent<RectTransform>().position;
+
         //Make sure the correct information displays
         if (Input.GetKeyDown(KeyCode.Return)) {
             if (!paused) {
