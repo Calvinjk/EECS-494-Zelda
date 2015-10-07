@@ -217,6 +217,7 @@ public class CustomBossStats : EnemyStats {
 			}
 			hammerInstance.GetComponent<WeaponController>().setDirection(dirChar);
 			script.pits.Add(pitInstance);
+			script.enemyWeapon = hammerInstance;
 		}
 	}
 
