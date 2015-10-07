@@ -173,6 +173,7 @@ MonoBehaviour:
   hammerPrefab: {fileID: 185774, guid: 4ca1e4e1fb2858f4aa825bd36f4cd68d, type: 2}
   attackTime: 1
   pitPrefab: {fileID: 154092, guid: 18f5bc5d8c979be4380234fcc9c32f22, type: 2}
+  hud: {fileID: 11416178, guid: 5a2f7a191ce9ade4da192d6e2a857af0, type: 2}
 --- !u!212 &21217648
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -230,6 +231,11 @@ Prefab:
       propertyPath: pitPrefab
       value: 
       objectReference: {fileID: 154092, guid: 18f5bc5d8c979be4380234fcc9c32f22, type: 2}
+    - target: {fileID: 0}
+      propertyPath: hud
+      value: 
+      objectReference: {fileID: 11416178, guid: 5a2f7a191ce9ade4da192d6e2a857af0,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 114014}

@@ -25,14 +25,17 @@ public class CustomBossStats : EnemyStats {
 	private float attackTimePassed = 0;
 	public GameObject pitPrefab;
 	private GameObject pitInstance;
+    public HUD hud;
 
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
 		link = GameObject.Find("Link");
 		alignWithGrid();
 		changeDirection();
-	}
+
+        hud = (HUD)GameObject.Find("HUD").GetComponent(typeof(HUD));
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -99,6 +102,10 @@ public class CustomBossStats : EnemyStats {
 					Destroy(hammerInstance);
 				RoomManager script = (RoomManager)room.GetComponent(typeof(RoomManager));
 				script.killedEnemy(this.gameObject);
+
+                //Endscreen shit
+                Time.timeScale = 0;
+                hud.transform.Find("WinScreen").GetComponent<UnityEngine.UI.Image>().enabled = true;
 			}
 			else
 			{

@@ -17,7 +17,6 @@ public class ChallengeEnemy : MonoBehaviour {
 	private bool stunned = false;
 	private float stunTimePassed = 0;
 	private Vector3 velocity;
-	private char dirChar;
 	private Vector3 currentPos;
 	private GameObject link;
 
@@ -182,13 +181,11 @@ public class ChallengeEnemy : MonoBehaviour {
 		{
 			if (xDist < 0)
 			{
-				dirChar = 'w';
 				currentPos = transform.position;
 				GetComponent<Rigidbody>().velocity = new Vector3(-velocityFactor, 0, 0);
 			}
 			else
 			{
-				dirChar = 'e';
 				currentPos = transform.position;
 				GetComponent<Rigidbody>().velocity = new Vector3(velocityFactor, 0, 0);
 			}
@@ -197,13 +194,11 @@ public class ChallengeEnemy : MonoBehaviour {
 		{
 			if (yDist < 0)
 			{
-				dirChar = 's';
 				currentPos = transform.position;
 				GetComponent<Rigidbody>().velocity = new Vector3(0, -velocityFactor, 0);
 			}
 			else
 			{
-				dirChar = 'n';
 				currentPos = transform.position;
 				GetComponent<Rigidbody>().velocity = new Vector3(0, velocityFactor, 0);
 			}
