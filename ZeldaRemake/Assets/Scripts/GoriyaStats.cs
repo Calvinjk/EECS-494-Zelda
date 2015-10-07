@@ -106,12 +106,12 @@ public class GoriyaStats : EnemyStats
       }
     }
 
-  void OnTriggerEnter(Collider coll)
-  {
-    if (coll.gameObject.tag == "Sword" || coll.gameObject.tag == "Arrow")
+    void OnTriggerEnter(Collider coll)
     {
+		if (coll.gameObject.tag == "Sword" || coll.gameObject.tag == "Arrow")
+		{
 			takeDamage(1, coll.gameObject);
-    }
+		}
 
 		else if (coll.gameObject.tag == "Bomb")
 		{
@@ -131,27 +131,46 @@ public class GoriyaStats : EnemyStats
 			alignWithGrid();
 			changeDirection();
 		}
-
 		else if (coll.gameObject.tag == "Pit" || coll.gameObject.tag == "EnemyWall" || coll.gameObject.tag == "block" || coll.gameObject.tag == "Wall" || coll.gameObject.tag == "Lock" || coll.gameObject.tag == "UpDoor" || coll.gameObject.tag == "RightDoor" || coll.gameObject.tag == "LeftDoor" || coll.gameObject.tag == "DownDoor")
-    {
+		{
 			if (knockbackDist < maxKnockbackDist)
 			{
 				GetComponent<Rigidbody>().velocity = Vector3.zero;
 				knockbackDist = maxKnockbackDist;
-				moveFromWall(coll.gameObject);
 				alignWithGrid();
 				direction = UnityEngine.Random.value;
 				changeDirection();
 			}
 			else
 			{
-				moveFromWall(coll.gameObject);
 				alignWithGrid();
-				direction = (direction + 0.5f) % 1;
+				direction = (direction + 0.25f) % 1;
 				changeDirection();
 			}
 		}
-  }
+
+	}
+
+	void OnCollisionEnter (Collision coll)
+	{
+		if (coll.gameObject.tag == "Pit" || coll.gameObject.tag == "EnemyWall" || coll.gameObject.tag == "block" || coll.gameObject.tag == "Wall" || coll.gameObject.tag == "Lock" || coll.gameObject.tag == "UpDoor" || coll.gameObject.tag == "RightDoor" || coll.gameObject.tag == "LeftDoor" || coll.gameObject.tag == "DownDoor")
+		{
+			if (knockbackDist < maxKnockbackDist)
+			{
+				GetComponent<Rigidbody>().velocity = Vector3.zero;
+				knockbackDist = maxKnockbackDist;
+				alignWithGrid();
+				direction = UnityEngine.Random.value;
+				changeDirection();
+			}
+			else
+			{
+				alignWithGrid();
+				direction = (direction + 0.25f) % 1;
+				changeDirection();
+			}
+		}
+	}
 
 	void takeDamage(int damage, GameObject coll = null) {
 		if (!invincible)

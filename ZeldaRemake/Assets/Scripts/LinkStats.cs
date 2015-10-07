@@ -186,7 +186,11 @@ public class LinkStats : MonoBehaviour {
             HUD.transform.Find("MiniMap").GetComponent<UnityEngine.UI.Image>().enabled = true;
             Destroy(coll.gameObject);
         }
-    }
+		else if (coll.gameObject.tag == "Stalfos" || coll.gameObject.tag == "Gel" || coll.gameObject.tag == "Keese" || coll.gameObject.tag == "Goriya" || coll.gameObject.tag == "BossBack" || coll.gameObject.tag == "BossFront")
+		{
+			takeDamage(1);
+		}
+	}
 
   void OnTriggerEnter(Collider coll)
   {
