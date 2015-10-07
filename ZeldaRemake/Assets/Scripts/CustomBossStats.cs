@@ -195,25 +195,25 @@ public class CustomBossStats : EnemyStats {
 			if (dirChar == 'n')
 			{
 				hammerInstance.transform.position += new Vector3(0.5f, 1, 0);
-				pitInstance.transform.position += new Vector3(0.5f, 2f, 0);
+				pitInstance.transform.position += new Vector3(1f, 2f, 0);
 			}
 			else if (dirChar == 'e')
 			{
 				hammerInstance.transform.position += new Vector3(1, -0.5f, 0);
 				hammerInstance.transform.Rotate(new Vector3(0, 0, 1), 270);
-				pitInstance.transform.position += new Vector3(1.5f, -1f, 0);
+				pitInstance.transform.position += new Vector3(2f, -1f, 0);
 			}
 			else if (dirChar == 'w')
 			{
 				hammerInstance.transform.position += new Vector3(-1, 0.5f, 0);
 				hammerInstance.transform.Rotate(new Vector3(0, 0, 1), 90);
-				pitInstance.transform.position += new Vector3(-1.5f, 1f, 0);
+				pitInstance.transform.position += new Vector3(-2f, 1f, 0);
 			}
 			else if (dirChar == 's')
 			{
 				hammerInstance.transform.position += new Vector3(-0.5f, -1, 0);
 				hammerInstance.transform.Rotate(new Vector3(0, 0, 1), 180);
-				pitInstance.transform.position += new Vector3(-0.5f, -2f, 0);
+				pitInstance.transform.position += new Vector3(-1f, -2f, 0);
 			}
 			hammerInstance.GetComponent<WeaponController>().setDirection(dirChar);
 			script.pits.Add(pitInstance);

@@ -72,9 +72,8 @@ MonoBehaviour:
   maxHealth: 100
   currentHealth: 100
   velocityFactor: 2
-  chanceToChangeDirection: .200000003
   damageTime: .5
-  maxKnockbackDist: 2
+  maxKnockbackDist: 1
   knockbackFactor: 15
   stunTime: .5
 --- !u!212 &21201560
@@ -117,6 +116,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_LocalPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: maxKnockbackDist
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

@@ -127,8 +127,16 @@ public class LinkStats : MonoBehaviour {
             HUD.transform.Find("KeyCount2").GetComponent<UnityEngine.UI.Text>().text = "X" + numKeys.ToString();
             Destroy(coll.gameObject);
         }
+		else if (coll.gameObject.tag == "ChallengeKey")
+		{
+			numKeys++;
+			HUD.transform.Find("KeyCount1").GetComponent<UnityEngine.UI.Text>().text = "X" + numKeys.ToString();
+			HUD.transform.Find("KeyCount2").GetComponent<UnityEngine.UI.Text>().text = "X" + numKeys.ToString();
+			returnPos = transform.position;
+			Destroy(coll.gameObject);
+		}
 
-        else if (coll.gameObject.tag == "BoomerangReward") {
+		else if (coll.gameObject.tag == "BoomerangReward") {
             hasBoomerang = true;
             Destroy(coll.gameObject);
 
@@ -182,7 +190,7 @@ public class LinkStats : MonoBehaviour {
 
   void OnTriggerEnter(Collider coll)
   {
-    if (coll.gameObject.tag == "Stalfos" || coll.gameObject.tag == "Gel" || coll.gameObject.tag == "Keese" || coll.gameObject.tag == "Goriya")
+    if (coll.gameObject.tag == "Stalfos" || coll.gameObject.tag == "Gel" || coll.gameObject.tag == "Keese" || coll.gameObject.tag == "Goriya" || coll.gameObject.tag == "BossBack" || coll.gameObject.tag == "BossFront")
     {
       takeDamage(1);
     }
@@ -195,7 +203,7 @@ public class LinkStats : MonoBehaviour {
 				linkMovement.dashTimeLeft = 0;
 			}
 		}
-		else if (coll.gameObject.tag == "BossAttack" || coll.gameObject.tag == "BossBack" || coll.gameObject.tag == "BossFront")
+		else if (coll.gameObject.tag == "BossAttack" )
 		{
 			takeDamage(2);
 			linkMovement.dashing = false;
